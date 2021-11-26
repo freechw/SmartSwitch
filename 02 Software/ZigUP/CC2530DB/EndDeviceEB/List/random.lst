@@ -1,0 +1,177 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:16:41
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\random.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EWBCF3.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\random.c" -D
+#        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\random.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\random.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\random.c
+      1          #include "onboard.h"
+
+   \                                 In  segment SFR_AN, at 0xb4
+   \   unsigned char volatile __sfr ADCCON1
+   \                     ADCCON1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbc
+   \   unsigned char volatile __sfr RNDL
+   \                     RNDL:
+   \   000000                DS 1
+      2          #include "bitmasks.h"
+      3          #include "random.h"
+      4          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      5          uint8 GetRandomNumber(void)
+   \                     GetRandomNumber:
+      6          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+      7            ADCCON1 = b00110111;     // Clock the LFSR once (13x unrolling)
+   \   000000   75B437       MOV       0xb4,#0x37
+      8            return RNDL;
+   \   000003   E5BC         MOV       A,0xbc
+   \   000005   F9           MOV       R1,A
+   \   000006   02....       LJMP      ?BRET
+   \   000009                REQUIRE ADCCON1
+   \   000009                REQUIRE RNDL
+      9          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??GetRandomNumber::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GetRandomNumber
+
+   Maximum stack usage in bytes:
+
+   ISTACK Function
+   ------ --------
+      0   GetRandomNumber
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ADCCON1
+       9  GetRandomNumber
+       6  GetRandomNumber::?relay
+       1  RNDL
+
+ 
+ 9 bytes in segment BANKED_CODE
+ 6 bytes in segment BANK_RELAYS
+ 2 bytes in segment SFR_AN
+ 
+ 6 bytes of CODE     memory
+ 0 bytes of DATA     memory (+ 2 bytes shared)
+ 9 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none

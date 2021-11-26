@@ -1,0 +1,818 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.10.1.4655 for 8051              20/Nov/2021  20:16:30
+// Copyright 2004-2017 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\dht22.c
+//    Command line       =  
+//        -f C:\Users\tatbo\AppData\Local\Temp\EW9262.tmp ("D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\dht22.c" -D
+//        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+//        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+//        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+//        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+//        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+//        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+//        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+//        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+//        -lA "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+//        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+//        -f "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+//        "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes)
+//    Locale             =  Chinese (Simplified)_China.936
+//    List file          =  
+//        D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\dht22.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME dht22
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__iar_require _formatted_write", "floats,widths"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V6
+        EXTERN ?V7
+        EXTERN ?V8
+        EXTERN ?V9
+        EXTERN ?V10
+        EXTERN ?V11
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?FLT_DIV
+        EXTERN ?L_MOV_TO_X
+        EXTERN ?L_MOV_X
+        EXTERN ?L_TO_FLT
+        EXTERN ?PUSH_XSTACK_I_FOUR
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN ?XSTACK_DISP101_8
+
+        PUBLIC `??DHT22_Measure::?relay`
+        FUNCTION `??DHT22_Measure::?relay`,0203H
+        PUBLIC DHT22_Measure
+        FUNCTION DHT22_Measure,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 133, STACK
+        PUBWEAK P0DIR
+        PUBWEAK _A_P0
+        PUBWEAK __Constant_41200000
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+UART_String         SYMBOL "UART_String"
+`??UART_String::?relay` SYMBOL "?relay", UART_String
+_delay_ms           SYMBOL "_delay_ms"
+`??_delay_ms::?relay` SYMBOL "?relay", _delay_ms
+_delay_us           SYMBOL "_delay_us"
+`??_delay_us::?relay` SYMBOL "?relay", _delay_us
+sprintf             SYMBOL "sprintf"
+`??sprintf::?relay` SYMBOL "?relay", sprintf
+DHT22_Measure       SYMBOL "DHT22_Measure"
+`??DHT22_Measure::?relay` SYMBOL "?relay", DHT22_Measure
+
+        EXTERN `??UART_String::?relay`
+        FUNCTION `??UART_String::?relay`,00H
+        EXTERN `??_delay_ms::?relay`
+        FUNCTION `??_delay_ms::?relay`,00H
+        EXTERN `??_delay_us::?relay`
+        FUNCTION `??_delay_us::?relay`,00H
+        EXTERN `??sprintf::?relay`
+        FUNCTION `??sprintf::?relay`,00H
+        EXTERN EXT_Humidity
+        EXTERN EXT_Temperature
+        EXTERN UART_String
+        FUNCTION UART_String,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN _delay_ms
+        FUNCTION _delay_ms,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN _delay_us
+        FUNCTION _delay_us,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN sprintf
+        FUNCTION sprintf,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 133, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\dht22.c
+//    1 #include <stdio.h>
+//    2 #include "onboard.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,080H
+// union <unnamed> volatile __sfr _A_P0
+_A_P0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0fdH
+// unsigned char volatile __sfr P0DIR
+P0DIR:
+        DATA8
+        DS 1
+//    3 #include "bitmasks.h"
+//    4 #include "delay.h"
+//    5 #include "dht22.h"
+//    6 #include "uart.h"
+//    7 #include "global.h"
+//    8 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//    9 int DHT22_Measure(void)
+DHT22_Measure:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function DHT22_Measure
+        CODE
+//   10 {
+        FUNCALL DHT22_Measure, _delay_ms
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 125, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL DHT22_Measure, _delay_ms
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 125, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL DHT22_Measure, _delay_us
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 125, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL DHT22_Measure, sprintf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 133, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 133, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL DHT22_Measure, UART_String
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 125, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL DHT22_Measure, UART_String
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 125, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL DHT22_Measure, UART_String
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 125, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 125, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        REQUIRE ?V7
+        REQUIRE ?V8
+        REQUIRE ?V9
+        REQUIRE ?V10
+        REQUIRE ?V11
+        MOV       A,#-0x14
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V11 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-20)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 20)
+        ; Saved register size: 20
+        ; Auto size: 105
+        MOV       A,#-0x69
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 125)
+//   11   uint8 last_state = 0xFF;
+        MOV       R6,#-0x1
+//   12   uint8 i;
+//   13   uint8 j = 0;
+        MOV       ?V1,#0x0
+//   14   uint8 counter = 0;
+//   15   uint8 checksum = 0;
+//   16   uint8 dht22_data[5];
+//   17 
+//   18 //#define ZIGUP_DHT22_DEBUG  
+//   19 
+//   20 #ifdef ZIGUP_DHT22_DEBUG
+//   21   uint8 dht22_debug[100];
+//   22   uint8 debugcnt;
+//   23   for(debugcnt = 0; debugcnt < 100; debugcnt++) dht22_debug[debugcnt] = 0;
+//   24   debugcnt = 0;
+//   25 #endif    
+//   26   
+//   27   P0DIR |= (1<<7);     // output
+        ORL       0xfd,#0x80
+//   28   P0_7 = 1;
+        SETB      0x80.7
+//   29   _delay_ms(250);
+        ; Setup parameters for call to function _delay_ms
+        MOV       R2,#-0x6
+        MOV       R3,#0x0
+        LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+//   30   P0_7 = 0;
+        CLR       0x80.7
+//   31   _delay_ms(1);
+        ; Setup parameters for call to function _delay_ms
+        MOV       R2,#0x1
+        MOV       R3,#0x0
+        LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+//   32   P0DIR &= ~(1<<7);     // input
+        ANL       0xfd,#0x7f
+//   33   
+//   34   for(i = 0; i < 85; i++)
+        MOV       ?V0,#0x0
+//   35   {
+//   36     counter = 0;
+??DHT22_Measure_0:
+        MOV       R7,#0x0
+//   37     while(P0_7 == last_state)
+??DHT22_Measure_1:
+        MOV       C,0x80.7
+        CLR       A
+        RLC       A
+        XRL       A,R6
+        JNZ       ??DHT22_Measure_2
+//   38     {
+//   39       counter++;
+        INC       R7
+//   40       _delay_us(1);
+        ; Setup parameters for call to function _delay_us
+        MOV       R2,#0x1
+        MOV       R3,#0x0
+        LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+//   41       
+//   42       if(counter > 60) break; // Exit if not responsive
+        MOV       A,R7
+        CLR       C
+        SUBB      A,#0x3d
+        JC        ??DHT22_Measure_1
+//   43     }
+//   44     last_state = P0_7;
+??DHT22_Measure_2:
+        MOV       C,0x80.7
+        CLR       A
+        RLC       A
+        MOV       R6,A
+//   45     
+//   46     if(counter > 60) break; // Double check for stray sensor
+        MOV       A,R7
+        SUBB      A,#0x3d
+        JNC       ??DHT22_Measure_3
+//   47     
+//   48     // Ignore the first 3 transitions (the 80us x 2 start condition plus the first ready-to-send-bit state), and discard ready-to-send-bit counts
+//   49     if((i >= 4) && ((i % 2) != 0))
+        MOV       A,?V0
+        CLR       C
+        SUBB      A,#0x4
+        JC        ??DHT22_Measure_4
+        MOV       A,?V0
+        MOV       C,0xE0 /* A   */.0
+        JNC       ??DHT22_Measure_4
+        MOV       A,?V1
+        RRC       A
+        RRC       A
+        RRC       A
+        ANL       A,#0x1f
+        MOV       R2,A
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       A,DPL
+        ADD       A,R2
+        MOV       R0,A
+        CLR       A
+        ADDC      A,DPH
+        MOV       R1,A
+        MOV       DPL,R0
+        MOV       DPH,R1
+        MOVX      A,@DPTR
+        CLR       C
+        RLC       A
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       A,DPL
+        ADD       A,R2
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,DPH
+        MOV       DPH,A
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//   50     {
+//   51       dht22_data[j / 8] <<= 1;
+//   52 #ifdef ZIGUP_DHT22_DEBUG
+//   53       dht22_debug[debugcnt++] = counter;
+//   54 #endif
+//   55       if(counter > 9)  // detect "1" bit time
+        MOV       A,R7
+        CLR       C
+        SUBB      A,#0xa
+        JC        ??DHT22_Measure_5
+//   56       {
+//   57         dht22_data[j / 8] |= 1;
+        MOVX      A,@DPTR
+        SETB      0xE0 /* A   */.0
+        MOVX      @DPTR,A
+//   58       }
+//   59       j++;
+??DHT22_Measure_5:
+        INC       ?V1
+//   60     }
+//   61   }
+??DHT22_Measure_4:
+        INC       ?V0
+        MOV       A,?V0
+        CLR       C
+        SUBB      A,#0x55
+        JC        ??DHT22_Measure_0
+//   62 
+//   63   char buffer[100];
+//   64 
+//   65 #ifdef ZIGUP_DHT22_DEBUG
+//   66   sprintf(buffer, "j: %u", j);
+//   67   UART_String(buffer); 
+//   68   
+//   69   for(i = 0; i < 5; i++)
+//   70   {
+//   71     sprintf(buffer, "DHT22: (%u) %u\n", i, dht22_data[i]);
+//   72     UART_String(buffer); 
+//   73   }
+//   74   
+//   75   for(debugcnt = 0; debugcnt < 100; debugcnt++)
+//   76   {
+//   77     sprintf(buffer, "DHT22 Debug: (%u) %u\n", debugcnt, dht22_debug[debugcnt]);
+//   78     UART_String(buffer); 
+//   79   }
+//   80 #endif    
+//   81   
+//   82   // If we have 5 bytes (40 bits), wrap-up and end
+//   83   if(j >= 40)
+??DHT22_Measure_3:
+        MOV       A,?V1
+        CLR       C
+        SUBB      A,#0x28
+        JNC       $+5
+        LJMP      ??DHT22_Measure_6 & 0xFFFF
+//   84   {
+//   85     // The first 2 bytes are humidity values, the next 2 are temperature, the final byte is the checksum
+//   86     checksum = dht22_data[0] + dht22_data[1] + dht22_data[2] + dht22_data[3];
+//   87     checksum &= 0xFF;
+//   88     if(dht22_data[4] == checksum)
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R2,A
+        MOV       A,#0x2
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R3,A
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R4,A
+        MOV       A,#0x4
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R0,A
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOVX      A,@DPTR
+        ADD       A,R4
+        ADD       A,R3
+        ADD       A,R2
+        XRL       A,R0
+        JZ        $+5
+        LJMP      ??DHT22_Measure_7 & 0xFFFF
+//   89     {
+//   90       float humidity = (dht22_data[0] * 256 + dht22_data[1]) / 10.0;
+        MOVX      A,@DPTR
+        MOV       R1,A
+        CLR       A
+        ADD       A,R4
+        MOV       A,R1
+        MOV       ?V4,R4
+        MOV       ?V5,A
+        RLC       A
+        SUBB      A,0xE0 /* A   */
+        MOV       ?V6,A
+        MOV       ?V7,A
+        MOV       R0,#?V4
+        LCALL     ?L_TO_FLT
+        MOV       DPTR,#__Constant_41200000
+        MOV       R0,#?V0
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V4
+        MOV       R1,#?V0
+        LCALL     ?FLT_DIV
+//   91       float temperature = ((dht22_data[2] & b01111111)* 256 + dht22_data[3]) / 10.0;
+        MOV       A,R3
+        ANL       A,#0x7f
+        MOV       R1,A
+        CLR       A
+        ADD       A,R2
+        MOV       ?V0,A
+        MOV       A,R1
+        MOV       ?V1,A
+        SUBB      A,0xE0 /* A   */
+        MOV       ?V2,A
+        MOV       ?V3,A
+        MOV       R0,#?V0
+        LCALL     ?L_TO_FLT
+        MOV       DPTR,#__Constant_41200000
+        MOV       R0,#?V8
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V8
+        LCALL     ?FLT_DIV
+//   92       if (dht22_data[2] & b10000000) temperature = -temperature;        // negative temperatures when MSB is set
+        MOV       A,#0x2
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       C,0xE0 /* A   */.7
+        JNC       ??DHT22_Measure_8
+        MOV       A,?V3
+        CPL       0xE0 /* A   */.7
+        MOV       ?V3,A
+//   93       
+//   94       EXT_Temperature = temperature;
+??DHT22_Measure_8:
+        MOV       DPTR,#EXT_Temperature
+        MOV       R0,#?V0
+        LCALL     ?L_MOV_TO_X
+//   95       EXT_Humidity = humidity;
+        MOV       DPTR,#EXT_Humidity
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_TO_X
+//   96       
+//   97       sprintf(buffer, "DHT22: %.1f °C  / %.1f %%\n", temperature, humidity);
+        ; Setup parameters for call to function sprintf
+        MOV       R0,#?V4
+        LCALL     ?PUSH_XSTACK_I_FOUR
+          CFI CFA_XSP16 add(XSP16, 129)
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_FOUR
+          CFI CFA_XSP16 add(XSP16, 133)
+        MOV       R4,#`?<Constant "DHT22: %.1f \\260C  / %.1...">` & 0xff
+        MOV       R5,#(`?<Constant "DHT22: %.1f \\260C  / %.1...">` >> 8) & 0xff
+        MOV       A,#0xd
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??sprintf::?relay`; Banked call to: sprintf
+        MOV       A,#0x8
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 125)
+//   98       UART_String(buffer); 
+        ; Setup parameters for call to function UART_String
+        MOV       A,#0x5
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??UART_String::?relay`; Banked call to: UART_String
+//   99       return (1);
+        MOV       R2,#0x1
+        SJMP      ??DHT22_Measure_9
+//  100     }
+//  101     else
+//  102     {
+//  103       UART_String("DHT22: CRC-Fail"); 
+??DHT22_Measure_7:
+        ; Setup parameters for call to function UART_String
+        MOV       R2,#`?<Constant "DHT22: CRC-Fail">` & 0xff
+        MOV       R3,#(`?<Constant "DHT22: CRC-Fail">` >> 8) & 0xff
+        SJMP      ??DHT22_Measure_10
+//  104       return (0);
+//  105     }
+//  106   }
+//  107   else
+//  108   {
+//  109     UART_String("DHT22: Timeout"); 
+??DHT22_Measure_6:
+        ; Setup parameters for call to function UART_String
+        MOV       R2,#`?<Constant "DHT22: Timeout">` & 0xff
+        MOV       R3,#(`?<Constant "DHT22: Timeout">` >> 8) & 0xff
+??DHT22_Measure_10:
+        LCALL     `??UART_String::?relay`; Banked call to: UART_String
+//  110     return (0);
+        MOV       R2,#0x0
+??DHT22_Measure_9:
+        MOV       R3,#0x0
+        MOV       A,#0x69
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 20)
+        MOV       R7,#0xc
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock0
+        REQUIRE P0DIR
+        REQUIRE _A_P0
+//  111   }
+//  112 }
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??DHT22_Measure::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    DHT22_Measure
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "DHT22: %.1f \\260C  / %.1...">`:
+        DB "DHT22: %.1f \260C  / %.1f %%\012"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "DHT22: CRC-Fail">`:
+        DB "DHT22: CRC-Fail"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "DHT22: Timeout">`:
+        DB "DHT22: Timeout"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_41200000:
+        DD 41200000H
+
+        END
+// 
+// 384 bytes in segment BANKED_CODE
+//   6 bytes in segment BANK_RELAYS
+//   2 bytes in segment SFR_AN
+//  62 bytes in segment XDATA_ROM_C
+// 
+//   6 bytes of CODE     memory
+//  58 bytes of CONST    memory (+ 4 bytes shared)
+//   0 bytes of DATA     memory (+ 2 bytes shared)
+// 384 bytes of HUGECODE memory
+//
+//Errors: none
+//Warnings: none

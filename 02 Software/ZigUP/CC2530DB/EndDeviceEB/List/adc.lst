@@ -1,0 +1,539 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:16:28
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\adc.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EW8AEA.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\adc.c" -D
+#        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\adc.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\adc.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\adc.c
+      1          #include "ZComDef.h"
+      2          #include "onboard.h"
+
+   \                                 In  segment SFR_AN, at 0xb4
+   \   unsigned char volatile __sfr ADCCON1
+   \                     ADCCON1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb6
+   \   unsigned char volatile __sfr ADCCON3
+   \                     ADCCON3:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xba
+   \   unsigned char volatile __sfr ADCL
+   \                     ADCL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbb
+   \   unsigned char volatile __sfr ADCH
+   \                     ADCH:
+   \   000000                DS 1
+      3          #include "bitmasks.h"
+      4          #include "adc.h"
+      5          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      6          uint16 ADC_Read(void)
+   \                     ADC_Read:
+      7          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   C0..         PUSH      ?V0
+   \   000002   C0..         PUSH      ?V1
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+      8            int16 result = 0;
+      9            ADCCON3 = b01000000; // internal reference, decimation 512, channel 0, start conversation
+   \   000004   75B640       MOV       0xb6,#0x40
+     10            while (!(ADCCON1 & (1<<7)));	// wait for conversation to finish
+   \                     ??ADC_Read_0:
+   \   000007   E5B4         MOV       A,0xb4
+   \   000009   A2E7         MOV       C,0xE0 /* A   */.7
+   \   00000B   50FA         JNC       ??ADC_Read_0
+     11            result = (uint16)ADCL;
+   \   00000D   E5BA         MOV       A,0xba+0x0
+     12            result |= (uint16)(ADCH << 8);
+   \   00000F   A9BB         MOV       R1,0xbb
+   \   000011   F5..         MOV       ?V0,A
+   \   000013   E9           MOV       A,R1
+   \   000014   F5..         MOV       ?V1,A
+     13            if (result < 0) result = 0;
+   \   000016   C3           CLR       C
+   \   000017   9400         SUBB      A,#0x0
+   \   000019   A2D2         MOV       C,0xD0 /* PSW */.2
+   \   00001B   65D0         XRL       A,PSW
+   \   00001D   33           RLC       A
+   \   00001E   5006         JNC       ??ADC_Read_1
+   \   000020   75..00       MOV       ?V0,#0x0
+   \   000023   75..00       MOV       ?V1,#0x0
+     14            result >>= 2;
+     15            return result;
+   \                     ??ADC_Read_1:
+   \   000026                REQUIRE ?Subroutine0
+   \   000026                REQUIRE ADCCON3
+   \   000026                REQUIRE ADCCON1
+   \   000026                REQUIRE ADCL
+   \   000026                REQUIRE ADCH
+   \   000026                ; // Fall through to label ?Subroutine0
+     16          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7402         MOV       A,#0x2
+   \   000002   78..         MOV       R0,#?V0
+   \   000004   12....       LCALL     ?SS_SHR
+   \   000007   AA..         MOV       R2,?V0
+   \   000009   AB..         MOV       R3,?V1
+   \   00000B   D0..         POP       ?V1
+   \   00000D   D0..         POP       ?V0
+   \   00000F   02....       LJMP      ?BRET
+     17          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     18          uint16 ADC_Read_Avg(void)
+   \                     ADC_Read_Avg:
+     19          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+     20            uint32 result = 0;
+   \   000005   75..00       MOV       ?V4,#0x0
+   \   000008   75..00       MOV       ?V5,#0x0
+   \   00000B   75..00       MOV       ?V6,#0x0
+   \   00000E   75..00       MOV       ?V7,#0x0
+     21            for (uint8 i=0; i<32; i++) result += ADC_Read();
+   \   000011   7E20         MOV       R6,#0x20
+   \                     ??ADC_Read_Avg_0:
+   \   000013                ; Setup parameters for call to function ADC_Read
+   \   000013   12....       LCALL     `??ADC_Read::?relay`; Banked call to: ADC_Read
+   \   000016   8A..         MOV       ?V0,R2
+   \   000018   8B..         MOV       ?V1,R3
+   \   00001A   E4           CLR       A
+   \   00001B   F5..         MOV       ?V2,A
+   \   00001D   F5..         MOV       ?V3,A
+   \   00001F   78..         MOV       R0,#?V4
+   \   000021   79..         MOV       R1,#?V0
+   \   000023   12....       LCALL     ?L_ADD
+   \   000026   DEEB         DJNZ      R6,??ADC_Read_Avg_0
+     22            return (uint16)(result / 32);
+   \   000028   80..         SJMP      ?Subroutine1
+     23          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7405         MOV       A,#0x5
+   \   000002   78..         MOV       R0,#?V4
+   \   000004   12....       LCALL     ?UL_SHR
+   \   000007   AA..         MOV       R2,?V4
+   \   000009   AB..         MOV       R3,?V5
+   \   00000B                REQUIRE ??Subroutine3_0
+   \   00000B                ; // Fall through to label ??Subroutine3_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine3_0:
+   \   000000   7F08         MOV       R7,#0x8
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+     24          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     25          float ADC_GetVoltage(void)
+   \                     ADC_GetVoltage:
+     26          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+     27            return ADC_Read_Avg() * 0.003949905;
+   \   000005                ; Setup parameters for call to function ADC_Read_Avg
+   \   000005   12....       LCALL     `??ADC_Read_Avg::?relay`; Banked call to: ADC_Read_Avg
+   \   000008   8A..         MOV       ?V0,R2
+   \   00000A   8B..         MOV       ?V1,R3
+   \   00000C   E4           CLR       A
+   \   00000D   F5..         MOV       ?V2,A
+   \   00000F   F5..         MOV       ?V3,A
+   \   000011   78..         MOV       R0,#?V0
+   \   000013   12....       LCALL     ?UL_TO_FLT
+   \   000016   90....       MOV       DPTR,#__Constant_3b816e34
+   \   000019   78..         MOV       R0,#?V4
+   \   00001B   12....       LCALL     ?L_MOV_X
+   \   00001E   78..         MOV       R0,#?V0
+   \   000020   79..         MOV       R1,#?V4
+   \   000022   12....       LCALL     ?FLT_MUL
+   \   000025                REQUIRE ?Subroutine2
+   \   000025                ; // Fall through to label ?Subroutine2
+     28          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   AA..         MOV       R2,?V0
+   \   000002   AB..         MOV       R3,?V1
+   \   000004   AC..         MOV       R4,?V2
+   \   000006   AD..         MOV       R5,?V3
+   \   000008   80..         SJMP      ??Subroutine3_0
+     29          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     30          uint16 ADC_Temperature(void)
+   \                     ADC_Temperature:
+     31          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   C0..         PUSH      ?V0
+   \   000002   C0..         PUSH      ?V1
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     32            int16 result = 0;
+     33            ADCCON3 = b00111110; // internal reference, decimation 512, temperature, start conversation
+   \   000004   75B63E       MOV       0xb6,#0x3e
+     34            while (!(ADCCON1 & (1<<7)));	// wait for conversation to finish
+   \                     ??ADC_Temperature_0:
+   \   000007   E5B4         MOV       A,0xb4
+   \   000009   A2E7         MOV       C,0xE0 /* A   */.7
+   \   00000B   50FA         JNC       ??ADC_Temperature_0
+     35            result = (uint16)ADCL;
+   \   00000D   E5BA         MOV       A,0xba+0x0
+     36            result |= (uint16)(ADCH << 8);
+   \   00000F   A9BB         MOV       R1,0xbb
+   \   000011   F5..         MOV       ?V0,A
+   \   000013   E9           MOV       A,R1
+   \   000014   F5..         MOV       ?V1,A
+     37            if (result < 0) result = 0;
+   \   000016   C3           CLR       C
+   \   000017   9400         SUBB      A,#0x0
+   \   000019   A2D2         MOV       C,0xD0 /* PSW */.2
+   \   00001B   65D0         XRL       A,PSW
+   \   00001D   33           RLC       A
+   \   00001E   5006         JNC       ??ADC_Temperature_1
+   \   000020   75..00       MOV       ?V0,#0x0
+   \   000023   75..00       MOV       ?V1,#0x0
+     38            result >>= 2;
+     39            return result;
+   \                     ??ADC_Temperature_1:
+   \   000026   02....       LJMP      ?Subroutine0 & 0xFFFF
+   \   000029                REQUIRE ADCCON3
+   \   000029                REQUIRE ADCCON1
+   \   000029                REQUIRE ADCL
+   \   000029                REQUIRE ADCH
+     40          }
+     41          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     42          uint16 ADC_Temperature_Avg(void)
+   \                     ADC_Temperature_Avg:
+     43          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+     44            TR0 = 1;        // connect the temperature sensor to the SOC_ADC
+   \   000005   90624B       MOV       DPTR,#0x624b
+   \   000008   7401         MOV       A,#0x1
+   \   00000A   F0           MOVX      @DPTR,A
+     45            ATEST = 1;      // Enables the temperature sensor
+   \   00000B   9061BD       MOV       DPTR,#0x61bd
+   \   00000E   F0           MOVX      @DPTR,A
+     46            
+     47            uint32 result = 0;
+   \   00000F   75..00       MOV       ?V4,#0x0
+   \   000012   75..00       MOV       ?V5,#0x0
+   \   000015   75..00       MOV       ?V6,#0x0
+   \   000018   75..00       MOV       ?V7,#0x0
+     48            for (uint8 i=0; i<32; i++) result += ADC_Temperature();
+   \   00001B   7E20         MOV       R6,#0x20
+   \                     ??ADC_Temperature_Avg_0:
+   \   00001D                ; Setup parameters for call to function ADC_Temperature
+   \   00001D   12....       LCALL     `??ADC_Temperature::?relay`; Banked call to: ADC_Temperature
+   \   000020   8A..         MOV       ?V0,R2
+   \   000022   8B..         MOV       ?V1,R3
+   \   000024   E4           CLR       A
+   \   000025   F5..         MOV       ?V2,A
+   \   000027   F5..         MOV       ?V3,A
+   \   000029   78..         MOV       R0,#?V4
+   \   00002B   79..         MOV       R1,#?V0
+   \   00002D   12....       LCALL     ?L_ADD
+   \   000030   DEEB         DJNZ      R6,??ADC_Temperature_Avg_0
+     49            
+     50            ATEST = 0;      // Disables the temperature sensor
+   \   000032   9061BD       MOV       DPTR,#0x61bd
+   \   000035   E4           CLR       A
+   \   000036   F0           MOVX      @DPTR,A
+     51            TR0 = 0;        // disconnect the temperature sensor from the SOC_ADC
+   \   000037   90624B       MOV       DPTR,#0x624b
+   \   00003A   F0           MOVX      @DPTR,A
+     52            
+     53            return (uint16)(result / 32);
+   \   00003B   80..         SJMP      ?Subroutine1
+     54          }
+     55          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     56          float ADC_GetTemperature(void)
+   \                     ADC_GetTemperature:
+     57          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+     58            return ADC_Temperature_Avg() * 0.0556 - 303.89;
+   \   000005                ; Setup parameters for call to function ADC_Temperature_Avg
+   \   000005   12....       LCALL     `??ADC_Temperature_Avg::?relay`; Banked call to: ADC_Temperature_Avg
+   \   000008   8A..         MOV       ?V0,R2
+   \   00000A   8B..         MOV       ?V1,R3
+   \   00000C   E4           CLR       A
+   \   00000D   F5..         MOV       ?V2,A
+   \   00000F   F5..         MOV       ?V3,A
+   \   000011   78..         MOV       R0,#?V0
+   \   000013   12....       LCALL     ?UL_TO_FLT
+   \   000016   90....       MOV       DPTR,#__Constant_3d63bcd3
+   \   000019   78..         MOV       R0,#?V4
+   \   00001B   12....       LCALL     ?L_MOV_X
+   \   00001E   78..         MOV       R0,#?V0
+   \   000020   79..         MOV       R1,#?V4
+   \   000022   12....       LCALL     ?FLT_MUL
+   \   000025   90....       MOV       DPTR,#__Constant_c397f1ec
+   \   000028   78..         MOV       R0,#?V4
+   \   00002A   12....       LCALL     ?L_MOV_X
+   \   00002D   78..         MOV       R0,#?V0
+   \   00002F   79..         MOV       R1,#?V4
+   \   000031   12....       LCALL     ?FLT_ADD
+   \   000034   02....       LJMP      ?Subroutine2 & 0xFFFF
+     59          }
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3b816e34:
+   \   000000   346E813B     DD 3B816E34H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3d63bcd3:
+   \   000000   D3BC633D     DD 3D63BCD3H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_c397f1ec:
+   \   000000   ECF197C3     DD 0C397F1ECH
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ADC_Read::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ADC_Read
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ADC_Read_Avg::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ADC_Read_Avg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ADC_GetVoltage::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ADC_GetVoltage
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ADC_Temperature::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ADC_Temperature
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ADC_Temperature_Avg::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ADC_Temperature_Avg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ADC_GetTemperature::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ADC_GetTemperature
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     16   ADC_GetTemperature
+        0     16   -> ADC_Temperature_Avg
+      0     16   ADC_GetVoltage
+        0     16   -> ADC_Read_Avg
+      2     16   ADC_Read
+      0     32   ADC_Read_Avg
+        0     16   -> ADC_Read
+      2     16   ADC_Temperature
+      0     32   ADC_Temperature_Avg
+        0     16   -> ADC_Temperature
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       5  ??Subroutine3_0
+      18  ?Subroutine0
+      11  ?Subroutine1
+      10  ?Subroutine2
+       1  ADCCON1
+       1  ADCCON3
+       1  ADCH
+       1  ADCL
+      55  ADC_GetTemperature
+       6  ADC_GetTemperature::?relay
+      37  ADC_GetVoltage
+       6  ADC_GetVoltage::?relay
+      38  ADC_Read
+       6  ADC_Read::?relay
+      42  ADC_Read_Avg
+       6  ADC_Read_Avg::?relay
+      41  ADC_Temperature
+       6  ADC_Temperature::?relay
+      61  ADC_Temperature_Avg
+       6  ADC_Temperature_Avg::?relay
+       4  __Constant_3b816e34
+       4  __Constant_3d63bcd3
+       4  __Constant_c397f1ec
+
+ 
+ 318 bytes in segment BANKED_CODE
+  36 bytes in segment BANK_RELAYS
+   4 bytes in segment SFR_AN
+  12 bytes in segment XDATA_ROM_C
+ 
+  36 bytes of CODE     memory
+   0 bytes of CONST    memory (+ 12 bytes shared)
+   0 bytes of DATA     memory (+  4 bytes shared)
+ 318 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none

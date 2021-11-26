@@ -1,0 +1,1399 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:16:30
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\ds18b20.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EW9282.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\ds18b20.c" -D
+#        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\ds18b20.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\ds18b20.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\ds18b20.c
+      1          #include <stdio.h>
+      2          #include "onboard.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+      3          #include "ZComDef.h"
+      4          #include "bitmasks.h"
+      5          #include "delay.h"
+      6          #include "ds18b20.h"
+      7          #include "uart.h"
+      8          #include "global.h"
+      9          #include "hal_mcu.h"
+     10          
+     11          
+     12          #define DS18B20_SKIP_ROM 		0xCC
+     13          #define DS18B20_CONVERT_T 		0x44
+     14          #define DS18B20_MATCH_ROM               0x55
+     15          #define DS18B20_SEARCH_ROM		0XF0
+     16          #define DS18B20_READ_SCRATCHPAD         0xBE
+     17          #define DS18B20_WRITE_SCRATCHPAD        0x4E
+     18          #define DS18B20_COPY_SCRATCHPAD         0x48
+     19          
+     20          
+     21          // Sends one bit to bus
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     22          void ds18b20_send_bit(uint8 bit, uint8 useInterrupts)
+   \                     ds18b20_send_bit:
+     23          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+   \   000006   FE           MOV       R6,A
+   \   000007   EA           MOV       A,R2
+   \   000008   FF           MOV       R7,A
+     24            P0_7 = 1;
+   \   000009   D287         SETB      0x80.7
+     25            if (useInterrupts)
+   \   00000B   6002         JZ        ??ds18b20_send_bit_0
+     26              HAL_DISABLE_INTERRUPTS();
+   \   00000D   C2AF         CLR       0xa8.7
+     27            P0DIR |= (1<<7);     // output
+   \                     ??ds18b20_send_bit_0:
+   \   00000F   43FD80       ORL       0xfd,#0x80
+     28            P0_7 = 0;
+   \   000012   C287         CLR       0x80.7
+     29            if ( bit != 0 ) 
+   \   000014   EE           MOV       A,R6
+   \   000015   6004         JZ        ??ds18b20_send_bit_1
+     30              _delay_us( 8 );
+   \   000017                ; Setup parameters for call to function _delay_us
+   \   000017   7A08         MOV       R2,#0x8
+   \   000019   8002         SJMP      ??ds18b20_send_bit_2
+     31            else 
+     32              _delay_us( 80 );
+   \                     ??ds18b20_send_bit_1:
+   \   00001B                ; Setup parameters for call to function _delay_us
+   \   00001B   7A50         MOV       R2,#0x50
+   \                     ??ds18b20_send_bit_2:
+   \   00001D   7B00         MOV       R3,#0x0
+   \   00001F   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+     33            P0_7 = 1;
+   \   000022   D287         SETB      0x80.7
+     34            if (useInterrupts)
+   \   000024   EF           MOV       A,R7
+   \   000025   6002         JZ        ??ds18b20_send_bit_3
+     35              HAL_ENABLE_INTERRUPTS();   
+   \   000027   D2AF         SETB      0xa8.7
+     36            if ( bit != 0 ) 
+   \                     ??ds18b20_send_bit_3:
+   \   000029   EE           MOV       A,R6
+   \   00002A   6004         JZ        ??ds18b20_send_bit_4
+     37              _delay_us( 80 );
+   \   00002C                ; Setup parameters for call to function _delay_us
+   \   00002C   7A50         MOV       R2,#0x50
+   \   00002E   8002         SJMP      ??ds18b20_send_bit_5
+     38            else 
+     39              _delay_us( 2 );
+   \                     ??ds18b20_send_bit_4:
+   \   000030                ; Setup parameters for call to function _delay_us
+   \   000030   7A02         MOV       R2,#0x2
+   \                     ??ds18b20_send_bit_5:
+   \   000032   7B00         MOV       R3,#0x0
+   \   000034   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+     40            
+     41          //  if (bit==1) P0_7 = 1;
+     42          //  _delay_us(100);
+     43          //  P0_7 = 1;
+     44          }
+   \   000037   80..         SJMP      ??Subroutine4_0
+   \   000039                REQUIRE _A_P0
+   \   000039                REQUIRE _A_IEN0
+   \   000039                REQUIRE P0DIR
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine4_0:
+   \   000000   7F01         MOV       R7,#0x1
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+     45          
+     46          
+     47          // Reads one bit from bus
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     48          uint8 ds18b20_read_bit(uint8 useInterrupts)
+   \                     ds18b20_read_bit:
+     49          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+   \   000006   FF           MOV       R7,A
+     50            uint8 i;
+     51           
+     52            
+     53            P0_7 = 1;
+   \   000007   D287         SETB      0x80.7
+     54            if (useInterrupts)
+   \   000009   6002         JZ        ??ds18b20_read_bit_0
+     55              HAL_DISABLE_INTERRUPTS();
+   \   00000B   C2AF         CLR       0xa8.7
+     56            P0DIR |= (1<<7);     // output
+   \                     ??ds18b20_read_bit_0:
+   \   00000D   43FD80       ORL       0xfd,#0x80
+     57            P0_7 = 0;
+   \   000010   C287         CLR       0x80.7
+     58            _delay_us(2);
+   \   000012                ; Setup parameters for call to function _delay_us
+   \   000012   7A02         MOV       R2,#0x2
+   \   000014   7B00         MOV       R3,#0x0
+   \   000016   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+     59          //  P0_7 = 1;
+     60          //  _delay_us(15);
+     61            P0DIR &= ~(1<<7);     // input
+   \   000019   53FD7F       ANL       0xfd,#0x7f
+     62            _delay_us( 5 );
+   \   00001C                ; Setup parameters for call to function _delay_us
+   \   00001C   7A05         MOV       R2,#0x5
+   \   00001E   7B00         MOV       R3,#0x0
+   \   000020   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+     63            i = P0_7;
+   \   000023   A287         MOV       C,0x80.7
+   \   000025   E4           CLR       A
+   \   000026   33           RLC       A
+   \   000027   FE           MOV       R6,A
+     64            if (useInterrupts)
+   \   000028   EF           MOV       A,R7
+   \   000029   6002         JZ        ??ds18b20_read_bit_1
+     65              HAL_ENABLE_INTERRUPTS();
+   \   00002B   D2AF         SETB      0xa8.7
+     66            _delay_us( 60 );
+   \                     ??ds18b20_read_bit_1:
+   \   00002D                ; Setup parameters for call to function _delay_us
+   \   00002D   7A3C         MOV       R2,#0x3c
+   \   00002F   7B00         MOV       R3,#0x0
+   \   000031   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+     67            return i;
+   \   000034   EE           MOV       A,R6
+   \   000035                REQUIRE ?Subroutine0
+   \   000035                REQUIRE _A_P0
+   \   000035                REQUIRE _A_IEN0
+   \   000035                REQUIRE P0DIR
+   \   000035                ; // Fall through to label ?Subroutine0
+     68          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F9           MOV       R1,A
+   \   000001                REQUIRE ??Subroutine4_0
+   \   000001                ; // Fall through to label ??Subroutine4_0
+     69          
+     70          
+     71          // Sends one byte to bus
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     72          void ds18b20_send_byte(int8 data, uint8 useInterrupts)
+   \                     ds18b20_send_byte:
+     73          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV       ?V0,R1
+   \   000007   EA           MOV       A,R2
+   \   000008   FF           MOV       R7,A
+     74            uint8 i,x;
+     75            for(i=0;i<8;i++)
+   \   000009   7E00         MOV       R6,#0x0
+     76            {
+     77              x = data>>i;
+     78              x &= 0x01;
+     79              ds18b20_send_bit(x, useInterrupts);
+   \                     ??ds18b20_send_byte_0:
+   \   00000B                ; Setup parameters for call to function ds18b20_send_bit
+   \   00000B   EF           MOV       A,R7
+   \   00000C   FA           MOV       R2,A
+   \   00000D   E5..         MOV       A,?V0
+   \   00000F   F5..         MOV       ?V2,A
+   \   000011   33           RLC       A
+   \   000012   95E0         SUBB      A,0xE0 /* A   */
+   \   000014   F5..         MOV       ?V3,A
+   \   000016   EE           MOV       A,R6
+   \   000017   78..         MOV       R0,#?V2
+   \   000019   12....       LCALL     ?SS_SHR
+   \   00001C   E5..         MOV       A,?V2
+   \   00001E   5401         ANL       A,#0x1
+   \   000020   F9           MOV       R1,A
+   \   000021   12....       LCALL     `??ds18b20_send_bit::?relay`; Banked call to: ds18b20_send_bit
+     80            }
+   \   000024   0E           INC       R6
+   \   000025   EE           MOV       A,R6
+   \   000026   C3           CLR       C
+   \   000027   9408         SUBB      A,#0x8
+   \   000029   40E0         JC        ??ds18b20_send_byte_0
+     81            //_delay_us(100);
+     82          }
+   \   00002B                REQUIRE ?Subroutine1
+   \   00002B                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F04         MOV       R7,#0x4
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+     83          
+     84          
+     85          // Reads one byte from bus
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     86          uint8 ds18b20_read_byte(uint8 useInterrupts)
+   \                     ds18b20_read_byte:
+     87          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV       ?V0,R1
+     88            uint8 i;
+     89            uint8 data = 0;
+   \   000007   7E00         MOV       R6,#0x0
+     90            for (i=0;i<8;i++)
+   \   000009   7F00         MOV       R7,#0x0
+     91            {
+     92              if(ds18b20_read_bit(useInterrupts)) data|=0x01<<i;
+   \                     ??ds18b20_read_byte_0:
+   \   00000B                ; Setup parameters for call to function ds18b20_read_bit
+   \   00000B   A9..         MOV       R1,?V0
+   \   00000D   12....       LCALL     `??ds18b20_read_bit::?relay`; Banked call to: ds18b20_read_bit
+   \   000010   E9           MOV       A,R1
+   \   000011   6011         JZ        ??ds18b20_read_byte_1
+   \   000013   75..01       MOV       ?V2,#0x1
+   \   000016   75..00       MOV       ?V3,#0x0
+   \   000019   EF           MOV       A,R7
+   \   00001A   78..         MOV       R0,#?V2
+   \   00001C   12....       LCALL     ?S_SHL
+   \   00001F   E5..         MOV       A,?V2
+   \   000021   CE           XCH       A,R6
+   \   000022   4E           ORL       A,R6
+   \   000023   FE           MOV       R6,A
+     93              //_delay_us(25);
+     94            }
+   \                     ??ds18b20_read_byte_1:
+   \   000024   0F           INC       R7
+   \   000025   EF           MOV       A,R7
+   \   000026   C3           CLR       C
+   \   000027   9408         SUBB      A,#0x8
+   \   000029   40E0         JC        ??ds18b20_read_byte_0
+     95            return(data);
+   \   00002B   EE           MOV       A,R6
+   \   00002C   F9           MOV       R1,A
+   \   00002D   80..         SJMP      ?Subroutine1
+     96          }
+     97          
+     98          
+     99          // Sends reset pulse
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    100          uint8 ds18b20_RST_PULSE(void)
+   \                     ds18b20_RST_PULSE:
+    101          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    102            uint8 i;
+    103            P0_7 = 0;
+   \   000005   C287         CLR       0x80.7
+    104            P0DIR |= (1<<7);     // output
+   \   000007   43FD80       ORL       0xfd,#0x80
+    105            _delay_us(600);
+   \   00000A                ; Setup parameters for call to function _delay_us
+   \   00000A   7A58         MOV       R2,#0x58
+   \   00000C   7B02         MOV       R3,#0x2
+   \   00000E   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+    106            P0DIR &= ~(1<<7);     // input
+   \   000011   53FD7F       ANL       0xfd,#0x7f
+    107            _delay_us(70);
+   \   000014                ; Setup parameters for call to function _delay_us
+   \   000014   7A46         MOV       R2,#0x46
+   \   000016   7B00         MOV       R3,#0x0
+   \   000018   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+    108            i = P0_7;
+   \   00001B   AE80         MOV       R6,0x80+0x0
+    109            _delay_us(200);
+   \   00001D                ; Setup parameters for call to function _delay_us
+   \   00001D   7AC8         MOV       R2,#-0x38
+   \   00001F   7B00         MOV       R3,#0x0
+   \   000021   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+    110            P0_7 = 1;
+   \   000024   D287         SETB      0x80.7
+    111            P0DIR |= (1<<7);     // output
+   \   000026   43FD80       ORL       0xfd,#0x80
+    112            _delay_us(600);
+   \   000029                ; Setup parameters for call to function _delay_us
+   \   000029   7A58         MOV       R2,#0x58
+   \   00002B   7B02         MOV       R3,#0x2
+   \   00002D   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+    113            return i;
+   \   000030   EE           MOV       A,R6
+   \   000031   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000033   E4           CLR       A
+   \   000034   33           RLC       A
+   \   000035   02....       LJMP      ?Subroutine0 & 0xFFFF
+   \   000038                REQUIRE _A_P0
+   \   000038                REQUIRE P0DIR
+    114          }
+    115          
+    116          
+    117          //////////////////////////////////////////////////////////////////////////////
+    118          // ONE WIRE CRC
+    119          //
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    120          uint8 ds18b20_ow_crc( uint8 x)
+   \                     ds18b20_ow_crc:
+    121          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   \   000004   E9           MOV       A,R1
+   \   000005   FA           MOV       R2,A
+    122            ds18b20_dowcrc = ds18b20_dscrc_table[ds18b20_dowcrc^x];
+   \   000006   90....       MOV       DPTR,#ds18b20_dowcrc
+   \   000009   E0           MOVX      A,@DPTR
+   \   00000A   6A           XRL       A,R2
+   \   00000B   F8           MOV       R0,A
+   \   00000C   74..         MOV       A,#ds18b20_dscrc_table & 0xff
+   \   00000E   28           ADD       A,R0
+   \   00000F   F582         MOV       DPL,A
+   \   000011   E4           CLR       A
+   \   000012   34..         ADDC      A,#(ds18b20_dscrc_table >> 8) & 0xff
+   \   000014   F583         MOV       DPH,A
+   \   000016   E0           MOVX      A,@DPTR
+   \   000017   90....       MOV       DPTR,#ds18b20_dowcrc
+   \   00001A   F0           MOVX      @DPTR,A
+    123            return ds18b20_dowcrc;
+   \   00001B   F9           MOV       R1,A
+   \   00001C                REQUIRE ?Subroutine2
+   \   00001C                ; // Fall through to label ?Subroutine2
+    124          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+    125          
+    126          
+    127          // NEXT
+    128          // The Next function searches for the next device on the 1-Wire bus. If
+    129          // there are no more devices on the 1-Wire then false is returned.
+    130          //
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    131          uint8 ds18b20_Next(void)
+   \                     ds18b20_Next:
+    132          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV       A,#-0xe
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+    133            uint8 m = 1; // ROM Bit index
+   \   000005   75..01       MOV       ?V3,#0x1
+    134            uint8 n = 0; // ROM Byte index
+   \   000008   75..00       MOV       ?V4,#0x0
+    135            uint8 k = 1; // bit mask
+   \   00000B   7E01         MOV       R6,#0x1
+    136            uint8 x = 0;
+    137            uint8 discrepMarker = 0; // discrepancy marker
+   \   00000D   75..00       MOV       ?V5,#0x0
+    138            uint8 g; // Output bit
+    139            uint8 nxt; // return value
+    140            int flag;
+    141            
+    142            nxt = FALSE; // set the next flag to false
+   \   000010   7F00         MOV       R7,#0x0
+    143            ds18b20_dowcrc = 0; // reset the dowcrc
+   \   000012   90....       MOV       DPTR,#ds18b20_dowcrc
+   \   000015   E4           CLR       A
+   \   000016   F0           MOVX      @DPTR,A
+    144            flag = ds18b20_RST_PULSE(); // reset the 1-Wire
+    145            if(flag|| ds18b20_doneFlag) // no parts -> return false
+   \   000017                ; Setup parameters for call to function ds18b20_RST_PULSE
+   \   000017   12....       LCALL     `??ds18b20_RST_PULSE::?relay`; Banked call to: ds18b20_RST_PULSE
+   \   00001A   E9           MOV       A,R1
+   \   00001B   7006         JNZ       ??ds18b20_Next_0
+   \   00001D   90....       MOV       DPTR,#ds18b20_doneFlag
+   \   000020   E0           MOVX      A,@DPTR
+   \   000021   6008         JZ        ??ds18b20_Next_1
+    146            {
+    147              ds18b20_lastDiscrep = 0; // reset the search
+   \                     ??ds18b20_Next_0:
+   \   000023   90....       MOV       DPTR,#ds18b20_lastDiscrep
+   \   000026   E4           CLR       A
+   \   000027   F0           MOVX      @DPTR,A
+    148              return FALSE;
+   \   000028   02....       LJMP      ??ds18b20_Next_2 & 0xFFFF
+    149            }
+    150            ds18b20_send_byte(0xF0, 0); // send SearchROM command
+   \                     ??ds18b20_Next_1:
+   \   00002B                ; Setup parameters for call to function ds18b20_send_byte
+   \   00002B   7A00         MOV       R2,#0x0
+   \   00002D   79F0         MOV       R1,#-0x10
+   \   00002F   12....       LCALL     `??ds18b20_send_byte::?relay`; Banked call to: ds18b20_send_byte
+    151            do
+    152              // for all eight bytes
+    153            {
+    154              x = 0;
+   \                     ??ds18b20_Next_3:
+   \   000032   75..00       MOV       ?V2,#0x0
+    155              if(ds18b20_read_bit(0)==1) 
+   \   000035                ; Setup parameters for call to function ds18b20_read_bit
+   \   000035   7900         MOV       R1,#0x0
+   \   000037   12....       LCALL     `??ds18b20_read_bit::?relay`; Banked call to: ds18b20_read_bit
+   \   00003A   E9           MOV       A,R1
+   \   00003B   6401         XRL       A,#0x1
+   \   00003D   7003         JNZ       ??ds18b20_Next_4
+    156                x = 2;
+   \   00003F   75..02       MOV       ?V2,#0x2
+    157              _delay_us(15);
+   \                     ??ds18b20_Next_4:
+   \   000042                ; Setup parameters for call to function _delay_us
+   \   000042   7A0F         MOV       R2,#0xf
+   \   000044   7B00         MOV       R3,#0x0
+   \   000046   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+    158              if(ds18b20_read_bit(0)==1) 
+   \   000049                ; Setup parameters for call to function ds18b20_read_bit
+   \   000049   7900         MOV       R1,#0x0
+   \   00004B   12....       LCALL     `??ds18b20_read_bit::?relay`; Banked call to: ds18b20_read_bit
+   \   00004E   E9           MOV       A,R1
+   \   00004F   6401         XRL       A,#0x1
+   \   000051   700C         JNZ       ??ds18b20_Next_5
+    159                x |= 1; // and its complement
+   \   000053   E5..         MOV       A,?V2
+   \   000055   D2E0         SETB      0xE0 /* A   */.0
+   \   000057   F5..         MOV       ?V2,A
+    160              if(x ==3) // there are no devices on the 1-Wire
+   \   000059   7403         MOV       A,#0x3
+   \   00005B   65..         XRL       A,?V2
+   \   00005D   6048         JZ        ??ds18b20_Next_6
+    161                break;
+    162              else
+    163              {
+    164                if(x>0) // all devices coupled have 0 or 1
+   \                     ??ds18b20_Next_5:
+   \   00005F   A8..         MOV       R0,?V4
+   \   000061   74..         MOV       A,#ds18b20_ROM & 0xff
+   \   000063   28           ADD       A,R0
+   \   000064   F8           MOV       R0,A
+   \   000065   E4           CLR       A
+   \   000066   34..         ADDC      A,#(ds18b20_ROM >> 8) & 0xff
+   \   000068   F9           MOV       R1,A
+   \   000069   88..         MOV       ?V0,R0
+   \   00006B   89..         MOV       ?V1,R1
+   \   00006D   E5..         MOV       A,?V2
+   \   00006F   604A         JZ        ??ds18b20_Next_7
+    165                  g = x>>1; // bit write value for search
+   \   000071   C3           CLR       C
+   \   000072   13           RRC       A
+   \   000073   F9           MOV       R1,A
+    166                else
+    167                {
+    168                  // if this discrepancy is before the last
+    169                  // discrepancy on a previous Next then pick
+    170                  // the same as last time
+    171                  if(m<ds18b20_lastDiscrep)
+    172                    g = ((ds18b20_ROM[n]&k)>0);
+    173                  else // if equal to last pick 1
+    174                    g = (m==ds18b20_lastDiscrep); // if not then pick 0
+    175                  // if 0 was picked then record
+    176                  // position with mask k
+    177                  if (g==0) 
+    178                    discrepMarker = m;
+    179                }
+    180                if(g==1) // isolate bit in ROM[n] with mask k
+   \   000074   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000076   4065         JC        ??ds18b20_Next_8
+    181                  ds18b20_ROM[n] |= k;
+    182                else
+    183                  ds18b20_ROM[n] &= ~k;
+   \                     ??ds18b20_Next_9:
+   \   000078   EE           MOV       A,R6
+   \   000079   F4           CPL       A
+   \   00007A   F8           MOV       R0,A
+   \   00007B   85..82       MOV       DPL,?V0
+   \   00007E   85..83       MOV       DPH,?V1
+   \   000081   E0           MOVX      A,@DPTR
+   \   000082   58           ANL       A,R0
+   \                     ??ds18b20_Next_10:
+   \   000083   F0           MOVX      @DPTR,A
+    184                ds18b20_send_bit(g, 0); // ROM search write
+   \   000084                ; Setup parameters for call to function ds18b20_send_bit
+   \   000084   7A00         MOV       R2,#0x0
+   \   000086   12....       LCALL     `??ds18b20_send_bit::?relay`; Banked call to: ds18b20_send_bit
+    185                m++; // increment bit counter m
+   \   000089   05..         INC       ?V3
+    186                k = k<<1; // and shift the bit mask k
+   \   00008B   EE           MOV       A,R6
+   \   00008C   C3           CLR       C
+   \   00008D   33           RLC       A
+   \   00008E   FE           MOV       R6,A
+    187                if(k==0) // if the mask is 0 then go to new ROM
+   \   00008F   700F         JNZ       ??ds18b20_Next_11
+    188                { // byte n and reset mask
+    189                  ds18b20_ow_crc(ds18b20_ROM[n]); // accumulate the CRC
+   \   000091                ; Setup parameters for call to function ds18b20_ow_crc
+   \   000091   85..82       MOV       DPL,?V0
+   \   000094   85..83       MOV       DPH,?V1
+   \   000097   E0           MOVX      A,@DPTR
+   \   000098   F9           MOV       R1,A
+   \   000099   12....       LCALL     `??ds18b20_ow_crc::?relay`; Banked call to: ds18b20_ow_crc
+    190                  n++; k++;
+   \   00009C   05..         INC       ?V4
+   \   00009E   7E01         MOV       R6,#0x1
+    191                }
+    192              }
+    193            }while(n<8); //loop until through all ROM bytes 0-7
+   \                     ??ds18b20_Next_11:
+   \   0000A0   E5..         MOV       A,?V4
+   \   0000A2   C3           CLR       C
+   \   0000A3   9408         SUBB      A,#0x8
+   \   0000A5   408B         JC        ??ds18b20_Next_3
+    194            
+    195            if(m<65||ds18b20_dowcrc) // if search was unsuccessful then
+   \                     ??ds18b20_Next_6:
+   \   0000A7   E5..         MOV       A,?V3
+   \   0000A9   C3           CLR       C
+   \   0000AA   9441         SUBB      A,#0x41
+   \   0000AC   4006         JC        ??ds18b20_Next_12
+   \   0000AE   90....       MOV       DPTR,#ds18b20_dowcrc
+   \   0000B1   E0           MOVX      A,@DPTR
+   \   0000B2   6033         JZ        ??ds18b20_Next_13
+    196              ds18b20_lastDiscrep=0; // reset the last discrepancy to 0
+   \                     ??ds18b20_Next_12:
+   \   0000B4   90....       MOV       DPTR,#ds18b20_lastDiscrep
+   \   0000B7   E4           CLR       A
+   \   0000B8   F0           MOVX      @DPTR,A
+   \   0000B9   803F         SJMP      ??ds18b20_Next_14
+   \                     ??ds18b20_Next_7:
+   \   0000BB   90....       MOV       DPTR,#ds18b20_lastDiscrep
+   \   0000BE   E0           MOVX      A,@DPTR
+   \   0000BF   F8           MOV       R0,A
+   \   0000C0   E5..         MOV       A,?V3
+   \   0000C2   C3           CLR       C
+   \   0000C3   98           SUBB      A,R0
+   \   0000C4   5010         JNC       ??ds18b20_Next_15
+   \   0000C6   85..82       MOV       DPL,?V0
+   \   0000C9   8983         MOV       DPH,R1
+   \   0000CB   E0           MOVX      A,@DPTR
+   \   0000CC   5E           ANL       A,R6
+   \   0000CD   700C         JNZ       ??ds18b20_Next_16
+   \                     ??ds18b20_Next_17:
+   \   0000CF   7900         MOV       R1,#0x0
+   \   0000D1   85....       MOV       ?V5,?V3
+   \   0000D4   80A2         SJMP      ??ds18b20_Next_9
+   \                     ??ds18b20_Next_15:
+   \   0000D6   E0           MOVX      A,@DPTR
+   \   0000D7   65..         XRL       A,?V3
+   \   0000D9   70F4         JNZ       ??ds18b20_Next_17
+   \                     ??ds18b20_Next_16:
+   \   0000DB   7901         MOV       R1,#0x1
+   \                     ??ds18b20_Next_8:
+   \   0000DD   85..82       MOV       DPL,?V0
+   \   0000E0   85..83       MOV       DPH,?V1
+   \   0000E3   E0           MOVX      A,@DPTR
+   \   0000E4   4E           ORL       A,R6
+   \   0000E5   809C         SJMP      ??ds18b20_Next_10
+    197            else
+    198            {
+    199              // search was successful, so set lastDiscrep,
+    200              // lastOne, nxt
+    201              ds18b20_lastDiscrep = discrepMarker;
+   \                     ??ds18b20_Next_13:
+   \   0000E7   E5..         MOV       A,?V5
+   \   0000E9   90....       MOV       DPTR,#ds18b20_lastDiscrep
+   \   0000EC   F0           MOVX      @DPTR,A
+    202              ds18b20_doneFlag = (ds18b20_lastDiscrep==0);
+   \   0000ED   90....       MOV       DPTR,#ds18b20_doneFlag
+   \   0000F0   7004         JNZ       ??ds18b20_Next_18
+   \   0000F2   7401         MOV       A,#0x1
+   \   0000F4   8001         SJMP      ??ds18b20_Next_19
+   \                     ??ds18b20_Next_18:
+   \   0000F6   E4           CLR       A
+   \                     ??ds18b20_Next_19:
+   \   0000F7   F0           MOVX      @DPTR,A
+    203              nxt = TRUE; // indicates search is not complete yet, more
+   \   0000F8   7F01         MOV       R7,#0x1
+    204              // parts remain
+    205            }
+    206            return nxt;
+   \                     ??ds18b20_Next_14:
+   \   0000FA   EF           MOV       A,R7
+   \                     ??ds18b20_Next_2:
+   \   0000FB   F9           MOV       R1,A
+   \   0000FC   7F06         MOV       R7,#0x6
+   \   0000FE   02....       LJMP      ?BANKED_LEAVE_XDATA
+    207          }
+    208          
+    209          
+    210          // FIRST
+    211          // The First function resets the current state of a ROM search and calls
+    212          // Next to find the first device on the 1-Wire bus.
+    213          //
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    214          uint8 ds18b20_First(void)
+   \                     ds18b20_First:
+    215          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    216            ds18b20_lastDiscrep = 0; // reset the rom search last discrepancy global
+   \   000004   90....       MOV       DPTR,#ds18b20_lastDiscrep
+   \   000007   E4           CLR       A
+   \   000008   F0           MOVX      @DPTR,A
+    217            ds18b20_doneFlag = FALSE;
+   \   000009   90....       MOV       DPTR,#ds18b20_doneFlag
+   \   00000C   F0           MOVX      @DPTR,A
+    218            return ds18b20_Next(); // call Next and return its return value
+   \   00000D                ; Setup parameters for call to function ds18b20_Next
+   \   00000D   12....       LCALL     `??ds18b20_Next::?relay`; Banked call to: ds18b20_Next
+   \   000010   02....       LJMP      ?Subroutine2 & 0xFFFF
+    219          }
+    220          
+    221          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    222          uint8 ds18b20_find_devices(void)
+   \                     ds18b20_find_devices:
+    223          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 100
+   \   000005   749C         MOV       A,#-0x64
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+    224            unsigned char m;
+    225            ds18b20_numROMs=0;
+   \   00000A   90....       MOV       DPTR,#ds18b20_numROMs
+   \   00000D   E4           CLR       A
+   \   00000E   F0           MOVX      @DPTR,A
+    226            char buffer[100];
+    227            
+    228            if(!ds18b20_RST_PULSE()) //Begins when a presence is detected
+   \   00000F                ; Setup parameters for call to function ds18b20_RST_PULSE
+   \   00000F   12....       LCALL     `??ds18b20_RST_PULSE::?relay`; Banked call to: ds18b20_RST_PULSE
+   \   000012   E9           MOV       A,R1
+   \   000013   6003         JZ        $+5
+   \   000015   02....       LJMP      ??ds18b20_find_devices_0 & 0xFFFF
+    229            {
+    230              if(ds18b20_First()) //Begins when at least one part is found
+   \   000018                ; Setup parameters for call to function ds18b20_First
+   \   000018   12....       LCALL     `??ds18b20_First::?relay`; Banked call to: ds18b20_First
+   \   00001B   E9           MOV       A,R1
+   \   00001C   7003         JNZ       $+5
+   \   00001E   02....       LJMP      ??ds18b20_find_devices_0 & 0xFFFF
+    231              {
+    232                do
+    233                {
+    234                  for(m=0;m<8;m++)
+   \                     ??ds18b20_find_devices_1:
+   \   000021   7C00         MOV       R4,#0x0
+   \   000023   90....       MOV       DPTR,#ds18b20_numROMs
+   \   000026   E0           MOVX      A,@DPTR
+   \   000027   F5..         MOV       ?V0,A
+   \   000029   8C..         MOV       ?V1,R4
+   \   00002B   F5..         MOV       ?V2,A
+   \   00002D   8C..         MOV       ?V3,R4
+   \   00002F   7403         MOV       A,#0x3
+   \   000031   78..         MOV       R0,#?V2
+   \   000033   12....       LCALL     ?S_SHL
+   \   000036   74..         MOV       A,#ds18b20_FoundROM & 0xff
+   \   000038   25..         ADD       A,?V2
+   \   00003A   F8           MOV       R0,A
+   \   00003B   74..         MOV       A,#(ds18b20_FoundROM >> 8) & 0xff
+   \   00003D   35..         ADDC      A,?V3
+   \   00003F   F9           MOV       R1,A
+   \   000040   E8           MOV       A,R0
+   \   000041   FA           MOV       R2,A
+   \   000042   E9           MOV       A,R1
+   \   000043   FB           MOV       R3,A
+    235                  {
+    236                    ds18b20_FoundROM[ds18b20_numROMs][m] = ds18b20_ROM[m]; //Identifies ROM
+   \                     ??ds18b20_find_devices_2:
+   \   000044   EC           MOV       A,R4
+   \   000045   F8           MOV       R0,A
+   \   000046   74..         MOV       A,#ds18b20_ROM & 0xff
+   \   000048   28           ADD       A,R0
+   \   000049   F582         MOV       DPL,A
+   \   00004B   E4           CLR       A
+   \   00004C   34..         ADDC      A,#(ds18b20_ROM >> 8) & 0xff
+   \   00004E   F583         MOV       DPH,A
+   \   000050   E0           MOVX      A,@DPTR
+   \   000051   C0E0         PUSH      A
+   \   000053   EA           MOV       A,R2
+   \   000054   28           ADD       A,R0
+   \   000055   F582         MOV       DPL,A
+   \   000057   E4           CLR       A
+   \   000058   3B           ADDC      A,R3
+   \   000059   F583         MOV       DPH,A
+   \   00005B   D0E0         POP       A
+   \   00005D   F0           MOVX      @DPTR,A
+    237                  } 
+   \   00005E   0C           INC       R4
+   \   00005F   EC           MOV       A,R4
+   \   000060   C3           CLR       C
+   \   000061   9408         SUBB      A,#0x8
+   \   000063   40DF         JC        ??ds18b20_find_devices_2
+    238                  sprintf(buffer, "Sensor %d ROM CODE = %02X%02X%02X%02X%02X%02X%02X%02X",  ds18b20_numROMs,
+    239                          ds18b20_FoundROM[ds18b20_numROMs][7],ds18b20_FoundROM[ds18b20_numROMs][6],ds18b20_FoundROM[ds18b20_numROMs][5],ds18b20_FoundROM[ds18b20_numROMs][4],
+    240                          ds18b20_FoundROM[ds18b20_numROMs][3],ds18b20_FoundROM[ds18b20_numROMs][2],ds18b20_FoundROM[ds18b20_numROMs][1],ds18b20_FoundROM[ds18b20_numROMs][0]);
+   \   000065                ; Setup parameters for call to function sprintf
+   \   000065   8A82         MOV       DPL,R2
+   \   000067   8B83         MOV       DPH,R3
+   \   000069   E0           MOVX      A,@DPTR
+   \   00006A   F5..         MOV       ?V2,A
+   \   00006C   75..00       MOV       ?V3,#0x0
+   \   00006F   78..         MOV       R0,#?V2
+   \   000071   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000074   8A82         MOV       DPL,R2
+   \   000076   8B83         MOV       DPH,R3
+   \   000078   12....       LCALL     ??Subroutine9_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00007B   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00007E   8A82         MOV       DPL,R2
+   \   000080   8B83         MOV       DPH,R3
+   \   000082   12....       LCALL     ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000085   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000088   8A82         MOV       DPL,R2
+   \   00008A   8B83         MOV       DPH,R3
+   \   00008C   12....       LCALL     ??Subroutine7_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00008F   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000092   8A82         MOV       DPL,R2
+   \   000094   8B83         MOV       DPH,R3
+   \   000096   12....       LCALL     ??Subroutine6_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000099   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00009C   8A82         MOV       DPL,R2
+   \   00009E   8B83         MOV       DPH,R3
+   \   0000A0   12....       LCALL     ??Subroutine5_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0000A3   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000A6   8A82         MOV       DPL,R2
+   \   0000A8   8B83         MOV       DPH,R3
+   \   0000AA   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   0000AD   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000B0   8A82         MOV       DPL,R2
+   \   0000B2   8B83         MOV       DPH,R3
+   \   0000B4   A3           INC       DPTR
+   \   0000B5   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   0000B8   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000BB   78..         MOV       R0,#?V0
+   \   0000BD   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000C0   7C..         MOV       R4,#`?<Constant "Sensor %d ROM CODE = ...">` & 0xff
+   \   0000C2   7D..         MOV       R5,#(`?<Constant "Sensor %d ROM CODE = ...">` >> 8) & 0xff
+   \   0000C4   7412         MOV       A,#0x12
+   \   0000C6   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000C9   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   0000CC   7412         MOV       A,#0x12
+   \   0000CE   12....       LCALL     ?DEALLOC_XSTACK8
+    241                  UART_String(buffer);
+   \   0000D1                ; Setup parameters for call to function UART_String
+   \   0000D1   AA..         MOV       R2,?XSP + 0
+   \   0000D3   AB..         MOV       R3,?XSP + 1
+   \   0000D5   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+    242                  ds18b20_numROMs++;
+   \   0000D8   90....       MOV       DPTR,#ds18b20_numROMs
+   \   0000DB   E0           MOVX      A,@DPTR
+   \   0000DC   04           INC       A
+   \   0000DD   F0           MOVX      @DPTR,A
+    243                }while (ds18b20_Next()&&(ds18b20_numROMs<ds18b20_MAX_DEVICES+1)); //Continues until no additional devices are found
+   \   0000DE                ; Setup parameters for call to function ds18b20_Next
+   \   0000DE   12....       LCALL     `??ds18b20_Next::?relay`; Banked call to: ds18b20_Next
+   \   0000E1   E9           MOV       A,R1
+   \   0000E2   600C         JZ        ??ds18b20_find_devices_0
+   \   0000E4   90....       MOV       DPTR,#ds18b20_numROMs
+   \   0000E7   E0           MOVX      A,@DPTR
+   \   0000E8   C3           CLR       C
+   \   0000E9   9411         SUBB      A,#0x11
+   \   0000EB   5003         JNC       $+5
+   \   0000ED   02....       LJMP      ??ds18b20_find_devices_1 & 0xFFFF
+    244              }
+    245            }
+    246            return ds18b20_numROMs;
+   \                     ??ds18b20_find_devices_0:
+   \   0000F0   90....       MOV       DPTR,#ds18b20_numROMs
+   \   0000F3   E0           MOVX      A,@DPTR
+   \   0000F4   F9           MOV       R1,A
+   \   0000F5   7464         MOV       A,#0x64
+   \   0000F7   12....       LCALL     ?DEALLOC_XSTACK8
+   \   0000FA   02....       LJMP      ?Subroutine1 & 0xFFFF
+    247          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   A3           INC       DPTR
+   \   000001                REQUIRE ??Subroutine5_0
+   \   000001                ; // Fall through to label ??Subroutine5_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine5_0:
+   \   000000   A3           INC       DPTR
+   \   000001                REQUIRE ??Subroutine6_0
+   \   000001                ; // Fall through to label ??Subroutine6_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine6_0:
+   \   000000   A3           INC       DPTR
+   \   000001                REQUIRE ??Subroutine7_0
+   \   000001                ; // Fall through to label ??Subroutine7_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine7_0:
+   \   000000   A3           INC       DPTR
+   \   000001                REQUIRE ??Subroutine8_0
+   \   000001                ; // Fall through to label ??Subroutine8_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine8_0:
+   \   000000   A3           INC       DPTR
+   \   000001                REQUIRE ??Subroutine9_0
+   \   000001                ; // Fall through to label ??Subroutine9_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine9_0:
+   \   000000   A3           INC       DPTR
+   \   000001   E0           MOVX      A,@DPTR
+   \   000002   F5..         MOV       ?V2,A
+   \   000004   78..         MOV       R0,#?V2
+   \   000006   22           RET
+    248          
+    249          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    250          void ds18b20_start_conversion(void)
+   \                     ds18b20_start_conversion:
+    251          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    252            if(!ds18b20_RST_PULSE())
+   \   000004                ; Setup parameters for call to function ds18b20_RST_PULSE
+   \   000004   12....       LCALL     `??ds18b20_RST_PULSE::?relay`; Banked call to: ds18b20_RST_PULSE
+   \   000007   E9           MOV       A,R1
+   \   000008   7015         JNZ       ??ds18b20_start_conversion_0
+    253            {
+    254              ds18b20_send_byte(DS18B20_SKIP_ROM, 1);
+   \   00000A                ; Setup parameters for call to function ds18b20_send_byte
+   \   00000A   7A01         MOV       R2,#0x1
+   \   00000C   79CC         MOV       R1,#-0x34
+   \   00000E   12....       LCALL     `??ds18b20_send_byte::?relay`; Banked call to: ds18b20_send_byte
+    255              ds18b20_send_byte(DS18B20_CONVERT_T, 1);
+   \   000011                ; Setup parameters for call to function ds18b20_send_byte
+   \   000011   7A01         MOV       R2,#0x1
+   \   000013   7944         MOV       R1,#0x44
+   \   000015   12....       LCALL     `??ds18b20_send_byte::?relay`; Banked call to: ds18b20_send_byte
+    256              _delay_ms(750);
+   \   000018                ; Setup parameters for call to function _delay_ms
+   \   000018   7AEE         MOV       R2,#-0x12
+   \   00001A   7B02         MOV       R3,#0x2
+   \   00001C   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+    257            }
+    258          }
+   \                     ??ds18b20_start_conversion_0:
+   \   00001F   02....       LJMP      ?Subroutine2 & 0xFFFF
+    259          
+    260          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    261          void ds18b20_SelectSensor(uint8 ID)
+   \                     ds18b20_SelectSensor:
+    262          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+   \   000006   FF           MOV       R7,A
+    263            uint8 i;
+    264            
+    265            if(!ds18b20_RST_PULSE())
+   \   000007                ; Setup parameters for call to function ds18b20_RST_PULSE
+   \   000007   12....       LCALL     `??ds18b20_RST_PULSE::?relay`; Banked call to: ds18b20_RST_PULSE
+   \   00000A   E9           MOV       A,R1
+   \   00000B   7038         JNZ       ??ds18b20_SelectSensor_0
+    266            {
+    267              ds18b20_send_byte(DS18B20_MATCH_ROM, 1); // DS18B20_MATCH_ROM
+   \   00000D                ; Setup parameters for call to function ds18b20_send_byte
+   \   00000D   7A01         MOV       R2,#0x1
+   \   00000F   7955         MOV       R1,#0x55
+   \   000011   12....       LCALL     `??ds18b20_send_byte::?relay`; Banked call to: ds18b20_send_byte
+    268              for(i=0;i<8;i++)
+   \   000014   7E00         MOV       R6,#0x0
+    269              {
+    270                ds18b20_send_byte(ds18b20_FoundROM[ID][i], 1); //send ROM code
+   \                     ??ds18b20_SelectSensor_1:
+   \   000016                ; Setup parameters for call to function ds18b20_send_byte
+   \   000016   7A01         MOV       R2,#0x1
+   \   000018   EE           MOV       A,R6
+   \   000019   FC           MOV       R4,A
+   \   00001A   EF           MOV       A,R7
+   \   00001B   F5..         MOV       ?V0,A
+   \   00001D   75..00       MOV       ?V1,#0x0
+   \   000020   7403         MOV       A,#0x3
+   \   000022   78..         MOV       R0,#?V0
+   \   000024   12....       LCALL     ?S_SHL
+   \   000027   74..         MOV       A,#ds18b20_FoundROM & 0xff
+   \   000029   25..         ADD       A,?V0
+   \   00002B   F8           MOV       R0,A
+   \   00002C   74..         MOV       A,#(ds18b20_FoundROM >> 8) & 0xff
+   \   00002E   35..         ADDC      A,?V1
+   \   000030   F9           MOV       R1,A
+   \   000031   E8           MOV       A,R0
+   \   000032   2C           ADD       A,R4
+   \   000033   F582         MOV       DPL,A
+   \   000035   E4           CLR       A
+   \   000036   39           ADDC      A,R1
+   \   000037   F583         MOV       DPH,A
+   \   000039   E0           MOVX      A,@DPTR
+   \   00003A   F9           MOV       R1,A
+   \   00003B   12....       LCALL     `??ds18b20_send_byte::?relay`; Banked call to: ds18b20_send_byte
+    271              }
+   \   00003E   0E           INC       R6
+   \   00003F   EE           MOV       A,R6
+   \   000040   C3           CLR       C
+   \   000041   9408         SUBB      A,#0x8
+   \   000043   40D1         JC        ??ds18b20_SelectSensor_1
+    272            }
+    273          }
+   \                     ??ds18b20_SelectSensor_0:
+   \   000045   7F02         MOV       R7,#0x2
+   \   000047   02....       LJMP      ?BANKED_LEAVE_XDATA
+    274          
+    275          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    276          float ds18b20_get_sensor_temperature(uint8 deviceId)
+   \                     ds18b20_get_sensor_temperature:
+    277          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    278            uint8 temp1, temp2;
+    279            float temperature = -999.99;
+   \   000005   75..5C       MOV       ?V4,#0x5c
+   \   000008   75..FF       MOV       ?V5,#-0x1
+   \   00000B   75..79       MOV       ?V6,#0x79
+   \   00000E   75..C4       MOV       ?V7,#-0x3c
+    280            //EXT_Temperature = -999.99;
+    281            
+    282            ds18b20_SelectSensor(deviceId);
+   \   000011                ; Setup parameters for call to function ds18b20_SelectSensor
+   \   000011   12....       LCALL     `??ds18b20_SelectSensor::?relay`; Banked call to: ds18b20_SelectSensor
+    283            
+    284            ds18b20_send_byte(DS18B20_READ_SCRATCHPAD, 1);
+   \   000014                ; Setup parameters for call to function ds18b20_send_byte
+   \   000014   7A01         MOV       R2,#0x1
+   \   000016   79BE         MOV       R1,#-0x42
+   \   000018   12....       LCALL     `??ds18b20_send_byte::?relay`; Banked call to: ds18b20_send_byte
+    285            temp1=ds18b20_read_byte(1);
+   \   00001B                ; Setup parameters for call to function ds18b20_read_byte
+   \   00001B   7901         MOV       R1,#0x1
+   \   00001D   12....       LCALL     `??ds18b20_read_byte::?relay`; Banked call to: ds18b20_read_byte
+   \   000020   E9           MOV       A,R1
+   \   000021   F5..         MOV       ?V0,A
+    286            temp2=ds18b20_read_byte(1);
+   \   000023                ; Setup parameters for call to function ds18b20_read_byte
+   \   000023   7901         MOV       R1,#0x1
+   \   000025   12....       LCALL     `??ds18b20_read_byte::?relay`; Banked call to: ds18b20_read_byte
+   \   000028   E9           MOV       A,R1
+   \   000029   FE           MOV       R6,A
+    287            ds18b20_RST_PULSE();
+   \   00002A                ; Setup parameters for call to function ds18b20_RST_PULSE
+   \   00002A   12....       LCALL     `??ds18b20_RST_PULSE::?relay`; Banked call to: ds18b20_RST_PULSE
+    288            
+    289            if (temp1 == 0xff && temp2 == 0xff)
+   \   00002D   74FF         MOV       A,#-0x1
+   \   00002F   65..         XRL       A,?V0
+   \   000031   7005         JNZ       ??ds18b20_get_sensor_temperature_0
+   \   000033   74FF         MOV       A,#-0x1
+   \   000035   6E           XRL       A,R6
+   \   000036   603E         JZ        ??ds18b20_get_sensor_temperature_1
+    290            {
+    291              // cannot find sensor
+    292              return temperature;
+    293              //return EXT_Temperature;
+    294            }
+    295            
+    296            // neg. temp
+    297            if (temp2 & b00001000) temperature = ((uint16)temp1 | (uint16)(temp2 & b00000111) << 8) / 16.0 - 128.0;
+   \                     ??ds18b20_get_sensor_temperature_0:
+   \   000038   EE           MOV       A,R6
+   \   000039   5407         ANL       A,#0x7
+   \   00003B   F5..         MOV       ?V1,A
+   \   00003D   E4           CLR       A
+   \   00003E   F5..         MOV       ?V2,A
+   \   000040   F5..         MOV       ?V3,A
+   \   000042   78..         MOV       R0,#?V0
+   \   000044   12....       LCALL     ?UL_TO_FLT
+   \   000047   90....       MOV       DPTR,#__Constant_3d800000
+   \   00004A   78..         MOV       R0,#?V4
+   \   00004C   12....       LCALL     ?L_MOV_X
+   \   00004F   78..         MOV       R0,#?V0
+   \   000051   79..         MOV       R1,#?V4
+   \   000053   12....       LCALL     ?FLT_MUL
+   \   000056   EE           MOV       A,R6
+   \   000057   A2E3         MOV       C,0xE0 /* A   */.3
+   \   000059   85....       MOV       ?V4,?V0
+   \   00005C   85....       MOV       ?V5,?V1
+   \   00005F   85....       MOV       ?V6,?V2
+   \   000062   85....       MOV       ?V7,?V3
+   \   000065   500F         JNC       ??ds18b20_get_sensor_temperature_1
+   \   000067   90....       MOV       DPTR,#__Constant_c3000000
+   \   00006A   78..         MOV       R0,#?V0
+   \   00006C   12....       LCALL     ?L_MOV_X
+   \   00006F   78..         MOV       R0,#?V4
+   \   000071   79..         MOV       R1,#?V0
+   \   000073   12....       LCALL     ?FLT_ADD
+    298            // pos. temp
+    299            else temperature = ((uint16)temp1 | (uint16)(temp2 & b00000111) << 8) / 16.0;
+    300            
+    301            return temperature;
+   \                     ??ds18b20_get_sensor_temperature_1:
+   \   000076   AA..         MOV       R2,?V4
+   \   000078   AB..         MOV       R3,?V5
+   \   00007A   AC..         MOV       R4,?V6
+   \   00007C   AD..         MOV       R5,?V7
+   \   00007E   7F08         MOV       R7,#0x8
+   \   000080   02....       LJMP      ?BANKED_LEAVE_XDATA
+    302          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_send_bit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_send_bit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_read_bit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_read_bit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_send_byte::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_send_byte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_read_byte::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_read_byte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_RST_PULSE::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_RST_PULSE
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_ow_crc::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_ow_crc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_Next::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_Next
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_First::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_First
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_find_devices::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_find_devices
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_start_conversion::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_start_conversion
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_SelectSensor::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_SelectSensor
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??ds18b20_get_sensor_temperature::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ds18b20_get_sensor_temperature
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Sensor %d ROM CODE = ...">`:
+   \   000000   53656E73     DB 53H, 65H, 6EH, 73H, 6FH, 72H, 20H, 25H
+   \            6F722025
+   \   000008   6420524F     DB 64H, 20H, 52H, 4FH, 4DH, 20H, 43H, 4FH
+   \            4D20434F
+   \   000010   4445203D     DB 44H, 45H, 20H, 3DH, 20H, 25H, 30H, 32H
+   \            20253032
+   \   000018   58253032     DB 58H, 25H, 30H, 32H, 58H, 25H, 30H, 32H
+   \            58253032
+   \   000020   58253032     DB 58H, 25H, 30H, 32H, 58H, 25H, 30H, 32H
+   \            58253032
+   \   000028   58253032     DB 58H, 25H, 30H, 32H, 58H, 25H, 30H, 32H
+   \            58253032
+   \   000030   58253032     DB 58H, 25H, 30H, 32H, 58H, 0
+   \            5800    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3d800000:
+   \   000000   0000803D     DD 3D800000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_c3000000:
+   \   000000   000000C3     DD 0C3000000H
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2    112   ds18b20_First
+        2      0   -> ds18b20_Next
+      0    126   ds18b20_Next
+        0     14   -> _delay_us
+        0     14   -> ds18b20_RST_PULSE
+        0     14   -> ds18b20_ow_crc
+        0     14   -> ds18b20_read_bit
+        0     14   -> ds18b20_send_bit
+        0     14   -> ds18b20_send_byte
+      0    121   ds18b20_RST_PULSE
+        0      9   -> _delay_us
+      0     26   ds18b20_SelectSensor
+        0     10   -> ds18b20_RST_PULSE
+        0     10   -> ds18b20_send_byte
+      1    130   ds18b20_find_devices
+        0    112   -> UART_String
+        0    112   -> ds18b20_First
+        0    112   -> ds18b20_Next
+        0    112   -> ds18b20_RST_PULSE
+        0    130   -> sprintf
+      0     16   ds18b20_get_sensor_temperature
+        0     16   -> ds18b20_RST_PULSE
+        0     16   -> ds18b20_SelectSensor
+        0     16   -> ds18b20_read_byte
+        0     16   -> ds18b20_send_byte
+      2     14   ds18b20_ow_crc
+      0     23   ds18b20_read_bit
+        0      9   -> _delay_us
+      0     28   ds18b20_read_byte
+        0     12   -> ds18b20_read_bit
+      0     23   ds18b20_send_bit
+        0      9   -> _delay_us
+      0     28   ds18b20_send_byte
+        0     12   -> ds18b20_send_bit
+      2      0   ds18b20_start_conversion
+        2      0   -> _delay_ms
+        2      0   -> ds18b20_RST_PULSE
+        2      0   -> ds18b20_send_byte
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      54  ?<Constant "Sensor %d ROM CODE = ...">
+       5  ??Subroutine4_0
+       1  ??Subroutine5_0
+       1  ??Subroutine6_0
+       1  ??Subroutine7_0
+       1  ??Subroutine8_0
+       7  ??Subroutine9_0
+       1  ?Subroutine0
+       5  ?Subroutine1
+       7  ?Subroutine2
+       1  ?Subroutine3
+       1  P0DIR
+       1  _A_IEN0
+       1  _A_P0
+       4  __Constant_3d800000
+       4  __Constant_c3000000
+      19  ds18b20_First
+       6  ds18b20_First::?relay
+     257  ds18b20_Next
+       6  ds18b20_Next::?relay
+      56  ds18b20_RST_PULSE
+       6  ds18b20_RST_PULSE::?relay
+      74  ds18b20_SelectSensor
+       6  ds18b20_SelectSensor::?relay
+     253  ds18b20_find_devices
+       6  ds18b20_find_devices::?relay
+     131  ds18b20_get_sensor_temperature
+       6  ds18b20_get_sensor_temperature::?relay
+      28  ds18b20_ow_crc
+       6  ds18b20_ow_crc::?relay
+      53  ds18b20_read_bit
+       6  ds18b20_read_bit::?relay
+      47  ds18b20_read_byte
+       6  ds18b20_read_byte::?relay
+      57  ds18b20_send_bit
+       6  ds18b20_send_bit::?relay
+      43  ds18b20_send_byte
+       6  ds18b20_send_byte::?relay
+      34  ds18b20_start_conversion
+       6  ds18b20_start_conversion::?relay
+
+ 
+ 1 082 bytes in segment BANKED_CODE
+    72 bytes in segment BANK_RELAYS
+     3 bytes in segment SFR_AN
+    62 bytes in segment XDATA_ROM_C
+ 
+    72 bytes of CODE     memory
+    54 bytes of CONST    memory (+ 8 bytes shared)
+     0 bytes of DATA     memory (+ 3 bytes shared)
+ 1 082 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none

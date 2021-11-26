@@ -1,0 +1,612 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:16:48
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\zcl_zigup_data.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EWD982.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\zcl_zigup_data.c"
+#        -D SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\zcl_zigup_data.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\zcl_zigup_data.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\zcl_zigup_data.c
+      1          #include "ZComDef.h"
+      2          #include "OSAL.h"
+      3          #include "AF.h"
+      4          #include "ZDConfig.h"
+      5          
+      6          #include "zcl.h"
+      7          #include "zcl_general.h"
+      8          #include "zcl_ha.h"
+      9          #include "zcl_ezmode.h"
+     10          #include "zcl_poll_control.h"
+     11          #include "zcl_electrical_measurement.h"
+     12          #include "zcl_diagnostic.h"
+     13          #include "zcl_meter_identification.h"
+     14          #include "zcl_appliance_identification.h"
+     15          #include "zcl_appliance_events_alerts.h"
+     16          #include "zcl_power_profile.h"
+     17          #include "zcl_appliance_control.h"
+     18          #include "zcl_appliance_statistics.h"
+     19          #include "zcl_hvac.h"
+     20          
+     21          #include "zcl_zigup.h"
+     22          
+     23          #include "global.h"
+     24          
+     25          #define ZIGUP_DEVICE_VERSION     0
+     26          #define ZIGUP_FLAGS              0
+     27          
+     28          #define ZIGUP_HWVERSION          1
+     29          #define ZIGUP_ZCLVERSION         1
+     30          
+     31          // Basic Cluster
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     32          const uint8 zclZigUP_HWRevision = ZIGUP_HWVERSION;
+   \                     zclZigUP_HWRevision:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     33          const uint8 zclZigUP_ZCLVersion = ZIGUP_ZCLVERSION;
+   \                     zclZigUP_ZCLVersion:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     34          const uint8 zclZigUP_ManufacturerName[] = { 9, 'f','o','r','m','t','a','p','e','z' };
+   \                     zclZigUP_ManufacturerName:
+   \   000000   09           DB 9
+   \   000001   66           DB 102
+   \   000002   6F           DB 111
+   \   000003   72           DB 114
+   \   000004   6D           DB 109
+   \   000005   74           DB 116
+   \   000006   61           DB 97
+   \   000007   70           DB 112
+   \   000008   65           DB 101
+   \   000009   7A           DB 122
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     35          const uint8 zclZigUP_ModelId[] = { 5, 'Z','i','g','U','P' };
+   \                     zclZigUP_ModelId:
+   \   000000   05           DB 5
+   \   000001   5A           DB 90
+   \   000002   69           DB 105
+   \   000003   67           DB 103
+   \   000004   55           DB 85
+   \   000005   50           DB 80
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     36          const uint8 zclZigUP_DateCode[] = { 16, '2','0','1','9','0','8','2','1',' ',' ',' ',' ',' ',' ',' ',' ' };
+   \                     zclZigUP_DateCode:
+   \   000000   10           DB 16
+   \   000001   32           DB 50
+   \   000002   30           DB 48
+   \   000003   31           DB 49
+   \   000004   39           DB 57
+   \   000005   30           DB 48
+   \   000006   38           DB 56
+   \   000007   32           DB 50
+   \   000008   31           DB 49
+   \   000009   20           DB 32
+   \   00000A   20           DB 32
+   \   00000B   20           DB 32
+   \   00000C   20           DB 32
+   \   00000D   20           DB 32
+   \   00000E   20           DB 32
+   \   00000F   20           DB 32
+   \   000010   20           DB 32
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     37          const uint8 zclZigUP_PowerSource = POWER_SOURCE_MAINS_1_PHASE;
+   \                     zclZigUP_PowerSource:
+   \   000000   01           DB 1
+     38          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     39          uint8 zclZigUP_LocationDescription[17] = { 16, ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
+   \                     zclZigUP_LocationDescription:
+   \   000000                DS 17
+   \   000011                REQUIRE `?<Initializer for zclZigUP_LocationDescription`
+   \   000011                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     40          uint8 zclZigUP_PhysicalEnvironment = 0;
+   \                     zclZigUP_PhysicalEnvironment:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     41          uint8 zclZigUP_DeviceEnable = DEVICE_ENABLED;
+   \                     zclZigUP_DeviceEnable:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for zclZigUP_DeviceEnable>`
+   \   000001                REQUIRE __INIT_XDATA_I
+     42          
+     43          // Identify Cluster
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     44          uint16 zclZigUP_IdentifyTime = 0;
+   \                     zclZigUP_IdentifyTime:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+     45          
+     46          // On/Off Cluster
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     47          uint8 zclZigUP_OnOff = LIGHT_OFF;
+   \                     zclZigUP_OnOff:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     48          
+     49          #if ZCL_DISCOVER
+     50          CONST zclCommandRec_t zclZigUP_Cmds[] =
+     51          {
+     52            {
+     53              ZCL_CLUSTER_ID_GEN_BASIC,
+     54              COMMAND_BASIC_RESET_FACT_DEFAULT,
+     55              CMD_DIR_SERVER_RECEIVED
+     56            },
+     57            {
+     58              ZCL_CLUSTER_ID_GEN_ON_OFF,
+     59              COMMAND_OFF,
+     60              CMD_DIR_SERVER_RECEIVED
+     61            },
+     62            {
+     63              ZCL_CLUSTER_ID_GEN_ON_OFF,
+     64              COMMAND_ON,
+     65              CMD_DIR_SERVER_RECEIVED
+     66            },
+     67            {
+     68              ZCL_CLUSTER_ID_GEN_ON_OFF,
+     69              COMMAND_TOGGLE,
+     70              CMD_DIR_SERVER_RECEIVED
+     71            }
+     72          };
+     73          
+     74          CONST uint8 zclCmdsArraySize = ( sizeof(zclZigUP_Cmds) / sizeof(zclZigUP_Cmds[0]) );
+     75          #endif // ZCL_DISCOVER
+     76          
+     77          /*********************************************************************
+     78          * ATTRIBUTE DEFINITIONS - Uses REAL cluster IDs
+     79          */
+
+   \                                 In  segment CODE_C, align 1
+     80          CONST zclAttrRec_t zclZigUP_Attrs[] =
+   \                     zclZigUP_Attrs:
+   \   000000   0000         DW 0
+   \   000002   0300         DW 3
+   \   000004   20           DB 32
+   \   000005   01           DB 1
+   \   000006   ....         DW zclZigUP_HWRevision
+   \   000008   0000         DW 0
+   \   00000A   0000         DW 0
+   \   00000C   20           DB 32
+   \   00000D   01           DB 1
+   \   00000E   ....         DW zclZigUP_ZCLVersion
+   \   000010   0000         DW 0
+   \   000012   0400         DW 4
+   \   000014   42           DB 66
+   \   000015   01           DB 1
+   \   000016   ....         DW zclZigUP_ManufacturerName
+   \   000018   0000         DW 0
+   \   00001A   0500         DW 5
+   \   00001C   42           DB 66
+   \   00001D   01           DB 1
+   \   00001E   ....         DW zclZigUP_ModelId
+   \   000020   0000         DW 0
+   \   000022   0600         DW 6
+   \   000024   42           DB 66
+   \   000025   01           DB 1
+   \   000026   ....         DW zclZigUP_DateCode
+   \   000028   0000         DW 0
+   \   00002A   0700         DW 7
+   \   00002C   20           DB 32
+   \   00002D   01           DB 1
+   \   00002E   ....         DW zclZigUP_PowerSource
+   \   000030   0000         DW 0
+   \   000032   1000         DW 16
+   \   000034   42           DB 66
+   \   000035   03           DB 3
+   \   000036   ....         DW zclZigUP_LocationDescription
+   \   000038   0000         DW 0
+   \   00003A   1100         DW 17
+   \   00003C   20           DB 32
+   \   00003D   03           DB 3
+   \   00003E   ....         DW zclZigUP_PhysicalEnvironment
+   \   000040   0000         DW 0
+   \   000042   1200         DW 18
+   \   000044   10           DB 16
+   \   000045   03           DB 3
+   \   000046   ....         DW zclZigUP_DeviceEnable
+   \   000048   0300         DW 3
+   \   00004A   0000         DW 0
+   \   00004C   21           DB 33
+   \   00004D   03           DB 3
+   \   00004E   ....         DW zclZigUP_IdentifyTime
+   \   000050   0600         DW 6
+   \   000052   0000         DW 0
+   \   000054   10           DB 16
+   \   000055   01           DB 1
+   \   000056   ....         DW zclZigUP_OnOff
+   \   000058   0003         DW 768
+   \   00005A   0300         DW 3
+   \   00005C   21           DB 33
+   \   00005D   03           DB 3
+   \   00005E   ....         DW zclZigUP_OnOff
+   \   000060   0101         DW 257
+   \   000062   0000         DW 0
+   \   000064   30           DB 48
+   \   000065   05           DB 5
+   \   000066   ....         DW STATE_LED
+     81          {
+     82            // *** General Basic Cluster Attributes ***
+     83            {
+     84              ZCL_CLUSTER_ID_GEN_BASIC,             // Cluster IDs - defined in the foundation (ie. zcl.h)
+     85              {  // Attribute record
+     86                ATTRID_BASIC_HW_VERSION,            // Attribute ID - Found in Cluster Library header (ie. zcl_general.h)
+     87                ZCL_DATATYPE_UINT8,                 // Data Type - found in zcl.h
+     88                ACCESS_CONTROL_READ,                // Variable access control - found in zcl.h
+     89                (void *)&zclZigUP_HWRevision  // Pointer to attribute variable
+     90              }
+     91            },
+     92            {
+     93              ZCL_CLUSTER_ID_GEN_BASIC,
+     94              { // Attribute record
+     95                ATTRID_BASIC_ZCL_VERSION,
+     96                ZCL_DATATYPE_UINT8,
+     97                ACCESS_CONTROL_READ,
+     98                (void *)&zclZigUP_ZCLVersion
+     99              }
+    100            },
+    101            {
+    102              ZCL_CLUSTER_ID_GEN_BASIC,
+    103              { // Attribute record
+    104                ATTRID_BASIC_MANUFACTURER_NAME,
+    105                ZCL_DATATYPE_CHAR_STR,
+    106                ACCESS_CONTROL_READ,
+    107                (void *)zclZigUP_ManufacturerName
+    108              }
+    109            },
+    110            {
+    111              ZCL_CLUSTER_ID_GEN_BASIC,
+    112              { // Attribute record
+    113                ATTRID_BASIC_MODEL_ID,
+    114                ZCL_DATATYPE_CHAR_STR,
+    115                ACCESS_CONTROL_READ,
+    116                (void *)zclZigUP_ModelId
+    117              }
+    118            },
+    119            {
+    120              ZCL_CLUSTER_ID_GEN_BASIC,
+    121              { // Attribute record
+    122                ATTRID_BASIC_DATE_CODE,
+    123                ZCL_DATATYPE_CHAR_STR,
+    124                ACCESS_CONTROL_READ,
+    125                (void *)zclZigUP_DateCode
+    126              }
+    127            },
+    128            {
+    129              ZCL_CLUSTER_ID_GEN_BASIC,
+    130              { // Attribute record
+    131                ATTRID_BASIC_POWER_SOURCE,
+    132                ZCL_DATATYPE_UINT8,
+    133                ACCESS_CONTROL_READ,
+    134                (void *)&zclZigUP_PowerSource
+    135              }
+    136            },
+    137            {
+    138              ZCL_CLUSTER_ID_GEN_BASIC,
+    139              { // Attribute record
+    140                ATTRID_BASIC_LOCATION_DESC,
+    141                ZCL_DATATYPE_CHAR_STR,
+    142                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    143                (void *)zclZigUP_LocationDescription
+    144              }
+    145            },
+    146            {
+    147              ZCL_CLUSTER_ID_GEN_BASIC,
+    148              { // Attribute record
+    149                ATTRID_BASIC_PHYSICAL_ENV,
+    150                ZCL_DATATYPE_UINT8,
+    151                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    152                (void *)&zclZigUP_PhysicalEnvironment
+    153              }
+    154            },
+    155            {
+    156              ZCL_CLUSTER_ID_GEN_BASIC,
+    157              { // Attribute record
+    158                ATTRID_BASIC_DEVICE_ENABLED,
+    159                ZCL_DATATYPE_BOOLEAN,
+    160                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    161                (void *)&zclZigUP_DeviceEnable
+    162              }
+    163            },
+    164            
+    165          #ifdef ZCL_IDENTIFY
+    166            // *** Identify Cluster Attribute ***
+    167            {
+    168              ZCL_CLUSTER_ID_GEN_IDENTIFY,
+    169              { // Attribute record
+    170                ATTRID_IDENTIFY_TIME,
+    171                ZCL_DATATYPE_UINT16,
+    172                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    173                (void *)&zclZigUP_IdentifyTime
+    174              }
+    175            },
+    176          #endif
+    177            
+    178            // *** On/Off Cluster Attributes ***
+    179            {
+    180              ZCL_CLUSTER_ID_GEN_ON_OFF,
+    181              { // Attribute record
+    182                ATTRID_ON_OFF,
+    183                ZCL_DATATYPE_BOOLEAN,
+    184                ACCESS_CONTROL_READ,
+    185                (void *)&zclZigUP_OnOff   // TODO
+    186              }
+    187            },
+    188            
+    189            
+    190            // *** Color control Cluster Attributes ***
+    191            {
+    192              ZCL_CLUSTER_ID_LIGHTING_COLOR_CONTROL,
+    193              { // Attribute record
+    194                ATTRID_LIGHTING_COLOR_CONTROL_CURRENT_X,
+    195                ZCL_DATATYPE_UINT16,
+    196                (ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE),
+    197                (void *)&zclZigUP_OnOff   // TODO
+    198              }
+    199            },
+    200            
+    201            
+    202            // *** Door lock Cluster Attributes (for LED) ***
+    203            {
+    204              ZCL_CLUSTER_ID_CLOSURES_DOOR_LOCK,
+    205              { // Attribute record
+    206                ATTRID_CLOSURES_LOCK_STATE,
+    207                ZCL_DATATYPE_ENUM8,
+    208                (ACCESS_CONTROL_READ | ACCESS_REPORTABLE),
+    209                (void *)&STATE_LED
+    210              }
+    211            }
+    212            
+    213          };
+    214          
+
+   \                                 In  segment CODE_C, align 1
+    215          uint8 CONST zclZigUP_NumAttributes = ( sizeof(zclZigUP_Attrs) / sizeof(zclZigUP_Attrs[0]) );
+   \                     zclZigUP_NumAttributes:
+   \   000000   0D           DB 13
+    216          
+    217          /*********************************************************************
+    218          * SIMPLE DESCRIPTOR
+    219          */
+    220          // This is the Cluster ID List and should be filled with Application specific cluster IDs.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    221          const cId_t zclZigUP_InClusterList[] =
+   \                     zclZigUP_InClusterList:
+   \   000000   0000         DW 0
+   \   000002   0300         DW 3
+   \   000004   0400         DW 4
+   \   000006   0500         DW 5
+   \   000008   0600         DW 6
+   \   00000A   0003         DW 768
+   \   00000C   0101         DW 257
+    222          {
+    223            ZCL_CLUSTER_ID_GEN_BASIC,
+    224            ZCL_CLUSTER_ID_GEN_IDENTIFY,
+    225            ZCL_CLUSTER_ID_GEN_GROUPS,
+    226            ZCL_CLUSTER_ID_GEN_SCENES,
+    227            ZCL_CLUSTER_ID_GEN_ON_OFF,
+    228            ZCL_CLUSTER_ID_LIGHTING_COLOR_CONTROL,
+    229            ZCL_CLUSTER_ID_CLOSURES_DOOR_LOCK
+    230          };
+    231          #define ZCLZIGUP_MAX_INCLUSTERS (sizeof(zclZigUP_InClusterList) / sizeof(zclZigUP_InClusterList[0]))
+    232          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    233          const cId_t zclZigUP_OutClusterList[] =
+   \                     zclZigUP_OutClusterList:
+   \   000000   0000         DW 0
+    234          {
+    235            ZCL_CLUSTER_ID_GEN_BASIC
+    236          };
+    237          #define ZCLZIGUP_MAX_OUTCLUSTERS (sizeof(zclZigUP_OutClusterList) / sizeof(zclZigUP_OutClusterList[0]))
+    238          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    239          SimpleDescriptionFormat_t zclZigUP_SimpleDesc[1] = {
+   \                     zclZigUP_SimpleDesc:
+   \   000000                DS 12
+   \   00000C                REQUIRE `?<Initializer for zclZigUP_SimpleDesc>`
+   \   00000C                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclZigUP_LocationDescription`:
+   \   000000   10           DB 16
+   \   000001   20           DB 32
+   \   000002   20           DB 32
+   \   000003   20           DB 32
+   \   000004   20           DB 32
+   \   000005   20           DB 32
+   \   000006   20           DB 32
+   \   000007   20           DB 32
+   \   000008   20           DB 32
+   \   000009   20           DB 32
+   \   00000A   20           DB 32
+   \   00000B   20           DB 32
+   \   00000C   20           DB 32
+   \   00000D   20           DB 32
+   \   00000E   20           DB 32
+   \   00000F   20           DB 32
+   \   000010   20           DB 32
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclZigUP_DeviceEnable>`:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclZigUP_SimpleDesc>`:
+   \   000000   08           DB 8
+   \   000001   0401         DW 260
+   \   000003   0001         DW 256
+   \   000005   00           DB 0
+   \   000006   07           DB 7
+   \   000007   ....         DW zclZigUP_InClusterList
+   \   000009   01           DB 1
+   \   00000A   ....         DW zclZigUP_OutClusterList
+    240            {
+    241              ZIGUP_ENDPOINT,                  //  int Endpoint;
+    242              ZCL_HA_PROFILE_ID,               //  uint16 AppProfId;
+    243              ZCL_HA_DEVICEID_ON_OFF_LIGHT,    //  uint16 AppDeviceId;
+    244              ZIGUP_DEVICE_VERSION,            //  int   AppDevVer:4;
+    245              ZIGUP_FLAGS,                     //  int   AppFlags:4;
+    246              ZCLZIGUP_MAX_INCLUSTERS,         //  byte  AppNumInClusters;
+    247              (cId_t *)zclZigUP_InClusterList, //  byte *pAppInClusterList;
+    248              ZCLZIGUP_MAX_OUTCLUSTERS,        //  byte  AppNumInClusters;
+    249              (cId_t *)zclZigUP_OutClusterList //  byte *pAppInClusterList;
+    250            }
+    251          };
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ?<Initializer for zclZigUP_DeviceEnable>
+      17  ?<Initializer for zclZigUP_LocationDescription
+      12  ?<Initializer for zclZigUP_SimpleDesc>
+     104  zclZigUP_Attrs
+      17  zclZigUP_DateCode
+       1  zclZigUP_DeviceEnable
+       1  zclZigUP_HWRevision
+       2  zclZigUP_IdentifyTime
+      14  zclZigUP_InClusterList
+      17  zclZigUP_LocationDescription
+      10  zclZigUP_ManufacturerName
+       6  zclZigUP_ModelId
+       1  zclZigUP_NumAttributes
+       1  zclZigUP_OnOff
+       2  zclZigUP_OutClusterList
+       1  zclZigUP_PhysicalEnvironment
+       1  zclZigUP_PowerSource
+      12  zclZigUP_SimpleDesc
+       1  zclZigUP_ZCLVersion
+
+ 
+ 105 bytes in segment CODE_C
+  30 bytes in segment XDATA_I
+  30 bytes in segment XDATA_ID
+  52 bytes in segment XDATA_ROM_C
+   4 bytes in segment XDATA_Z
+ 
+ 135 bytes of CODE  memory
+  52 bytes of CONST memory
+  34 bytes of XDATA memory
+
+Errors: none
+Warnings: none

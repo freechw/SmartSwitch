@@ -1,0 +1,2899 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:28:20
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\zcl_zigup.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EW6B14.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\zcl_zigup.c"
+#        -D SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\zcl_zigup.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\zcl_zigup.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\zcl_zigup.c
+      1          #include <stdlib.h>
+      2          #include <string.h>
+      3          #include <stdio.h>
+      4          #include <math.h>
+      5          
+      6          #include "zcl_lighting.h"
+      7          #include "zcl_closures.h"
+      8          #include "zcl_zigup.h"
+      9          #include "zcl.h"
+     10          #include "zcl_ha.h"
+     11          #include "zcl_diagnostic.h"
+     12          
+     13          #include "onboard.h"
+     14          #include "ZDSecMgr.h"
+     15          #include "bitmasks.h"
+     16          #include "delay.h"
+     17          #include "ds18b20.h"
+     18          #include "uart.h"
+     19          #include "global.h"
+     20          #include "adc.h"
+     21          #include "random.h"
+     22          #include "ws2812.h"
+     23          #include "interrupts.h"
+     24          #include "led.h"
+     25          #include "dht22.h"
+     26          #include "utils.h"
+     27          
+     28          #include "app.h"
+     29          
+     30          #define ZIGUP_REPORTING_INTERVAL 800 // 200ms
+     31          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     32          afAddrType_t zclZigUP_DstAddr;
+   \                     zclZigUP_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+     33          
+     34          // Test Endpoint to allow SYS_APP_MSGs
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     35          static endPointDesc_t ZigUP_TestEp =
+   \                     ZigUP_TestEp:
+   \   000000                DS 6
+   \   000006                REQUIRE `?<Initializer for ZigUP_TestEp>`
+   \   000006                REQUIRE __INIT_XDATA_I
+     36          {
+     37            ZIGUP_ENDPOINT,
+     38            &zclZigUP_TaskID,
+     39            (SimpleDescriptionFormat_t *)NULL,  // No Simple description for this test endpoint
+     40            (afNetworkLatencyReq_t)0            // No Network Latency req
+     41          };
+     42          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     43          devStates_t zclZigUP_NwkState = DEV_INIT;
+   \                     zclZigUP_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for zclZigUP_NwkState>`
+   \   000001                REQUIRE __INIT_XDATA_I
+     44          
+     45          //×´Ì¬¸üÐÂ
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     46          void zclZigUP_Reporting(uint16 REPORT_REASON)
+   \                     zclZigUP_Reporting:
+     47          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV       A,#-0x2
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV       DPL,?XSP + 0
+   \   00000D   85..83       MOV       DPH,?XSP + 1
+   \   000010   EA           MOV       A,R2
+   \   000011   F0           MOVX      @DPTR,A
+   \   000012   A3           INC       DPTR
+   \   000013   EB           MOV       A,R3
+   \   000014   F0           MOVX      @DPTR,A
+     48            const uint8 NUM_ATTRIBUTES = 9;
+     49            
+     50            // send report
+     51            zclReportCmd_t *pReportCmd;
+     52            
+     53            pReportCmd = osal_mem_alloc( sizeof(zclReportCmd_t) + ( NUM_ATTRIBUTES * sizeof(zclReport_t) ) );
+   \   000015                ; Setup parameters for call to function osal_mem_alloc
+   \   000015   7A2E         MOV       R2,#0x2e
+   \   000017   7B00         MOV       R3,#0x0
+   \   000019   12....       LCALL     `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   00001C   8A..         MOV       ?V0,R2
+   \   00001E   8B..         MOV       ?V1,R3
+     54            if ( pReportCmd != NULL )
+   \   000020   EA           MOV       A,R2
+   \   000021   45..         ORL       A,?V1
+   \   000023   7003         JNZ       $+5
+   \   000025   02....       LJMP      ??zclZigUP_Reporting_0 & 0xFFFF
+     55            {
+     56              pReportCmd->numAttr = NUM_ATTRIBUTES;
+   \   000028   8A82         MOV       DPL,R2
+   \   00002A   8B83         MOV       DPH,R3
+   \   00002C   7409         MOV       A,#0x9
+   \   00002E   F0           MOVX      @DPTR,A
+     57              
+     58              pReportCmd->attrList[0].attrID = ATTRID_ON_OFF;
+   \   00002F   A3           INC       DPTR
+   \   000030   E4           CLR       A
+   \   000031   F0           MOVX      @DPTR,A
+   \   000032   A3           INC       DPTR
+   \   000033   12....       LCALL     ?Subroutine14 & 0xFFFF
+     59              pReportCmd->attrList[0].dataType = ZCL_DATATYPE_BOOLEAN;
+   \                     ??CrossCallReturnLabel_39:
+   \   000036   7410         MOV       A,#0x10
+   \   000038   12....       LCALL     ?Subroutine6 & 0xFFFF
+     60              pReportCmd->attrList[0].attrData = (void *)(&STATE_LIGHT);
+   \                     ??CrossCallReturnLabel_12:
+   \   00003B   74..         MOV       A,#STATE_LIGHT & 0xff
+   \   00003D   F0           MOVX      @DPTR,A
+   \   00003E   A3           INC       DPTR
+   \   00003F   74..         MOV       A,#(STATE_LIGHT >> 8) & 0xff
+   \   000041   12....       LCALL     ?Subroutine6 & 0xFFFF
+     61              
+     62              pReportCmd->attrList[1].attrID = ATTRID_CPU_TEMP;
+   \                     ??CrossCallReturnLabel_13:
+   \   000044   A3           INC       DPTR
+   \   000045   A3           INC       DPTR
+   \   000046   7491         MOV       A,#-0x6f
+   \   000048   F0           MOVX      @DPTR,A
+   \   000049   A3           INC       DPTR
+   \   00004A   74A1         MOV       A,#-0x5f
+   \   00004C   12....       LCALL     ?Subroutine4 & 0xFFFF
+     63              pReportCmd->attrList[1].dataType = ZCL_DATATYPE_SINGLE_PREC;
+   \                     ??CrossCallReturnLabel_7:
+   \   00004F   7439         MOV       A,#0x39
+   \   000051   12....       LCALL     ?Subroutine4 & 0xFFFF
+     64              pReportCmd->attrList[1].attrData = (void *)(&CPU_Temperature);
+   \                     ??CrossCallReturnLabel_8:
+   \   000054   A3           INC       DPTR
+   \   000055   74..         MOV       A,#CPU_Temperature & 0xff
+   \   000057   F0           MOVX      @DPTR,A
+   \   000058   A3           INC       DPTR
+   \   000059   74..         MOV       A,#(CPU_Temperature >> 8) & 0xff
+   \   00005B   F0           MOVX      @DPTR,A
+     65              
+     66              pReportCmd->attrList[2].attrID = ATTRID_EXT_TEMP;
+   \   00005C   EA           MOV       A,R2
+   \   00005D   240B         ADD       A,#0xb
+   \   00005F   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000062   7492         MOV       A,#-0x6e
+   \   000064   12....       LCALL     ?Subroutine3 & 0xFFFF
+     67              pReportCmd->attrList[2].dataType = ZCL_DATATYPE_SINGLE_PREC;
+   \                     ??CrossCallReturnLabel_0:
+   \   000067   240D         ADD       A,#0xd
+   \   000069   12....       LCALL     ?Subroutine5 & 0xFFFF
+     68              pReportCmd->attrList[2].attrData = (void *)(&EXT_Temperature);
+   \                     ??CrossCallReturnLabel_9:
+   \   00006C   240E         ADD       A,#0xe
+   \   00006E   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000071   74..         MOV       A,#EXT_Temperature & 0xff
+   \   000073   F0           MOVX      @DPTR,A
+   \   000074   A3           INC       DPTR
+   \   000075   74..         MOV       A,#(EXT_Temperature >> 8) & 0xff
+   \   000077   F0           MOVX      @DPTR,A
+     69              
+     70              pReportCmd->attrList[3].attrID = ATTRID_EXT_HUMI;
+   \   000078   EA           MOV       A,R2
+   \   000079   2410         ADD       A,#0x10
+   \   00007B   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   00007E   7493         MOV       A,#-0x6d
+   \   000080   12....       LCALL     ?Subroutine3 & 0xFFFF
+     71              pReportCmd->attrList[3].dataType = ZCL_DATATYPE_SINGLE_PREC;
+   \                     ??CrossCallReturnLabel_1:
+   \   000083   2412         ADD       A,#0x12
+   \   000085   12....       LCALL     ?Subroutine5 & 0xFFFF
+     72              pReportCmd->attrList[3].attrData = (void *)(&EXT_Humidity);
+   \                     ??CrossCallReturnLabel_10:
+   \   000088   2413         ADD       A,#0x13
+   \   00008A   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   00008D   74..         MOV       A,#EXT_Humidity & 0xff
+   \   00008F   F0           MOVX      @DPTR,A
+   \   000090   A3           INC       DPTR
+   \   000091   74..         MOV       A,#(EXT_Humidity >> 8) & 0xff
+   \   000093   F0           MOVX      @DPTR,A
+     73              
+     74              pReportCmd->attrList[4].attrID = ATTRID_S0_COUNTS;
+   \   000094   EA           MOV       A,R2
+   \   000095   2415         ADD       A,#0x15
+   \   000097   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   00009A   7494         MOV       A,#-0x6c
+   \   00009C   12....       LCALL     ?Subroutine3 & 0xFFFF
+     75              pReportCmd->attrList[4].dataType = ZCL_DATATYPE_UINT32;
+   \                     ??CrossCallReturnLabel_2:
+   \   00009F   2417         ADD       A,#0x17
+   \   0000A1   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   0000A4   7423         MOV       A,#0x23
+   \   0000A6   F0           MOVX      @DPTR,A
+     76              pReportCmd->attrList[4].attrData = (void *)(&S0);
+   \   0000A7   EA           MOV       A,R2
+   \   0000A8   2418         ADD       A,#0x18
+   \   0000AA   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   0000AD   74..         MOV       A,#S0 & 0xff
+   \   0000AF   F0           MOVX      @DPTR,A
+   \   0000B0   A3           INC       DPTR
+   \   0000B1   74..         MOV       A,#(S0 >> 8) & 0xff
+   \   0000B3   F0           MOVX      @DPTR,A
+     77              
+     78              pReportCmd->attrList[5].attrID = ATTRID_ADC_VOLT;
+   \   0000B4   EA           MOV       A,R2
+   \   0000B5   241A         ADD       A,#0x1a
+   \   0000B7   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   0000BA   7495         MOV       A,#-0x6b
+   \   0000BC   12....       LCALL     ?Subroutine3 & 0xFFFF
+     79              pReportCmd->attrList[5].dataType = ZCL_DATATYPE_SINGLE_PREC;
+   \                     ??CrossCallReturnLabel_3:
+   \   0000BF   241C         ADD       A,#0x1c
+   \   0000C1   12....       LCALL     ?Subroutine5 & 0xFFFF
+     80              pReportCmd->attrList[5].attrData = (void *)(&ADC_Voltage);
+   \                     ??CrossCallReturnLabel_11:
+   \   0000C4   241D         ADD       A,#0x1d
+   \   0000C6   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   0000C9   74..         MOV       A,#ADC_Voltage & 0xff
+   \   0000CB   F0           MOVX      @DPTR,A
+   \   0000CC   A3           INC       DPTR
+   \   0000CD   74..         MOV       A,#(ADC_Voltage >> 8) & 0xff
+   \   0000CF   F0           MOVX      @DPTR,A
+     81              
+     82              pReportCmd->attrList[6].attrID = ATTRID_DIG_INPUT;
+   \   0000D0   EA           MOV       A,R2
+   \   0000D1   241F         ADD       A,#0x1f
+   \   0000D3   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   0000D6   7496         MOV       A,#-0x6a
+   \   0000D8   12....       LCALL     ?Subroutine3 & 0xFFFF
+     83              pReportCmd->attrList[6].dataType = ZCL_DATATYPE_UINT16; // boolean or uint8 causes every second report to hang...
+   \                     ??CrossCallReturnLabel_4:
+   \   0000DB   2421         ADD       A,#0x21
+   \   0000DD   12....       LCALL     ?Subroutine7 & 0xFFFF
+     84              pReportCmd->attrList[6].attrData = (void *)(&DIG_IN);
+   \                     ??CrossCallReturnLabel_14:
+   \   0000E0   2422         ADD       A,#0x22
+   \   0000E2   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   0000E5   74..         MOV       A,#DIG_IN & 0xff
+   \   0000E7   F0           MOVX      @DPTR,A
+   \   0000E8   A3           INC       DPTR
+   \   0000E9   74..         MOV       A,#(DIG_IN >> 8) & 0xff
+   \   0000EB   F0           MOVX      @DPTR,A
+     85          
+     86              pReportCmd->attrList[7].attrID = ATTRID_REPORT_REASON;
+   \   0000EC   EA           MOV       A,R2
+   \   0000ED   2424         ADD       A,#0x24
+   \   0000EF   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   0000F2   7497         MOV       A,#-0x69
+   \   0000F4   12....       LCALL     ?Subroutine3 & 0xFFFF
+     87              pReportCmd->attrList[7].dataType = ZCL_DATATYPE_UINT16;
+   \                     ??CrossCallReturnLabel_5:
+   \   0000F7   2426         ADD       A,#0x26
+   \   0000F9   12....       LCALL     ?Subroutine7 & 0xFFFF
+     88              pReportCmd->attrList[7].attrData = (void *)(&REPORT_REASON);
+   \                     ??CrossCallReturnLabel_15:
+   \   0000FC   2427         ADD       A,#0x27
+   \   0000FE   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   000101   E5..         MOV       A,?XSP + 0
+   \   000103   F0           MOVX      @DPTR,A
+   \   000104   A3           INC       DPTR
+   \   000105   E5..         MOV       A,?XSP + 1
+   \   000107   F0           MOVX      @DPTR,A
+     89           
+     90              pReportCmd->attrList[8].attrID = ATTRID_EXT_TEMPS;
+   \   000108   EA           MOV       A,R2
+   \   000109   2429         ADD       A,#0x29
+   \   00010B   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_29:
+   \   00010E   7498         MOV       A,#-0x68
+   \   000110   12....       LCALL     ?Subroutine3 & 0xFFFF
+     91              pReportCmd->attrList[8].dataType = ZCL_DATATYPE_CHAR_STR;
+   \                     ??CrossCallReturnLabel_6:
+   \   000113   242B         ADD       A,#0x2b
+   \   000115   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   000118   7442         MOV       A,#0x42
+   \   00011A   F0           MOVX      @DPTR,A
+     92              pReportCmd->attrList[8].attrData = (void *)(&EXT_Temperature_string);
+   \   00011B   EA           MOV       A,R2
+   \   00011C   242C         ADD       A,#0x2c
+   \   00011E   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000121   74..         MOV       A,#EXT_Temperature_string & 0xff
+   \   000123   F0           MOVX      @DPTR,A
+   \   000124   A3           INC       DPTR
+   \   000125   74..         MOV       A,#(EXT_Temperature_string >> 8) & 0xff
+   \   000127   F0           MOVX      @DPTR,A
+     93             
+     94                
+     95              zclZigUP_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+   \   000128   90....       MOV       DPTR,#zclZigUP_DstAddr + 8
+   \   00012B   7402         MOV       A,#0x2
+   \   00012D   F0           MOVX      @DPTR,A
+     96              zclZigUP_DstAddr.addr.shortAddr = 0;
+   \   00012E   90....       MOV       DPTR,#zclZigUP_DstAddr
+   \   000131   E4           CLR       A
+   \   000132   F0           MOVX      @DPTR,A
+   \   000133   A3           INC       DPTR
+   \   000134   F0           MOVX      @DPTR,A
+     97              zclZigUP_DstAddr.endPoint=1;
+   \   000135   90....       MOV       DPTR,#zclZigUP_DstAddr + 9
+   \   000138   04           INC       A
+   \   000139   F0           MOVX      @DPTR,A
+     98              
+     99              zcl_SendReportCmd( ZIGUP_ENDPOINT, &zclZigUP_DstAddr, ZCL_CLUSTER_ID_GEN_ON_OFF, pReportCmd, ZCL_FRAME_CLIENT_SERVER_DIR, false, zclZigUPSeqNum++ );
+   \   00013A   90....       MOV       DPTR,#zclZigUPSeqNum
+   \   00013D   12....       LCALL     ??Subroutine15_0 & 0xFFFF
+    100            }
+   \                     ??CrossCallReturnLabel_41:
+   \   000140   2401         ADD       A,#0x1
+   \   000142   FA           MOV       R2,A
+   \   000143   E4           CLR       A
+   \   000144   39           ADDC      A,R1
+   \   000145   FB           MOV       R3,A
+   \   000146   90....       MOV       DPTR,#zclZigUPSeqNum
+   \   000149   EA           MOV       A,R2
+   \   00014A   F0           MOVX      @DPTR,A
+   \   00014B   A3           INC       DPTR
+   \   00014C   EB           MOV       A,R3
+   \   00014D   F0           MOVX      @DPTR,A
+   \   00014E                ; Setup parameters for call to function zcl_SendReportCmd
+   \   00014E   E8           MOV       A,R0
+   \   00014F   F5..         MOV       ?V2,A
+   \   000151   78..         MOV       R0,#?V2
+   \   000153   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000156   75..00       MOV       ?V2,#0x0
+   \   000159   78..         MOV       R0,#?V2
+   \   00015B   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00015E   78..         MOV       R0,#?V2
+   \   000160   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000163   78..         MOV       R0,#?V0
+   \   000165   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000168   7C06         MOV       R4,#0x6
+   \   00016A   7D00         MOV       R5,#0x0
+   \   00016C   7A..         MOV       R2,#zclZigUP_DstAddr & 0xff
+   \   00016E   7B..         MOV       R3,#(zclZigUP_DstAddr >> 8) & 0xff
+   \   000170   7908         MOV       R1,#0x8
+   \   000172   12....       LCALL     `??zcl_SendReportCmd::?relay`; Banked call to: zcl_SendReportCmd
+   \   000175   7405         MOV       A,#0x5
+   \   000177   12....       LCALL     ?DEALLOC_XSTACK8
+    101            
+    102            osal_mem_free( pReportCmd );
+   \                     ??zclZigUP_Reporting_0:
+   \   00017A                ; Setup parameters for call to function osal_mem_free
+   \   00017A   AA..         MOV       R2,?V0
+   \   00017C   AB..         MOV       R3,?V1
+   \   00017E   12....       LCALL     `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+    103          }
+   \   000181   7402         MOV       A,#0x2
+   \   000183   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000186                REQUIRE ?Subroutine0
+   \   000186                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F04         MOV       R7,#0x4
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   F582         MOV       DPL,A
+   \   000002   E4           CLR       A
+   \   000003   35..         ADDC      A,?V1
+   \   000005   F583         MOV       DPH,A
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   F582         MOV       DPL,A
+   \   000002   E4           CLR       A
+   \   000003   35..         ADDC      A,?V1
+   \   000005   F583         MOV       DPH,A
+   \   000007   7421         MOV       A,#0x21
+   \   000009   F0           MOVX      @DPTR,A
+   \   00000A   EA           MOV       A,R2
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL     ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   12....       LCALL     ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   000003   A3           INC       DPTR
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   8A82         MOV       DPL,R2
+   \   000003   8B83         MOV       DPH,R3
+   \   000005   A3           INC       DPTR
+   \   000006   A3           INC       DPTR
+   \   000007   A3           INC       DPTR
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   F582         MOV       DPL,A
+   \   000002   E4           CLR       A
+   \   000003   35..         ADDC      A,?V1
+   \   000005   F583         MOV       DPH,A
+   \   000007   7439         MOV       A,#0x39
+   \   000009   F0           MOVX      @DPTR,A
+   \   00000A   EA           MOV       A,R2
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL     ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   000003   A3           INC       DPTR
+   \   000004   A3           INC       DPTR
+   \   000005   A3           INC       DPTR
+   \   000006   A3           INC       DPTR
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   A3           INC       DPTR
+   \   000002   74A1         MOV       A,#-0x5f
+   \   000004   F0           MOVX      @DPTR,A
+   \   000005   EA           MOV       A,R2
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine15_0:
+   \   000000   12....       LCALL     ??Subroutine16_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_47:
+   \   000003   E8           MOV       A,R0
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine16_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F9           MOV       R1,A
+   \   000005   22           RET
+    104          
+    105          
+    106          /*********************************************************************
+    107          * ZCL General Profile Callback table
+    108          */
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    109          static zclGeneral_AppCallbacks_t zclZigUP_CmdCallbacks =
+   \                     zclZigUP_CmdCallbacks:
+   \   000000                DS 28
+   \   00001C                REQUIRE `?<Initializer for zclZigUP_CmdCallbacks>`
+   \   00001C                REQUIRE __INIT_XDATA_I
+    110          {
+    111            zclZigUP_BasicResetCB,                  // Basic Cluster Reset command
+    112            zclZigUP_IdentifyCB,                    // Identify command
+    113            NULL,                                   // Identify Trigger Effect command
+    114            zclZigUP_IdentifyQueryRspCB,            // Identify Query Response command
+    115            zclZigUP_OnOffCB,                       // On/Off cluster commands
+    116            NULL,                                   // On/Off cluster enhanced command Off with Effect
+    117            NULL,                                   // On/Off cluster enhanced command On with Recall Global Scene
+    118            NULL,                                   // On/Off cluster enhanced command On with Timed Off
+    119          #ifdef ZCL_GROUPS
+    120            NULL,                                   // Group Response commands
+    121          #endif
+    122          #ifdef ZCL_SCENES
+    123            NULL,                                   // Scene Store Request command
+    124            NULL,                                   // Scene Recall Request command
+    125            NULL,                                   // Scene Response command
+    126          #endif
+    127          #ifdef ZCL_ALARMS
+    128            NULL,                                   // Alarm (Response) commands
+    129          #endif
+    130          #ifdef SE_UK_EXT
+    131            NULL,                                   // Get Event Log command
+    132            NULL,                                   // Publish Event Log command
+    133          #endif
+    134            NULL,                                   // RSSI Location command
+    135            NULL                                    // RSSI Location Response command
+    136          };
+    137          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    138          static zclLighting_AppCallbacks_t zclZigUP_LightingCmdCBs =
+   \                     zclZigUP_LightingCmdCBs:
+   \   000000                DS 34
+   \   000022                REQUIRE `?<Initializer for zclZigUP_LightingCmdCBs>`
+   \   000022                REQUIRE __INIT_XDATA_I
+    139          {
+    140            NULL,                         // Move To Hue Command
+    141            NULL,                         // Move Hue Command
+    142            NULL,                         // Step Hue Command
+    143            NULL,                         // Move To Saturation Command
+    144            NULL,                         // Move Saturation Command
+    145            NULL,                         // Step Saturation Command
+    146            NULL,                         // Move To Hue And Saturation  Command
+    147            zclZigUP_MoveToColorCB,       // Move To Color Command
+    148            NULL,                         // Move Color Command
+    149            NULL,                         // STEP To Color Command
+    150            NULL,                         // Move To Color Temperature Command
+    151            NULL,                         // Enhanced Move To Hue
+    152            NULL,                         // Enhanced Move Hue;
+    153            NULL,                         // Enhanced Step Hue;
+    154            NULL,                         // Enhanced Move To Hue And Saturation;
+    155            NULL,                         // Color Loop Set Command
+    156            NULL,                         // Stop Move Step;
+    157          };
+    158          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    159          static zclClosures_DoorLockAppCallbacks_t zclZigUP_DoorLockCmdCallbacks =
+   \                     zclZigUP_DoorLockCmdCallbacks:
+   \   000000                DS 100
+   \   000064                REQUIRE `?<Initializer for zclZigUP_DoorLockCmdCallback`
+   \   000064                REQUIRE __INIT_XDATA_I
+    160          {
+    161            zclZigUP_DoorLockCB,                           // DoorLock cluster command
+    162            zclZigUP_DoorLockRspCB,                        // DoorLock Response
+    163            NULL,
+    164            NULL,
+    165            NULL,
+    166            NULL,
+    167            NULL,
+    168            NULL,
+    169            NULL,
+    170            NULL,
+    171            NULL,
+    172            NULL,
+    173            NULL,
+    174            NULL,
+    175            NULL,
+    176            NULL,
+    177            NULL,
+    178            NULL,
+    179            NULL,
+    180            NULL,
+    181            NULL,
+    182            NULL,
+    183            NULL,
+    184            NULL,
+    185            NULL,
+    186            NULL,
+    187            NULL,
+    188            NULL,
+    189            NULL,
+    190            NULL,
+    191            NULL,
+    192            NULL,
+    193            NULL,
+    194            NULL,
+    195            NULL,
+    196            NULL,
+    197            NULL,
+    198            NULL,
+    199            NULL,
+    200            NULL,
+    201            NULL,
+    202            NULL,
+    203            NULL,
+    204            NULL,
+    205            NULL,
+    206            NULL,
+    207            NULL,
+    208            NULL,
+    209            NULL,
+    210            NULL
+    211          };
+    212          
+    213          
+    214          /*********************************************************************
+    215          * @fn          zclZigUP_Init
+    216          *
+    217          * @brief       Initialization function for the zclGeneral layer.
+    218          *
+    219          * @param       none
+    220          *
+    221          * @return      none
+    222          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    223          void zclZigUP_Init( byte task_id )
+   \                     zclZigUP_Init:
+    224          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+    225            //  BindRestoreFromNV();
+    226            zclZigUP_TaskID = task_id;
+   \   000006   90....       MOV       DPTR,#zclZigUP_TaskID
+   \   000009   F0           MOVX      @DPTR,A
+    227            
+    228            // Set destination address to indirect
+    229            zclZigUP_DstAddr.addrMode = (afAddrMode_t)AddrNotPresent;
+   \   00000A   90....       MOV       DPTR,#zclZigUP_DstAddr + 8
+   \   00000D   E4           CLR       A
+   \   00000E   F0           MOVX      @DPTR,A
+    230            zclZigUP_DstAddr.endPoint = 0;
+   \   00000F   A3           INC       DPTR
+   \   000010   F0           MOVX      @DPTR,A
+    231            zclZigUP_DstAddr.addr.shortAddr = 0;
+   \   000011   90....       MOV       DPTR,#zclZigUP_DstAddr
+   \   000014   F0           MOVX      @DPTR,A
+   \   000015   A3           INC       DPTR
+   \   000016   F0           MOVX      @DPTR,A
+    232            
+    233            // This app is part of the Home Automation Profile
+    234            zclHA_Init( &zclZigUP_SimpleDesc[0] );
+   \   000017                ; Setup parameters for call to function zclHA_Init
+   \   000017   7A..         MOV       R2,#zclZigUP_SimpleDesc & 0xff
+   \   000019   7B..         MOV       R3,#(zclZigUP_SimpleDesc >> 8) & 0xff
+   \   00001B   12....       LCALL     `??zclHA_Init::?relay`; Banked call to: zclHA_Init
+    235            
+    236            // Register the ZCL General Cluster Library callback functions
+    237            zclGeneral_RegisterCmdCallbacks( ZIGUP_ENDPOINT, &zclZigUP_CmdCallbacks );
+   \   00001E                ; Setup parameters for call to function zclGeneral_RegisterCmdCallbacks
+   \   00001E   7A..         MOV       R2,#zclZigUP_CmdCallbacks & 0xff
+   \   000020   7B..         MOV       R3,#(zclZigUP_CmdCallbacks >> 8) & 0xff
+   \   000022   7908         MOV       R1,#0x8
+   \   000024   12....       LCALL     `??zclGeneral_RegisterCmdCallbacks::?relay`; Banked call to: zclGeneral_RegisterCmdCallbacks
+    238          
+    239            // Register the ZCL Lighting Cluster Library callback functions
+    240            zclLighting_RegisterCmdCallbacks( ZIGUP_ENDPOINT, &zclZigUP_LightingCmdCBs );
+   \   000027                ; Setup parameters for call to function zclLighting_RegisterCmdCallbacks
+   \   000027   7A..         MOV       R2,#zclZigUP_LightingCmdCBs & 0xff
+   \   000029   7B..         MOV       R3,#(zclZigUP_LightingCmdCBs >> 8) & 0xff
+   \   00002B   7908         MOV       R1,#0x8
+   \   00002D   12....       LCALL     `??zclLighting_RegisterCmdCallbacks::?relay`; Banked call to: zclLighting_RegisterCmdCallbacks
+    241          
+    242            // Register the ZCL DoorLock Cluster Library callback function
+    243            zclClosures_RegisterDoorLockCmdCallbacks( ZIGUP_ENDPOINT, &zclZigUP_DoorLockCmdCallbacks );
+   \   000030                ; Setup parameters for call to function zclClosures_RegisterDoorLockCmdCallbacks
+   \   000030   7A..         MOV       R2,#zclZigUP_DoorLockCmdCallbacks & 0xff
+   \   000032   7B..         MOV       R3,#(zclZigUP_DoorLockCmdCallbacks >> 8) & 0xff
+   \   000034   7908         MOV       R1,#0x8
+   \   000036   12....       LCALL     `??zclClosures_RegisterDoorLockCmdCallbacks::?re`; Banked call to: zclClosures_RegisterDoorLockCmdCallbacks
+    244            
+    245            // Register the application's attribute list
+    246            zcl_registerAttrList( ZIGUP_ENDPOINT, zclZigUP_NumAttributes, zclZigUP_Attrs );
+   \   000039                ; Setup parameters for call to function zcl_registerAttrList
+   \   000039   7C..         MOV       R4,#zclZigUP_Attrs & 0xff
+   \   00003B   7D..         MOV       R5,#(zclZigUP_Attrs >> 8) & 0xff
+   \   00003D   90....       MOV       DPTR,#zclZigUP_NumAttributes
+   \   000040   E4           CLR       A
+   \   000041   93           MOVC      A,@A+DPTR
+   \   000042   FA           MOV       R2,A
+   \   000043   7908         MOV       R1,#0x8
+   \   000045   12....       LCALL     `??zcl_registerAttrList::?relay`; Banked call to: zcl_registerAttrList
+    247            
+    248            // Register the Application to receive the unprocessed Foundation command/response messages
+    249            zcl_registerForMsg( zclZigUP_TaskID );
+   \   000048                ; Setup parameters for call to function zcl_registerForMsg
+   \   000048   90....       MOV       DPTR,#zclZigUP_TaskID
+   \   00004B   E0           MOVX      A,@DPTR
+   \   00004C   F9           MOV       R1,A
+   \   00004D   12....       LCALL     `??zcl_registerForMsg::?relay`; Banked call to: zcl_registerForMsg
+    250            
+    251          #ifdef ZCL_DISCOVER
+    252            // Register the application's command list
+    253            zcl_registerCmdList( ZIGUP_ENDPOINT, zclCmdsArraySize, zclZigUP_Cmds );
+    254          #endif
+    255            
+    256            // Register for all key events - This app will handle all key events
+    257            RegisterForKeys( zclZigUP_TaskID );
+   \   000050                ; Setup parameters for call to function RegisterForKeys
+   \   000050   90....       MOV       DPTR,#zclZigUP_TaskID
+   \   000053   E0           MOVX      A,@DPTR
+   \   000054   F9           MOV       R1,A
+   \   000055   12....       LCALL     `??RegisterForKeys::?relay`; Banked call to: RegisterForKeys
+    258            
+    259            // Register for a test endpoint
+    260            afRegister( &ZigUP_TestEp );
+   \   000058                ; Setup parameters for call to function afRegister
+   \   000058   7A..         MOV       R2,#ZigUP_TestEp & 0xff
+   \   00005A   7B..         MOV       R3,#(ZigUP_TestEp >> 8) & 0xff
+   \   00005C   12....       LCALL     `??afRegister::?relay`; Banked call to: afRegister
+    261            
+    262          #ifdef ZCL_DIAGNOSTIC
+    263            // Register the application's callback function to read/write attribute data.
+    264            // This is only required when the attribute data format is unknown to ZCL.
+    265            zcl_registerReadWriteCB( ZIGUP_ENDPOINT, zclDiagnostic_ReadWriteAttrCB, NULL );
+   \   00005F                ; Setup parameters for call to function zcl_registerReadWriteCB
+   \   00005F   7C00         MOV       R4,#0x0
+   \   000061   7D00         MOV       R5,#0x0
+   \   000063   7A..         MOV       R2,#`??zclDiagnostic_ReadWriteAttrCB::?relay` & 0xff
+   \   000065   7B..         MOV       R3,#(`??zclDiagnostic_ReadWriteAttrCB::?relay` >> 8) & 0xff
+   \   000067   7908         MOV       R1,#0x8
+   \   000069   12....       LCALL     `??zcl_registerReadWriteCB::?relay`; Banked call to: zcl_registerReadWriteCB
+    266            
+    267            if ( zclDiagnostic_InitStats() == ZSuccess )
+   \   00006C                ; Setup parameters for call to function zclDiagnostic_InitStats
+   \   00006C   12....       LCALL     `??zclDiagnostic_InitStats::?relay`; Banked call to: zclDiagnostic_InitStats
+    268            {
+    269              // Here the user could start the timer to save Diagnostics to NV
+    270            }
+    271          #endif
+    272          
+    273            sysInit();
+   \   00006F                ; Setup parameters for call to function sysInit
+   \   00006F   12....       LCALL     `??sysInit::?relay`; Banked call to: sysInit
+    274            
+    275            _delay_ms(GetRandomNumber()); // Random delay
+   \   000072                ; Setup parameters for call to function GetRandomNumber
+   \   000072   12....       LCALL     `??GetRandomNumber::?relay`; Banked call to: GetRandomNumber
+   \   000075   E9           MOV       A,R1
+   \   000076                ; Setup parameters for call to function _delay_ms
+   \   000076   FA           MOV       R2,A
+   \   000077   7B00         MOV       R3,#0x0
+   \   000079   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+    276            //osal_start_reload_timer( zclZigUP_TaskID, ZIGUP_REPORTING_EVT, ZIGUP_REPORTING_INTERVAL);
+    277          }
+   \   00007C   7F01         MOV       R7,#0x1
+   \   00007E   02....       LJMP      ?BANKED_LEAVE_XDATA
+    278          
+    279          /*********************************************************************
+    280          * @fn          zclSample_event_loop
+    281          *
+    282          * @brief       Event Loop Processor for zclGeneral.
+    283          *
+    284          * @param       none
+    285          *
+    286          * @return      none
+    287          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    288          uint16 zclZigUP_event_loop( uint8 task_id, uint16 events )
+   \                     zclZigUP_event_loop:
+    289          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+    290            afIncomingMSGPacket_t *MSGpkt;
+    291            int res = 0;
+                       ^
+Warning[Pe177]: variable "res" was declared but never referenced
+    292            
+    293            (void)task_id;  // Intentionally unreferenced parameter
+    294            
+    295            if ( events & SYS_EVENT_MSG )
+   \   000009   5480         ANL       A,#0x80
+   \   00000B   7031         JNZ       ??zclZigUP_event_loop_0
+    296            {
+    297              while ( (MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( zclZigUP_TaskID )) )
+    298              {
+    299                switch ( MSGpkt->hdr.event )
+    300                {
+    301                case ZCL_INCOMING_MSG:
+    302                  // Incoming ZCL Foundation command/response messages
+    303                  zclZigUP_ProcessIncomingMsg( (zclIncomingMsg_t *)MSGpkt );
+    304                  break;
+    305                  
+    306                case ZDO_STATE_CHANGE:
+    307                  zclZigUP_NwkState = (devStates_t)(MSGpkt->hdr.status);
+    308                  
+    309                  // now on the network
+    310                  if ( (zclZigUP_NwkState == DEV_ZB_COORD) || (zclZigUP_NwkState == DEV_ROUTER) || (zclZigUP_NwkState == DEV_END_DEVICE) )
+    311                  {
+    312                    // now on network
+    313                  }
+    314                  break;
+    315                  
+    316                default:
+    317                  break;
+    318                }
+    319                
+    320                // Release the memory
+    321                osal_msg_deallocate( (uint8 *)MSGpkt );
+    322              }
+    323              
+    324              // return unprocessed events
+    325              return (events ^ SYS_EVENT_MSG);
+    326            }
+    327            
+    328            if ( events & ZIGUP_IDENTIFY_TIMEOUT_EVT )
+   \   00000D   EE           MOV       A,R6
+   \   00000E   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000010   4003         JC        $+5
+   \   000012   02....       LJMP      ??zclZigUP_event_loop_1 & 0xFFFF
+    329            {
+    330              if ( zclZigUP_IdentifyTime > 0 ) zclZigUP_IdentifyTime--;
+   \   000015   12....       LCALL     ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   000018   49           ORL       A,R1
+   \   000019   600C         JZ        ??zclZigUP_event_loop_2
+   \   00001B   90....       MOV       DPTR,#zclZigUP_IdentifyTime
+   \   00001E   E0           MOVX      A,@DPTR
+   \   00001F   24FF         ADD       A,#-0x1
+   \   000021   F0           MOVX      @DPTR,A
+   \   000022   A3           INC       DPTR
+   \   000023   E0           MOVX      A,@DPTR
+   \   000024   34FF         ADDC      A,#-0x1
+   \   000026   F0           MOVX      @DPTR,A
+    331              zclZigUP_ProcessIdentifyTimeChange();
+   \                     ??zclZigUP_event_loop_2:
+   \   000027                ; Setup parameters for call to function zclZigUP_ProcessIdentifyTimeChange
+   \   000027   12....       LCALL     `??zclZigUP_ProcessIdentifyTimeChange::?relay`; Banked call to: zclZigUP_ProcessIdentifyTimeChange
+    332              
+    333              return ( events ^ ZIGUP_IDENTIFY_TIMEOUT_EVT );
+   \   00002A   EE           MOV       A,R6
+   \   00002B   6401         XRL       A,#0x1
+   \   00002D   FA           MOV       R2,A
+   \   00002E   EF           MOV       A,R7
+   \   00002F   8079         SJMP      ??zclZigUP_event_loop_3
+    334            }
+   \                     ??zclZigUP_event_loop_4:
+   \   000031   A3           INC       DPTR
+   \   000032   E0           MOVX      A,@DPTR
+   \   000033   90....       MOV       DPTR,#zclZigUP_NwkState
+   \   000036   F0           MOVX      @DPTR,A
+   \                     ??zclZigUP_event_loop_5:
+   \   000037                ; Setup parameters for call to function osal_msg_deallocate
+   \   000037   AA..         MOV       R2,?V0
+   \   000039   AB..         MOV       R3,?V1
+   \   00003B   12....       LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+   \                     ??zclZigUP_event_loop_0:
+   \   00003E                ; Setup parameters for call to function osal_msg_receive
+   \   00003E   90....       MOV       DPTR,#zclZigUP_TaskID
+   \   000041   E0           MOVX      A,@DPTR
+   \   000042   F9           MOV       R1,A
+   \   000043   12....       LCALL     `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+   \   000046   8A..         MOV       ?V0,R2
+   \   000048   8B..         MOV       ?V1,R3
+   \   00004A   EA           MOV       A,R2
+   \   00004B   45..         ORL       A,?V1
+   \   00004D   6056         JZ        ??zclZigUP_event_loop_6
+   \   00004F   8A82         MOV       DPL,R2
+   \   000051   8B83         MOV       DPH,R3
+   \   000053   E0           MOVX      A,@DPTR
+   \   000054   24CC         ADD       A,#-0x34
+   \   000056   6006         JZ        ??zclZigUP_event_loop_7
+   \   000058   2463         ADD       A,#0x63
+   \   00005A   60D5         JZ        ??zclZigUP_event_loop_4
+   \   00005C   80D9         SJMP      ??zclZigUP_event_loop_5
+   \                     ??zclZigUP_event_loop_7:
+   \   00005E   EA           MOV       A,R2
+   \   00005F   2417         ADD       A,#0x17
+   \   000061   F8           MOV       R0,A
+   \   000062   E4           CLR       A
+   \   000063   35..         ADDC      A,?V1
+   \   000065   F9           MOV       R1,A
+   \   000066   E8           MOV       A,R0
+   \   000067   FA           MOV       R2,A
+   \   000068   E9           MOV       A,R1
+   \   000069   FB           MOV       R3,A
+   \   00006A   A3           INC       DPTR
+   \   00006B   A3           INC       DPTR
+   \   00006C   A3           INC       DPTR
+   \   00006D   A3           INC       DPTR
+   \   00006E   A3           INC       DPTR
+   \   00006F   A3           INC       DPTR
+   \   000070   A3           INC       DPTR
+   \   000071   E0           MOVX      A,@DPTR
+   \   000072   14           DEC       A
+   \   000073   6011         JZ        ??zclZigUP_event_loop_8
+   \   000075   24FD         ADD       A,#-0x3
+   \   000077   701A         JNZ       ??zclZigUP_event_loop_9
+   \   000079   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   00007C   E0           MOVX      A,@DPTR
+   \   00007D   F9           MOV       R1,A
+   \   00007E   E8           MOV       A,R0
+   \   00007F   C3           CLR       C
+   \   000080   99           SUBB      A,R1
+   \   000081   5010         JNC       ??zclZigUP_event_loop_9
+   \   000083   08           INC       R0
+   \   000084   80F6         SJMP      ??CrossCallReturnLabel_35
+   \                     ??zclZigUP_event_loop_8:
+   \   000086   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   000089   8001         SJMP      ??zclZigUP_event_loop_10
+   \                     ??zclZigUP_event_loop_11:
+   \   00008B   08           INC       R0
+   \                     ??zclZigUP_event_loop_10:
+   \   00008C   E0           MOVX      A,@DPTR
+   \   00008D   F9           MOV       R1,A
+   \   00008E   E8           MOV       A,R0
+   \   00008F   C3           CLR       C
+   \   000090   99           SUBB      A,R1
+   \   000091   40F8         JC        ??zclZigUP_event_loop_11
+   \                     ??zclZigUP_event_loop_9:
+   \   000093   8A82         MOV       DPL,R2
+   \   000095   8B83         MOV       DPH,R3
+   \   000097   E0           MOVX      A,@DPTR
+   \   000098   FA           MOV       R2,A
+   \   000099   A3           INC       DPTR
+   \   00009A   E0           MOVX      A,@DPTR
+   \   00009B   FB           MOV       R3,A
+   \   00009C   EA           MOV       A,R2
+   \   00009D   4B           ORL       A,R3
+   \   00009E   6097         JZ        ??zclZigUP_event_loop_5
+   \   0000A0                ; Setup parameters for call to function osal_mem_free
+   \   0000A0   12....       LCALL     `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+   \   0000A3   8092         SJMP      ??zclZigUP_event_loop_5
+   \                     ??zclZigUP_event_loop_6:
+   \   0000A5   EE           MOV       A,R6
+   \   0000A6   FA           MOV       R2,A
+   \   0000A7   EF           MOV       A,R7
+   \   0000A8   6480         XRL       A,#0x80
+   \                     ??zclZigUP_event_loop_3:
+   \   0000AA   FB           MOV       R3,A
+   \   0000AB   800E         SJMP      ??zclZigUP_event_loop_12
+    335            
+    336            if ( events & ZIGUP_REPORTING_EVT )
+   \                     ??zclZigUP_event_loop_1:
+   \   0000AD   5402         ANL       A,#0x2
+   \   0000AF   6006         JZ        ??zclZigUP_event_loop_13
+    337            {
+    338              //Measure_QuickStuff();
+    339              //Measure_Sensor();
+    340                
+    341              return ( events ^ ZIGUP_REPORTING_EVT );
+   \   0000B1   EE           MOV       A,R6
+   \   0000B2   6402         XRL       A,#0x2
+   \   0000B4   FA           MOV       R2,A
+   \   0000B5   8004         SJMP      ??zclZigUP_event_loop_12
+    342            }    
+    343            
+    344            // Discard unknown events
+    345            return 0;
+   \                     ??zclZigUP_event_loop_13:
+   \   0000B7   7A00         MOV       R2,#0x0
+   \   0000B9   7B00         MOV       R3,#0x0
+   \                     ??zclZigUP_event_loop_12:
+   \   0000BB   02....       LJMP      ?Subroutine0 & 0xFFFF
+    346          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   90....       MOV       DPTR,#zclZigUP_IdentifyTime
+   \   000003                REQUIRE ??Subroutine15_0
+   \   000003                ; // Fall through to label ??Subroutine15_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   8A82         MOV       DPL,R2
+   \   000002   8B83         MOV       DPH,R3
+   \   000004   12....       LCALL     ??Subroutine16_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   000007   8882         MOV       DPL,R0
+   \   000009   8983         MOV       DPH,R1
+   \   00000B   7800         MOV       R0,#0x0
+   \   00000D   22           RET
+    347          
+    348          /*********************************************************************
+    349          * @fn      zclZigUP_ProcessIdentifyTimeChange
+    350          *
+    351          * @brief   Called to process any change to the IdentifyTime attribute.
+    352          *
+    353          * @param   none
+    354          *
+    355          * @return  none
+    356          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    357          static void zclZigUP_ProcessIdentifyTimeChange( void )
+   \                     zclZigUP_ProcessIdentifyTimeChange:
+    358          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    359            if ( zclZigUP_IdentifyTime > 0 )
+   \   000004   12....       LCALL     ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   000007   49           ORL       A,R1
+   \   000008   6019         JZ        ??zclZigUP_ProcessIdentifyTimeChange_0
+    360            {
+    361              osal_start_timerEx( zclZigUP_TaskID, ZIGUP_IDENTIFY_TIMEOUT_EVT, 1000 );
+   \   00000A                ; Setup parameters for call to function osal_start_timerEx
+   \   00000A   90....       MOV       DPTR,#__Constant_3e8
+   \   00000D   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000010   7A01         MOV       R2,#0x1
+   \   000012   7B00         MOV       R3,#0x0
+   \   000014   90....       MOV       DPTR,#zclZigUP_TaskID
+   \   000017   E0           MOVX      A,@DPTR
+   \   000018   F9           MOV       R1,A
+   \   000019   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   00001C   7404         MOV       A,#0x4
+   \   00001E   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000021   800C         SJMP      ??zclZigUP_ProcessIdentifyTimeChange_1
+    362          //    HalLedBlink ( HAL_LED_4, 0xFF, HAL_LED_DEFAULT_DUTY_CYCLE, HAL_LED_DEFAULT_FLASH_TIME );
+    363            }
+    364            else
+    365            {
+    366              osal_stop_timerEx( zclZigUP_TaskID, ZIGUP_IDENTIFY_TIMEOUT_EVT );
+   \                     ??zclZigUP_ProcessIdentifyTimeChange_0:
+   \   000023                ; Setup parameters for call to function osal_stop_timerEx
+   \   000023   7A01         MOV       R2,#0x1
+   \   000025   7B00         MOV       R3,#0x0
+   \   000027   90....       MOV       DPTR,#zclZigUP_TaskID
+   \   00002A   E0           MOVX      A,@DPTR
+   \   00002B   F9           MOV       R1,A
+   \   00002C   12....       LCALL     `??osal_stop_timerEx::?relay`; Banked call to: osal_stop_timerEx
+    367            }
+    368          }
+   \                     ??zclZigUP_ProcessIdentifyTimeChange_1:
+   \   00002F                REQUIRE ?Subroutine1
+   \   00002F                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+    369          
+    370          /*********************************************************************
+    371          * @fn      zclZigUP_BasicResetCB
+    372          *
+    373          * @brief   Callback from the ZCL General Cluster Library
+    374          *          to set all the Basic Cluster attributes to default values.
+    375          *
+    376          * @param   none
+    377          *
+    378          * @return  none
+    379          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    380          static void zclZigUP_BasicResetCB( void )
+   \                     zclZigUP_BasicResetCB:
+    381          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 5
+   \   000004   74FB         MOV       A,#-0x5
+   \   000006   12....       LCALL     ?ALLOC_XSTACK8
+    382            NLME_LeaveReq_t leaveReq;
+    383            // Set every field to 0
+    384            osal_memset( &leaveReq, 0, sizeof( NLME_LeaveReq_t ) );
+   \   000009                ; Setup parameters for call to function osal_memset
+   \   000009   7C05         MOV       R4,#0x5
+   \   00000B   7D00         MOV       R5,#0x0
+   \   00000D   7900         MOV       R1,#0x0
+   \   00000F   AA..         MOV       R2,?XSP + 0
+   \   000011   AB..         MOV       R3,?XSP + 1
+   \   000013   12....       LCALL     `??osal_memset::?relay`; Banked call to: osal_memset
+    385            
+    386            // This will enable the device to rejoin the network after reset.
+    387            leaveReq.rejoin = TRUE;
+   \   000016   7403         MOV       A,#0x3
+   \   000018   12....       LCALL     ?XSTACK_DISP0_8
+   \   00001B   7401         MOV       A,#0x1
+   \   00001D   F0           MOVX      @DPTR,A
+    388            
+    389            // Set the NV startup option to force a "new" join.
+    390            zgWriteStartupOptions( ZG_STARTUP_SET, ZCD_STARTOPT_DEFAULT_NETWORK_STATE );
+   \   00001E                ; Setup parameters for call to function zgWriteStartupOptions
+   \   00001E   7A02         MOV       R2,#0x2
+   \   000020   79FF         MOV       R1,#-0x1
+   \   000022   12....       LCALL     `??zgWriteStartupOptions::?relay`; Banked call to: zgWriteStartupOptions
+    391            
+    392            // Leave the network, and reset afterwards
+    393            if ( NLME_LeaveReq( &leaveReq ) != ZSuccess )
+   \   000025                ; Setup parameters for call to function NLME_LeaveReq
+   \   000025   AA..         MOV       R2,?XSP + 0
+   \   000027   AB..         MOV       R3,?XSP + 1
+   \   000029   12....       LCALL     `??NLME_LeaveReq::?relay`; Banked call to: NLME_LeaveReq
+   \   00002C   E9           MOV       A,R1
+   \   00002D   6005         JZ        ??zclZigUP_BasicResetCB_0
+    394            {
+    395              // Couldn't send out leave; prepare to reset anyway
+    396              ZDApp_LeaveReset( FALSE );
+   \   00002F                ; Setup parameters for call to function ZDApp_LeaveReset
+   \   00002F   7900         MOV       R1,#0x0
+   \   000031   12....       LCALL     `??ZDApp_LeaveReset::?relay`; Banked call to: ZDApp_LeaveReset
+    397            }
+    398          }
+   \                     ??zclZigUP_BasicResetCB_0:
+   \   000034   7405         MOV       A,#0x5
+   \   000036   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000039   80..         SJMP      ?Subroutine1
+    399          
+    400          /*********************************************************************
+    401          * @fn      zclZigUP_IdentifyCB
+    402          *
+    403          * @brief   Callback from the ZCL General Cluster Library when
+    404          *          it received an Identity Command for this application.
+    405          *
+    406          * @param   srcAddr - source address and endpoint of the response message
+    407          * @param   identifyTime - the number of seconds to identify yourself
+    408          *
+    409          * @return  none
+    410          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    411          static void zclZigUP_IdentifyCB( zclIdentify_t *pCmd )
+   \                     zclZigUP_IdentifyCB:
+    412          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    413            zclZigUP_IdentifyTime = pCmd->identifyTime;
+   \   000004   8A82         MOV       DPL,R2
+   \   000006   8B83         MOV       DPH,R3
+   \   000008   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_45:
+   \   00000B   90....       MOV       DPTR,#zclZigUP_IdentifyTime
+   \   00000E   E8           MOV       A,R0
+   \   00000F   F0           MOVX      @DPTR,A
+   \   000010   A3           INC       DPTR
+   \   000011   E9           MOV       A,R1
+   \   000012   F0           MOVX      @DPTR,A
+    414            zclZigUP_ProcessIdentifyTimeChange();
+   \   000013                ; Setup parameters for call to function zclZigUP_ProcessIdentifyTimeChange
+   \   000013   12....       LCALL     `??zclZigUP_ProcessIdentifyTimeChange::?relay`; Banked call to: zclZigUP_ProcessIdentifyTimeChange
+    415          }
+   \   000016   80..         SJMP      ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   A3           INC       DPTR
+   \   000001   A3           INC       DPTR
+   \   000002                REQUIRE ??Subroutine16_0
+   \   000002                ; // Fall through to label ??Subroutine16_0
+    416          
+    417          /*********************************************************************
+    418          * @fn      zclZigUP_IdentifyQueryRspCB
+    419          *
+    420          * @brief   Callback from the ZCL General Cluster Library when
+    421          *          it received an Identity Query Response Command for this application.
+    422          *
+    423          * @param   srcAddr - requestor's address
+    424          * @param   timeout - number of seconds to identify yourself (valid for query response)
+    425          *
+    426          * @return  none
+    427          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    428          static void zclZigUP_IdentifyQueryRspCB(  zclIdentifyQueryRsp_t *pRsp )
+   \                     zclZigUP_IdentifyQueryRspCB:
+    429          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    430            (void)pRsp;
+    431          }
+   \   000000   02....       LJMP      ?BRET
+    432          
+    433          /*********************************************************************
+    434          * @fn      zclZigUP_OnOffCB
+    435          *
+    436          * @brief   Callback from the ZCL General Cluster Library when
+    437          *          it received an On/Off Command for this application.
+    438          *
+    439          * @param   cmd - COMMAND_ON, COMMAND_OFF or COMMAND_TOGGLE
+    440          *
+    441          * @return  none
+    442          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    443          static void zclZigUP_OnOffCB( uint8 cmd )
+   \                     zclZigUP_OnOffCB:
+    444          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 100
+   \   000005   749C         MOV       A,#-0x64
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   E9           MOV       A,R1
+   \   00000B   FE           MOV       R6,A
+    445            afIncomingMSGPacket_t *pPtr = zcl_getRawAFMsg();
+   \   00000C                ; Setup parameters for call to function zcl_getRawAFMsg
+   \   00000C   12....       LCALL     `??zcl_getRawAFMsg::?relay`; Banked call to: zcl_getRawAFMsg
+   \   00000F   8A82         MOV       DPL,R2
+   \   000011   8B83         MOV       DPH,R3
+    446            zclZigUP_DstAddr.addr.shortAddr = pPtr->srcAddr.addr.shortAddr;
+   \   000013   A3           INC       DPTR
+   \   000014   A3           INC       DPTR
+   \   000015   A3           INC       DPTR
+   \   000016   A3           INC       DPTR
+   \   000017   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_46:
+   \   00001A   90....       MOV       DPTR,#zclZigUP_DstAddr
+   \   00001D   E8           MOV       A,R0
+   \   00001E   F0           MOVX      @DPTR,A
+   \   00001F   A3           INC       DPTR
+   \   000020   E9           MOV       A,R1
+   \   000021   F0           MOVX      @DPTR,A
+    447          
+    448            
+    449            char buffer[100];
+    450            sprintf(buffer, "CMD: %u\n", cmd);
+   \   000022                ; Setup parameters for call to function sprintf
+   \   000022   EE           MOV       A,R6
+   \   000023   F5..         MOV       ?V0,A
+   \   000025   75..00       MOV       ?V1,#0x0
+   \   000028   78..         MOV       R0,#?V0
+   \   00002A   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00002D   7C..         MOV       R4,#`?<Constant "CMD: %u\\n">` & 0xff
+   \   00002F   7D..         MOV       R5,#(`?<Constant "CMD: %u\\n">` >> 8) & 0xff
+   \   000031   7402         MOV       A,#0x2
+   \   000033   12....       LCALL     ?XSTACK_DISP101_8
+   \   000036   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   000039   7402         MOV       A,#0x2
+   \   00003B   12....       LCALL     ?DEALLOC_XSTACK8
+    451            UART_String(buffer); 
+   \   00003E                ; Setup parameters for call to function UART_String
+   \   00003E   AA..         MOV       R2,?XSP + 0
+   \   000040   AB..         MOV       R3,?XSP + 1
+   \   000042   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+    452            
+    453            
+    454            // Turn on the light
+    455            if ( cmd == COMMAND_ON )
+   \   000045   7401         MOV       A,#0x1
+   \   000047   6E           XRL       A,R6
+   \   000048   7004         JNZ       ??zclZigUP_OnOffCB_0
+    456            {
+    457              //Relais(LIGHT_ON);
+    458              ledSet(LIGHT_ON);
+   \   00004A                ; Setup parameters for call to function ledSet
+   \   00004A   7901         MOV       R1,#0x1
+   \   00004C   8005         SJMP      ??zclZigUP_OnOffCB_1
+    459            }
+    460            // Turn off the light
+    461            else if ( cmd == COMMAND_OFF )
+   \                     ??zclZigUP_OnOffCB_0:
+   \   00004E   EE           MOV       A,R6
+   \   00004F   7007         JNZ       ??zclZigUP_OnOffCB_2
+    462            {
+    463              //Relais(LIGHT_OFF);
+    464              ledSet(LIGHT_OFF);
+   \   000051                ; Setup parameters for call to function ledSet
+   \   000051   7900         MOV       R1,#0x0
+   \                     ??zclZigUP_OnOffCB_1:
+   \   000053   12....       LCALL     `??ledSet::?relay`; Banked call to: ledSet
+   \   000056   8014         SJMP      ??zclZigUP_OnOffCB_3
+    465            }
+    466            // Toggle the light
+    467            else if ( cmd == COMMAND_TOGGLE )
+   \                     ??zclZigUP_OnOffCB_2:
+   \   000058   7402         MOV       A,#0x2
+   \   00005A   6E           XRL       A,R6
+   \   00005B   700F         JNZ       ??zclZigUP_OnOffCB_3
+    468            {
+    469              Relais(!STATE_LIGHT);
+   \   00005D   90....       MOV       DPTR,#STATE_LIGHT
+   \   000060   E0           MOVX      A,@DPTR
+   \   000061   7004         JNZ       ??zclZigUP_OnOffCB_4
+   \   000063   7901         MOV       R1,#0x1
+   \   000065   8002         SJMP      ??zclZigUP_OnOffCB_5
+   \                     ??zclZigUP_OnOffCB_4:
+   \   000067   7900         MOV       R1,#0x0
+   \                     ??zclZigUP_OnOffCB_5:
+   \   000069                ; Setup parameters for call to function Relais
+   \   000069   12....       LCALL     `??Relais::?relay`; Banked call to: Relais
+    470            }
+    471          }
+   \                     ??zclZigUP_OnOffCB_3:
+   \   00006C   7464         MOV       A,#0x64
+   \   00006E   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000071                REQUIRE ?Subroutine2
+   \   000071                ; // Fall through to label ?Subroutine2
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7F02         MOV       R7,#0x2
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+    472          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    473          ZStatus_t zclZigUP_MoveToColorCB( zclCCMoveToColor_t *pCmd )
+   \                     zclZigUP_MoveToColorCB:
+    474          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000                REQUIRE ?V8
+   \   000000                REQUIRE ?V9
+   \   000000                REQUIRE ?V10
+   \   000000                REQUIRE ?V11
+   \   000000                REQUIRE ?V12
+   \   000000                REQUIRE ?V13
+   \   000000                REQUIRE ?V14
+   \   000000                REQUIRE ?V15
+   \   000000   74E8         MOV       A,#-0x18
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 105
+   \   000005   7497         MOV       A,#-0x69
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   8A..         MOV       ?V0,R2
+   \   00000C   8B..         MOV       ?V1,R3
+    475            // Converts CIE color space to RGB color space
+    476            // from https://github.com/usolved/cie-rgb-converter/blob/master/cie_rgb_converter.js
+    477            
+    478            char buffer[100];
+    479            sprintf(buffer, "Light-CMD: x: %u // y: %u\n", pCmd->colorX, pCmd->colorY);
+   \   00000E   EA           MOV       A,R2
+   \   00000F   2402         ADD       A,#0x2
+   \   000011   F8           MOV       R0,A
+   \   000012   E4           CLR       A
+   \   000013   35..         ADDC      A,?V1
+   \   000015   F9           MOV       R1,A
+   \   000016   E8           MOV       A,R0
+   \   000017   FE           MOV       R6,A
+   \   000018   E9           MOV       A,R1
+   \   000019   FF           MOV       R7,A
+   \   00001A                ; Setup parameters for call to function sprintf
+   \   00001A   8E82         MOV       DPL,R6
+   \   00001C   8F83         MOV       DPH,R7
+   \   00001E   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   000021   8A82         MOV       DPL,R2
+   \   000023   8B83         MOV       DPH,R3
+   \   000025   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   000028   7C..         MOV       R4,#`?<Constant "Light-CMD: x: %u // y...">` & 0xff
+   \   00002A   7D..         MOV       R5,#(`?<Constant "Light-CMD: x: %u // y...">` >> 8) & 0xff
+   \   00002C   7409         MOV       A,#0x9
+   \   00002E   12....       LCALL     ?XSTACK_DISP101_8
+   \   000031   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   000034   7404         MOV       A,#0x4
+   \   000036   12....       LCALL     ?DEALLOC_XSTACK8
+    480            UART_String(buffer); 
+   \   000039                ; Setup parameters for call to function UART_String
+   \   000039   7405         MOV       A,#0x5
+   \   00003B   12....       LCALL     ?XSTACK_DISP101_8
+   \   00003E   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+    481          
+    482            float x = pCmd->colorX/ 65536.0; // the given x value
+   \   000041   85..82       MOV       DPL,?V0
+   \   000044   85..83       MOV       DPH,?V1
+   \   000047   E0           MOVX      A,@DPTR
+   \   000048   F5..         MOV       ?V0,A
+   \   00004A   A3           INC       DPTR
+   \   00004B   E0           MOVX      A,@DPTR
+   \   00004C   F5..         MOV       ?V1,A
+   \   00004E   E4           CLR       A
+   \   00004F   F5..         MOV       ?V2,A
+   \   000051   F5..         MOV       ?V3,A
+   \   000053   78..         MOV       R0,#?V0
+   \   000055   12....       LCALL     ?UL_TO_FLT
+   \   000058   90....       MOV       DPTR,#__Constant_37800000
+   \   00005B   78..         MOV       R0,#?V4
+   \   00005D   12....       LCALL     ?L_MOV_X
+   \   000060   78..         MOV       R0,#?V0
+   \   000062   79..         MOV       R1,#?V4
+   \   000064   12....       LCALL     ?FLT_MUL
+    483            float y = pCmd->colorY/ 65536.0; // the given y value
+   \   000067   8E82         MOV       DPL,R6
+   \   000069   8F83         MOV       DPH,R7
+   \   00006B   E0           MOVX      A,@DPTR
+   \   00006C   F5..         MOV       ?V4,A
+   \   00006E   A3           INC       DPTR
+   \   00006F   E0           MOVX      A,@DPTR
+   \   000070   F5..         MOV       ?V5,A
+   \   000072   E4           CLR       A
+   \   000073   F5..         MOV       ?V6,A
+   \   000075   F5..         MOV       ?V7,A
+   \   000077   78..         MOV       R0,#?V4
+   \   000079   12....       LCALL     ?UL_TO_FLT
+   \   00007C   90....       MOV       DPTR,#__Constant_37800000
+   \   00007F   78..         MOV       R0,#?V8
+   \   000081   12....       LCALL     ?L_MOV_X
+   \   000084   78..         MOV       R0,#?V4
+   \   000086   79..         MOV       R1,#?V8
+   \   000088   12....       LCALL     ?FLT_MUL
+    484            
+    485            float z = 1.0 - x - y;
+    486            float Y = 1.0;
+    487            float X = (Y / y) * x;
+   \   00008B   75..00       MOV       ?V12,#0x0
+   \   00008E   75..00       MOV       ?V13,#0x0
+   \   000091   75..80       MOV       ?V14,#-0x80
+   \   000094   75..3F       MOV       ?V15,#0x3f
+   \   000097   78..         MOV       R0,#?V12
+   \   000099   79..         MOV       R1,#?V4
+   \   00009B   12....       LCALL     ?FLT_DIV
+   \   00009E   85....       MOV       ?V8,?V12
+   \   0000A1   85....       MOV       ?V9,?V13
+   \   0000A4   85....       MOV       ?V10,?V14
+   \   0000A7   85....       MOV       ?V11,?V15
+   \   0000AA   78..         MOV       R0,#?V8
+   \   0000AC   79..         MOV       R1,#?V0
+   \   0000AE   12....       LCALL     ?FLT_MUL
+    488            float Z = (Y / y) * z;
+   \   0000B1   C0..         PUSH      ?V12
+   \   0000B3   C0..         PUSH      ?V13
+   \   0000B5   C0..         PUSH      ?V14
+   \   0000B7   C0..         PUSH      ?V15
+   \   0000B9   75..00       MOV       ?V12,#0x0
+   \   0000BC   75..00       MOV       ?V13,#0x0
+   \   0000BF   75..80       MOV       ?V14,#-0x80
+   \   0000C2   75..3F       MOV       ?V15,#0x3f
+   \   0000C5   78..         MOV       R0,#?V12
+   \   0000C7   79..         MOV       R1,#?V0
+   \   0000C9   12....       LCALL     ?FLT_SUB
+   \   0000CC   78..         MOV       R0,#?V12
+   \   0000CE   79..         MOV       R1,#?V4
+   \   0000D0   12....       LCALL     ?FLT_SUB
+   \   0000D3   D0..         POP       ?V3
+   \   0000D5   D0..         POP       ?V2
+   \   0000D7   D0..         POP       ?V1
+   \   0000D9   D0..         POP       ?V0
+   \   0000DB   78..         MOV       R0,#?V0
+   \   0000DD   79..         MOV       R1,#?V12
+   \   0000DF   12....       LCALL     ?FLT_MUL
+   \   0000E2   7401         MOV       A,#0x1
+   \   0000E4   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000E7   78..         MOV       R0,#?V0
+   \   0000E9   12....       LCALL     ?L_MOV_TO_X
+    489            
+    490            //Convert to RGB using Wide RGB D65 conversion
+    491            float red 	=  X * 1.656492 - Y * 0.354851 - Z * 0.255038;
+   \   0000EC   85....       MOV       ?V0,?V8
+   \   0000EF   85....       MOV       ?V1,?V9
+   \   0000F2   85....       MOV       ?V2,?V10
+   \   0000F5   85....       MOV       ?V3,?V11
+   \   0000F8   90....       MOV       DPTR,#__Constant_3fd407ee
+   \   0000FB   78..         MOV       R0,#?V4
+   \   0000FD   12....       LCALL     ?L_MOV_X
+   \   000100   78..         MOV       R0,#?V0
+   \   000102   79..         MOV       R1,#?V4
+   \   000104   12....       LCALL     ?FLT_MUL
+   \   000107   90....       MOV       DPTR,#__Constant_beb5af08
+   \   00010A   78..         MOV       R0,#?V4
+   \   00010C   12....       LCALL     ?L_MOV_X
+   \   00010F   78..         MOV       R0,#?V0
+   \   000111   79..         MOV       R1,#?V4
+   \   000113   12....       LCALL     ?FLT_ADD
+   \   000116   7401         MOV       A,#0x1
+   \   000118   12....       LCALL     ?XSTACK_DISP0_8
+   \   00011B   78..         MOV       R0,#?V4
+   \   00011D   12....       LCALL     ?L_MOV_X
+   \   000120   90....       MOV       DPTR,#__Constant_3e829457
+   \   000123   78..         MOV       R0,#?V12
+   \   000125   12....       LCALL     ?L_MOV_X
+   \   000128   78..         MOV       R0,#?V4
+   \   00012A   79..         MOV       R1,#?V12
+   \   00012C   12....       LCALL     ?FLT_MUL
+   \   00012F   78..         MOV       R0,#?V0
+   \   000131   79..         MOV       R1,#?V4
+   \   000133   12....       LCALL     ?FLT_SUB
+    492            float green 	= -X * 0.707196 + Y * 1.655397 + Z * 0.036152;
+   \   000136   85....       MOV       ?V4,?V8
+   \   000139   85....       MOV       ?V5,?V9
+   \   00013C   85....       MOV       ?V6,?V10
+   \   00013F   85....       MOV       ?V7,?V11
+   \   000142   90....       MOV       DPTR,#__Constant_bf350acc
+   \   000145   78..         MOV       R0,#?V12
+   \   000147   12....       LCALL     ?L_MOV_X
+   \   00014A   78..         MOV       R0,#?V4
+   \   00014C   79..         MOV       R1,#?V12
+   \   00014E   12....       LCALL     ?FLT_MUL
+   \   000151   90....       MOV       DPTR,#__Constant_3fd3e40d
+   \   000154   78..         MOV       R0,#?V12
+   \   000156   12....       LCALL     ?L_MOV_X
+   \   000159   78..         MOV       R0,#?V4
+   \   00015B   79..         MOV       R1,#?V12
+   \   00015D   12....       LCALL     ?FLT_ADD
+   \   000160   C0..         PUSH      ?V4
+   \   000162   C0..         PUSH      ?V5
+   \   000164   C0..         PUSH      ?V6
+   \   000166   C0..         PUSH      ?V7
+   \   000168   7401         MOV       A,#0x1
+   \   00016A   12....       LCALL     ?XSTACK_DISP0_8
+   \   00016D   78..         MOV       R0,#?V12
+   \   00016F   12....       LCALL     ?L_MOV_X
+   \   000172   90....       MOV       DPTR,#__Constant_3d14141f
+   \   000175   78..         MOV       R0,#?V4
+   \   000177   12....       LCALL     ?L_MOV_X
+   \   00017A   78..         MOV       R0,#?V12
+   \   00017C   79..         MOV       R1,#?V4
+   \   00017E   12....       LCALL     ?FLT_MUL
+   \   000181   D0..         POP       ?V7
+   \   000183   D0..         POP       ?V6
+   \   000185   D0..         POP       ?V5
+   \   000187   D0..         POP       ?V4
+   \   000189   78..         MOV       R0,#?V4
+   \   00018B   79..         MOV       R1,#?V12
+   \   00018D   12....       LCALL     ?FLT_ADD
+    493            float blue 	=  X * 0.051713 - Y * 0.121364 + Z * 1.011530;
+   \   000190   90....       MOV       DPTR,#__Constant_3d53d103
+   \   000193   78..         MOV       R0,#?V12
+   \   000195   12....       LCALL     ?L_MOV_X
+   \   000198   78..         MOV       R0,#?V8
+   \   00019A   79..         MOV       R1,#?V12
+   \   00019C   12....       LCALL     ?FLT_MUL
+   \   00019F   90....       MOV       DPTR,#__Constant_bdf88db0
+   \   0001A2   78..         MOV       R0,#?V12
+   \   0001A4   12....       LCALL     ?L_MOV_X
+   \   0001A7   78..         MOV       R0,#?V8
+   \   0001A9   79..         MOV       R1,#?V12
+   \   0001AB   12....       LCALL     ?FLT_ADD
+   \   0001AE   C0..         PUSH      ?V8
+   \   0001B0   C0..         PUSH      ?V9
+   \   0001B2   C0..         PUSH      ?V10
+   \   0001B4   C0..         PUSH      ?V11
+   \   0001B6   7401         MOV       A,#0x1
+   \   0001B8   12....       LCALL     ?XSTACK_DISP0_8
+   \   0001BB   78..         MOV       R0,#?V12
+   \   0001BD   12....       LCALL     ?L_MOV_X
+   \   0001C0   90....       MOV       DPTR,#__Constant_3f8179d1
+   \   0001C3   78..         MOV       R0,#?V8
+   \   0001C5   12....       LCALL     ?L_MOV_X
+   \   0001C8   78..         MOV       R0,#?V12
+   \   0001CA   79..         MOV       R1,#?V8
+   \   0001CC   12....       LCALL     ?FLT_MUL
+   \   0001CF   D0..         POP       ?V11
+   \   0001D1   D0..         POP       ?V10
+   \   0001D3   D0..         POP       ?V9
+   \   0001D5   D0..         POP       ?V8
+   \   0001D7   78..         MOV       R0,#?V8
+   \   0001D9   79..         MOV       R1,#?V12
+   \   0001DB   12....       LCALL     ?FLT_ADD
+    494            
+    495            //If red, green or blue is larger than 1.0 set it back to the maximum of 1.0
+    496            if (red > blue && red > green && red > 1.0)
+   \   0001DE   78..         MOV       R0,#?V8
+   \   0001E0   79..         MOV       R1,#?V0
+   \   0001E2   12....       LCALL     ?FLT_LT
+   \   0001E5   4003         JC        $+5
+   \   0001E7   02....       LJMP      ??zclZigUP_MoveToColorCB_0 & 0xFFFF
+   \   0001EA   78..         MOV       R0,#?V4
+   \   0001EC   79..         MOV       R1,#?V0
+   \   0001EE   12....       LCALL     ?FLT_LT
+   \   0001F1   4003         JC        $+5
+   \   0001F3   02....       LJMP      ??zclZigUP_MoveToColorCB_0 & 0xFFFF
+   \   0001F6   90....       MOV       DPTR,#__Constant_3f800001
+   \   0001F9   78..         MOV       R0,#?V12
+   \   0001FB   12....       LCALL     ?L_MOV_X
+   \   0001FE   78..         MOV       R0,#?V0
+   \   000200   79..         MOV       R1,#?V12
+   \   000202   12....       LCALL     ?FLT_GE
+   \   000205   507C         JNC       ??zclZigUP_MoveToColorCB_0
+    497            {
+    498              green = green / red;
+   \   000207   78..         MOV       R0,#?V4
+   \   000209   79..         MOV       R1,#?V0
+   \   00020B   12....       LCALL     ?FLT_DIV
+    499              blue = blue / red;
+   \   00020E   78..         MOV       R0,#?V8
+   \   000210   79..         MOV       R1,#?V0
+   \   000212   12....       LCALL     ?FLT_DIV
+    500              red = 1.0;
+   \   000215   75..00       MOV       ?V0,#0x0
+   \   000218   75..00       MOV       ?V1,#0x0
+   \   00021B   75..80       MOV       ?V2,#-0x80
+   \   00021E   75..3F       MOV       ?V3,#0x3f
+   \                     ??zclZigUP_MoveToColorCB_1:
+   \   000221                ; Setup parameters for call to function pow
+   \   000221   90....       MOV       DPTR,#__Constant_3ed55555
+   \   000224   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000227   AA..         MOV       R2,?V0
+   \   000229   AB..         MOV       R3,?V1
+   \   00022B   AC..         MOV       R4,?V2
+   \   00022D   AD..         MOV       R5,?V3
+   \   00022F   12....       LCALL     `??pow::?relay`  ; Banked call to: pow
+   \   000232   7404         MOV       A,#0x4
+   \   000234   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000237   8A..         MOV       ?V0,R2
+   \   000239   8B..         MOV       ?V1,R3
+   \   00023B   8C..         MOV       ?V2,R4
+   \   00023D   8D..         MOV       ?V3,R5
+   \   00023F   90....       MOV       DPTR,#__Constant_3f870a3d
+   \   000242   78..         MOV       R0,#?V12
+   \   000244   12....       LCALL     ?L_MOV_X
+   \   000247   78..         MOV       R0,#?V0
+   \   000249   79..         MOV       R1,#?V12
+   \   00024B   12....       LCALL     ?FLT_MUL
+   \   00024E   90....       MOV       DPTR,#__Constant_bd6147ae
+   \   000251   78..         MOV       R0,#?V12
+   \   000253   12....       LCALL     ?L_MOV_X
+   \   000256   78..         MOV       R0,#?V0
+   \   000258   79..         MOV       R1,#?V12
+   \   00025A   12....       LCALL     ?FLT_ADD
+    501            }
+    502            else if (green > blue && green > red && green > 1.0)
+    503            {
+    504              red = red / green;
+    505              blue = blue / green;
+    506              green = 1.0;
+    507            }
+    508            else if (blue > red && blue > green && blue > 1.0)
+    509            {
+    510              red = red / blue;
+    511              green = green / blue;
+    512              blue = 1.0;
+    513            }
+    514            
+    515            //Reverse gamma correction
+    516            red 	= red <= 0.0031308 ? 12.92 * red : (1.0 + 0.055) * pow(red, (1.0 / 2.4)) - 0.055;
+    517            green 	= green <= 0.0031308 ? 12.92 * green : (1.0 + 0.055) * pow(green, (1.0 / 2.4)) - 0.055;
+   \                     ??zclZigUP_MoveToColorCB_2:
+   \   00025D   90....       MOV       DPTR,#__Constant_3b4d2e1d
+   \   000260   78..         MOV       R0,#?V12
+   \   000262   12....       LCALL     ?L_MOV_X
+   \   000265   78..         MOV       R0,#?V4
+   \   000267   79..         MOV       R1,#?V12
+   \   000269   12....       LCALL     ?FLT_LT
+   \   00026C   4003         JC        $+5
+   \   00026E   02....       LJMP      ??zclZigUP_MoveToColorCB_3 & 0xFFFF
+   \   000271   90....       MOV       DPTR,#__Constant_414eb852
+   \   000274   78..         MOV       R0,#?V12
+   \   000276   12....       LCALL     ?L_MOV_X
+   \   000279   78..         MOV       R0,#?V4
+   \   00027B   79..         MOV       R1,#?V12
+   \   00027D   12....       LCALL     ?FLT_MUL
+   \   000280   02....       LJMP      ??zclZigUP_MoveToColorCB_4 & 0xFFFF
+   \                     ??zclZigUP_MoveToColorCB_0:
+   \   000283   78..         MOV       R0,#?V8
+   \   000285   79..         MOV       R1,#?V4
+   \   000287   12....       LCALL     ?FLT_LT
+   \   00028A   5036         JNC       ??zclZigUP_MoveToColorCB_5
+   \   00028C   78..         MOV       R0,#?V0
+   \   00028E   79..         MOV       R1,#?V4
+   \   000290   12....       LCALL     ?FLT_LT
+   \   000293   502D         JNC       ??zclZigUP_MoveToColorCB_5
+   \   000295   90....       MOV       DPTR,#__Constant_3f800001
+   \   000298   78..         MOV       R0,#?V12
+   \   00029A   12....       LCALL     ?L_MOV_X
+   \   00029D   78..         MOV       R0,#?V4
+   \   00029F   79..         MOV       R1,#?V12
+   \   0002A1   12....       LCALL     ?FLT_GE
+   \   0002A4   501C         JNC       ??zclZigUP_MoveToColorCB_5
+   \   0002A6   78..         MOV       R0,#?V0
+   \   0002A8   79..         MOV       R1,#?V4
+   \   0002AA   12....       LCALL     ?FLT_DIV
+   \   0002AD   78..         MOV       R0,#?V8
+   \   0002AF   79..         MOV       R1,#?V4
+   \   0002B1   12....       LCALL     ?FLT_DIV
+   \   0002B4   75..00       MOV       ?V4,#0x0
+   \   0002B7   75..00       MOV       ?V5,#0x0
+   \   0002BA   75..80       MOV       ?V6,#-0x80
+   \   0002BD   75..3F       MOV       ?V7,#0x3f
+   \   0002C0   803D         SJMP      ??zclZigUP_MoveToColorCB_6
+   \                     ??zclZigUP_MoveToColorCB_5:
+   \   0002C2   78..         MOV       R0,#?V0
+   \   0002C4   79..         MOV       R1,#?V8
+   \   0002C6   12....       LCALL     ?FLT_LT
+   \   0002C9   5034         JNC       ??zclZigUP_MoveToColorCB_6
+   \   0002CB   78..         MOV       R0,#?V4
+   \   0002CD   79..         MOV       R1,#?V8
+   \   0002CF   12....       LCALL     ?FLT_LT
+   \   0002D2   502B         JNC       ??zclZigUP_MoveToColorCB_6
+   \   0002D4   90....       MOV       DPTR,#__Constant_3f800001
+   \   0002D7   78..         MOV       R0,#?V12
+   \   0002D9   12....       LCALL     ?L_MOV_X
+   \   0002DC   78..         MOV       R0,#?V8
+   \   0002DE   79..         MOV       R1,#?V12
+   \   0002E0   12....       LCALL     ?FLT_GE
+   \   0002E3   501A         JNC       ??zclZigUP_MoveToColorCB_6
+   \   0002E5   78..         MOV       R0,#?V0
+   \   0002E7   79..         MOV       R1,#?V8
+   \   0002E9   12....       LCALL     ?FLT_DIV
+   \   0002EC   78..         MOV       R0,#?V4
+   \   0002EE   79..         MOV       R1,#?V8
+   \   0002F0   12....       LCALL     ?FLT_DIV
+   \   0002F3   75..00       MOV       ?V8,#0x0
+   \   0002F6   75..00       MOV       ?V9,#0x0
+   \   0002F9   75..80       MOV       ?V10,#-0x80
+   \   0002FC   75..3F       MOV       ?V11,#0x3f
+   \                     ??zclZigUP_MoveToColorCB_6:
+   \   0002FF   90....       MOV       DPTR,#__Constant_3b4d2e1d
+   \   000302   78..         MOV       R0,#?V12
+   \   000304   12....       LCALL     ?L_MOV_X
+   \   000307   78..         MOV       R0,#?V0
+   \   000309   79..         MOV       R1,#?V12
+   \   00030B   12....       LCALL     ?FLT_LT
+   \   00030E   4003         JC        $+5
+   \   000310   02....       LJMP      ??zclZigUP_MoveToColorCB_1 & 0xFFFF
+   \   000313   90....       MOV       DPTR,#__Constant_414eb852
+   \   000316   78..         MOV       R0,#?V12
+   \   000318   12....       LCALL     ?L_MOV_X
+   \   00031B   78..         MOV       R0,#?V0
+   \   00031D   79..         MOV       R1,#?V12
+   \   00031F   12....       LCALL     ?FLT_MUL
+   \   000322   02....       LJMP      ??zclZigUP_MoveToColorCB_2 & 0xFFFF
+   \                     ??zclZigUP_MoveToColorCB_3:
+   \   000325                ; Setup parameters for call to function pow
+   \   000325   90....       MOV       DPTR,#__Constant_3ed55555
+   \   000328   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   00032B   AA..         MOV       R2,?V4
+   \   00032D   AB..         MOV       R3,?V5
+   \   00032F   AC..         MOV       R4,?V6
+   \   000331   AD..         MOV       R5,?V7
+   \   000333   12....       LCALL     `??pow::?relay`  ; Banked call to: pow
+   \   000336   7404         MOV       A,#0x4
+   \   000338   12....       LCALL     ?DEALLOC_XSTACK8
+   \   00033B   8A..         MOV       ?V4,R2
+   \   00033D   8B..         MOV       ?V5,R3
+   \   00033F   8C..         MOV       ?V6,R4
+   \   000341   8D..         MOV       ?V7,R5
+   \   000343   90....       MOV       DPTR,#__Constant_3f870a3d
+   \   000346   78..         MOV       R0,#?V12
+   \   000348   12....       LCALL     ?L_MOV_X
+   \   00034B   78..         MOV       R0,#?V4
+   \   00034D   79..         MOV       R1,#?V12
+   \   00034F   12....       LCALL     ?FLT_MUL
+   \   000352   90....       MOV       DPTR,#__Constant_bd6147ae
+   \   000355   78..         MOV       R0,#?V12
+   \   000357   12....       LCALL     ?L_MOV_X
+   \   00035A   78..         MOV       R0,#?V4
+   \   00035C   79..         MOV       R1,#?V12
+   \   00035E   12....       LCALL     ?FLT_ADD
+    518            blue 	= blue <= 0.0031308 ? 12.92 * blue : (1.0 + 0.055) * pow(blue, (1.0 / 2.4)) - 0.055;
+   \                     ??zclZigUP_MoveToColorCB_4:
+   \   000361   90....       MOV       DPTR,#__Constant_3b4d2e1d
+   \   000364   78..         MOV       R0,#?V12
+   \   000366   12....       LCALL     ?L_MOV_X
+   \   000369   78..         MOV       R0,#?V8
+   \   00036B   79..         MOV       R1,#?V12
+   \   00036D   12....       LCALL     ?FLT_LT
+   \   000370   5011         JNC       ??zclZigUP_MoveToColorCB_7
+   \   000372   90....       MOV       DPTR,#__Constant_414eb852
+   \   000375   78..         MOV       R0,#?V12
+   \   000377   12....       LCALL     ?L_MOV_X
+   \   00037A   78..         MOV       R0,#?V8
+   \   00037C   79..         MOV       R1,#?V12
+   \   00037E   12....       LCALL     ?FLT_MUL
+   \   000381   803C         SJMP      ??zclZigUP_MoveToColorCB_8
+   \                     ??zclZigUP_MoveToColorCB_7:
+   \   000383                ; Setup parameters for call to function pow
+   \   000383   90....       MOV       DPTR,#__Constant_3ed55555
+   \   000386   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000389   AA..         MOV       R2,?V8
+   \   00038B   AB..         MOV       R3,?V9
+   \   00038D   AC..         MOV       R4,?V10
+   \   00038F   AD..         MOV       R5,?V11
+   \   000391   12....       LCALL     `??pow::?relay`  ; Banked call to: pow
+   \   000394   7404         MOV       A,#0x4
+   \   000396   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000399   8A..         MOV       ?V8,R2
+   \   00039B   8B..         MOV       ?V9,R3
+   \   00039D   8C..         MOV       ?V10,R4
+   \   00039F   8D..         MOV       ?V11,R5
+   \   0003A1   90....       MOV       DPTR,#__Constant_3f870a3d
+   \   0003A4   78..         MOV       R0,#?V12
+   \   0003A6   12....       LCALL     ?L_MOV_X
+   \   0003A9   78..         MOV       R0,#?V8
+   \   0003AB   79..         MOV       R1,#?V12
+   \   0003AD   12....       LCALL     ?FLT_MUL
+   \   0003B0   90....       MOV       DPTR,#__Constant_bd6147ae
+   \   0003B3   78..         MOV       R0,#?V12
+   \   0003B5   12....       LCALL     ?L_MOV_X
+   \   0003B8   78..         MOV       R0,#?V8
+   \   0003BA   79..         MOV       R1,#?V12
+   \   0003BC   12....       LCALL     ?FLT_ADD
+    519            
+    520            
+    521            //Convert normalized decimal to decimal
+    522            red *= 255;
+   \                     ??zclZigUP_MoveToColorCB_8:
+   \   0003BF   90....       MOV       DPTR,#__Constant_437f0000
+   \   0003C2   78..         MOV       R0,#?V12
+   \   0003C4   12....       LCALL     ?L_MOV_X
+   \   0003C7   78..         MOV       R0,#?V0
+   \   0003C9   79..         MOV       R1,#?V12
+   \   0003CB   12....       LCALL     ?FLT_MUL
+    523            green *= 255;
+   \   0003CE   90....       MOV       DPTR,#__Constant_437f0000
+   \   0003D1   78..         MOV       R0,#?V12
+   \   0003D3   12....       LCALL     ?L_MOV_X
+   \   0003D6   78..         MOV       R0,#?V4
+   \   0003D8   79..         MOV       R1,#?V12
+   \   0003DA   12....       LCALL     ?FLT_MUL
+    524            blue *= 255;
+   \   0003DD   90....       MOV       DPTR,#__Constant_437f0000
+   \   0003E0   78..         MOV       R0,#?V12
+   \   0003E2   12....       LCALL     ?L_MOV_X
+   \   0003E5   78..         MOV       R0,#?V8
+   \   0003E7   79..         MOV       R1,#?V12
+   \   0003E9   12....       LCALL     ?FLT_MUL
+    525          
+    526            uint8 r = (uint8)red;
+   \   0003EC   85....       MOV       ?V12,?V0
+   \   0003EF   85....       MOV       ?V13,?V1
+   \   0003F2   85....       MOV       ?V14,?V2
+   \   0003F5   85....       MOV       ?V15,?V3
+   \   0003F8   78..         MOV       R0,#?V12
+   \   0003FA   12....       LCALL     ?FLT_TO_L
+   \   0003FD   85..82       MOV       DPL,?XSP + 0
+   \   000400   85..83       MOV       DPH,?XSP + 1
+   \   000403   E5..         MOV       A,?V12
+   \   000405   F0           MOVX      @DPTR,A
+    527            uint8 g = (uint8)green;
+   \   000406   85....       MOV       ?V12,?V4
+   \   000409   85....       MOV       ?V13,?V5
+   \   00040C   85....       MOV       ?V14,?V6
+   \   00040F   85....       MOV       ?V15,?V7
+   \   000412   78..         MOV       R0,#?V12
+   \   000414   12....       LCALL     ?FLT_TO_L
+   \   000417   E5..         MOV       A,?V12
+   \   000419   FF           MOV       R7,A
+    528            uint8 b = (uint8)blue;
+   \   00041A   85....       MOV       ?V12,?V8
+   \   00041D   85....       MOV       ?V13,?V9
+   \   000420   85....       MOV       ?V14,?V10
+   \   000423   85....       MOV       ?V15,?V11
+   \   000426   78..         MOV       R0,#?V12
+   \   000428   12....       LCALL     ?FLT_TO_L
+   \   00042B   E5..         MOV       A,?V12
+   \   00042D   FE           MOV       R6,A
+    529          
+    530            if (red > 254.5) r = 255;
+   \   00042E   90....       MOV       DPTR,#__Constant_437e8001
+   \   000431   78..         MOV       R0,#?V12
+   \   000433   12....       LCALL     ?L_MOV_X
+   \   000436   78..         MOV       R0,#?V0
+   \   000438   79..         MOV       R1,#?V12
+   \   00043A   12....       LCALL     ?FLT_GE
+   \   00043D   500A         JNC       ??zclZigUP_MoveToColorCB_9
+   \   00043F   85..82       MOV       DPL,?XSP + 0
+   \   000442   85..83       MOV       DPH,?XSP + 1
+   \   000445   74FF         MOV       A,#-0x1
+   \   000447   8018         SJMP      ??zclZigUP_MoveToColorCB_10
+    531            else if (red < 0.5) r = 0;
+   \                     ??zclZigUP_MoveToColorCB_9:
+   \   000449   90....       MOV       DPTR,#__Constant_3f000000
+   \   00044C   78..         MOV       R0,#?V12
+   \   00044E   12....       LCALL     ?L_MOV_X
+   \   000451   78..         MOV       R0,#?V0
+   \   000453   79..         MOV       R1,#?V12
+   \   000455   12....       LCALL     ?FLT_LT
+   \   000458   5008         JNC       ??zclZigUP_MoveToColorCB_11
+   \   00045A   85..82       MOV       DPL,?XSP + 0
+   \   00045D   85..83       MOV       DPH,?XSP + 1
+   \   000460   E4           CLR       A
+   \                     ??zclZigUP_MoveToColorCB_10:
+   \   000461   F0           MOVX      @DPTR,A
+    532          
+    533            if (green > 254.5) g = 255;
+   \                     ??zclZigUP_MoveToColorCB_11:
+   \   000462   90....       MOV       DPTR,#__Constant_437e8001
+   \   000465   78..         MOV       R0,#?V0
+   \   000467   12....       LCALL     ?L_MOV_X
+   \   00046A   78..         MOV       R0,#?V4
+   \   00046C   79..         MOV       R1,#?V0
+   \   00046E   12....       LCALL     ?FLT_GE
+   \   000471   5004         JNC       ??zclZigUP_MoveToColorCB_12
+   \   000473   7FFF         MOV       R7,#-0x1
+   \   000475   8013         SJMP      ??zclZigUP_MoveToColorCB_13
+    534            else if (green < 0.5) g = 0;
+   \                     ??zclZigUP_MoveToColorCB_12:
+   \   000477   90....       MOV       DPTR,#__Constant_3f000000
+   \   00047A   78..         MOV       R0,#?V0
+   \   00047C   12....       LCALL     ?L_MOV_X
+   \   00047F   78..         MOV       R0,#?V4
+   \   000481   79..         MOV       R1,#?V0
+   \   000483   12....       LCALL     ?FLT_LT
+   \   000486   5002         JNC       ??zclZigUP_MoveToColorCB_13
+   \   000488   7F00         MOV       R7,#0x0
+    535          
+    536            if (blue > 254.5) b = 255;
+   \                     ??zclZigUP_MoveToColorCB_13:
+   \   00048A   90....       MOV       DPTR,#__Constant_437e8001
+   \   00048D   78..         MOV       R0,#?V0
+   \   00048F   12....       LCALL     ?L_MOV_X
+   \   000492   78..         MOV       R0,#?V8
+   \   000494   79..         MOV       R1,#?V0
+   \   000496   12....       LCALL     ?FLT_GE
+   \   000499   5004         JNC       ??zclZigUP_MoveToColorCB_14
+   \   00049B   7EFF         MOV       R6,#-0x1
+   \   00049D   8013         SJMP      ??zclZigUP_MoveToColorCB_15
+    537            else if (blue < 0.5) b = 0;
+   \                     ??zclZigUP_MoveToColorCB_14:
+   \   00049F   90....       MOV       DPTR,#__Constant_3f000000
+   \   0004A2   78..         MOV       R0,#?V0
+   \   0004A4   12....       LCALL     ?L_MOV_X
+   \   0004A7   78..         MOV       R0,#?V8
+   \   0004A9   79..         MOV       R1,#?V0
+   \   0004AB   12....       LCALL     ?FLT_LT
+   \   0004AE   5002         JNC       ??zclZigUP_MoveToColorCB_15
+   \   0004B0   7E00         MOV       R6,#0x0
+    538            
+    539            sprintf(buffer, "Light-CMD: r: %u // g: %u // b: %u\n", r, g, b);
+   \                     ??zclZigUP_MoveToColorCB_15:
+   \   0004B2                ; Setup parameters for call to function sprintf
+   \   0004B2   EE           MOV       A,R6
+   \   0004B3   F5..         MOV       ?V0,A
+   \   0004B5   75..00       MOV       ?V1,#0x0
+   \   0004B8   78..         MOV       R0,#?V0
+   \   0004BA   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0004BD   EF           MOV       A,R7
+   \   0004BE   F5..         MOV       ?V0,A
+   \   0004C0   78..         MOV       R0,#?V0
+   \   0004C2   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0004C5   7404         MOV       A,#0x4
+   \   0004C7   12....       LCALL     ?XSTACK_DISP0_8
+   \   0004CA   E0           MOVX      A,@DPTR
+   \   0004CB   F5..         MOV       ?V0,A
+   \   0004CD   78..         MOV       R0,#?V0
+   \   0004CF   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0004D2   7C..         MOV       R4,#`?<Constant "Light-CMD: r: %u // g...">` & 0xff
+   \   0004D4   7D..         MOV       R5,#(`?<Constant "Light-CMD: r: %u // g...">` >> 8) & 0xff
+   \   0004D6   740B         MOV       A,#0xb
+   \   0004D8   12....       LCALL     ?XSTACK_DISP101_8
+   \   0004DB   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   0004DE   7406         MOV       A,#0x6
+   \   0004E0   12....       LCALL     ?DEALLOC_XSTACK8
+    540            UART_String(buffer); 
+   \   0004E3                ; Setup parameters for call to function UART_String
+   \   0004E3   7405         MOV       A,#0x5
+   \   0004E5   12....       LCALL     ?XSTACK_DISP101_8
+   \   0004E8   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+    541          
+    542            WS2812_SendLED(r, g, b);
+   \   0004EB                ; Setup parameters for call to function WS2812_SendLED
+   \   0004EB   EE           MOV       A,R6
+   \   0004EC   FB           MOV       R3,A
+   \   0004ED   EF           MOV       A,R7
+   \   0004EE   FA           MOV       R2,A
+   \   0004EF   85..82       MOV       DPL,?XSP + 0
+   \   0004F2   85..83       MOV       DPH,?XSP + 1
+   \   0004F5   E0           MOVX      A,@DPTR
+   \   0004F6   F9           MOV       R1,A
+   \   0004F7   12....       LCALL     `??WS2812_SendLED::?relay`; Banked call to: WS2812_SendLED
+    543            
+    544            return ( ZSuccess );
+   \   0004FA   7900         MOV       R1,#0x0
+   \   0004FC   7469         MOV       A,#0x69
+   \   0004FE   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000501   7F10         MOV       R7,#0x10
+   \   000503   02....       LJMP      ?BANKED_LEAVE_XDATA
+    545          }
+    546          
+    547          /*********************************************************************
+    548           * @fn      zclZigUP_DoorLockCB
+    549           *
+    550           * @brief   Callback from the ZCL General Cluster Library when
+    551           *          it received an Door Lock cluster Command for this application.
+    552           *
+    553           * @param   pInMsg - process incoming message
+    554           * @param   pInCmd - PIN/RFID code of command
+    555           *
+    556           * @return  ZStatus_t
+    557           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    558          static ZStatus_t zclZigUP_DoorLockCB ( zclIncoming_t *pInMsg, zclDoorLock_t *pInCmd )
+   \                     zclZigUP_DoorLockCB:
+    559          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+    560            // LED OFF - Lock the door
+    561            if ( pInMsg->hdr.commandID == COMMAND_CLOSURES_LOCK_DOOR )
+   \   000009   8E82         MOV       DPL,R6
+   \   00000B   8F83         MOV       DPH,R7
+   \   00000D   A3           INC       DPTR
+   \   00000E   A3           INC       DPTR
+   \   00000F   A3           INC       DPTR
+   \   000010   A3           INC       DPTR
+   \   000011   A3           INC       DPTR
+   \   000012   A3           INC       DPTR
+   \   000013   A3           INC       DPTR
+   \   000014   E0           MOVX      A,@DPTR
+   \   000015   F8           MOV       R0,A
+   \   000016   EE           MOV       A,R6
+   \   000017   2406         ADD       A,#0x6
+   \   000019   F5..         MOV       ?V0,A
+   \   00001B   E4           CLR       A
+   \   00001C   3F           ADDC      A,R7
+   \   00001D   F5..         MOV       ?V1,A
+   \   00001F   E8           MOV       A,R0
+   \   000020   7036         JNZ       ??zclZigUP_DoorLockCB_0
+    562            {
+    563              LED(0);
+   \   000022                ; Setup parameters for call to function LED
+   \   000022   7900         MOV       R1,#0x0
+   \   000024   12....       LCALL     `??LED::?relay`  ; Banked call to: LED
+    564              zclClosures_SendDoorLockStatusResponse( pInMsg->msg->endPoint, &pInMsg->msg->srcAddr, COMMAND_CLOSURES_LOCK_DOOR, ZCL_STATUS_SUCCESS, TRUE, pInMsg->hdr.transSeqNum );
+   \   000027   12....       LCALL     ?Subroutine9 & 0xFFFF
+    565            }
+   \                     ??CrossCallReturnLabel_32:
+   \   00002A   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00002D   75..01       MOV       ?V0,#0x1
+   \   000030   78..         MOV       R0,#?V0
+   \   000032   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000035   7D00         MOV       R5,#0x0
+   \   000037   7C00         MOV       R4,#0x0
+   \                     ??zclZigUP_DoorLockCB_1:
+   \   000039   EE           MOV       A,R6
+   \   00003A   2406         ADD       A,#0x6
+   \   00003C   FA           MOV       R2,A
+   \   00003D   E4           CLR       A
+   \   00003E   3F           ADDC      A,R7
+   \   00003F   FB           MOV       R3,A
+   \   000040   EE           MOV       A,R6
+   \   000041   2414         ADD       A,#0x14
+   \   000043   F582         MOV       DPL,A
+   \   000045   E4           CLR       A
+   \   000046   3F           ADDC      A,R7
+   \   000047   F583         MOV       DPH,A
+   \   000049   E0           MOVX      A,@DPTR
+   \   00004A   F9           MOV       R1,A
+   \   00004B   12....       LCALL     `??zclClosures_SendDoorLockStatusResponse::?rela`; Banked call to: zclClosures_SendDoorLockStatusResponse
+   \   00004E   7402         MOV       A,#0x2
+   \   000050   12....       LCALL     ?DEALLOC_XSTACK8
+    566            
+    567            // LED ON - Unlock the door
+    568            else if ( pInMsg->hdr.commandID == COMMAND_CLOSURES_UNLOCK_DOOR )
+    569            {
+    570              LED(1);
+    571              zclClosures_SendDoorLockStatusResponse( pInMsg->msg->endPoint, &pInMsg->msg->srcAddr, COMMAND_CLOSURES_UNLOCK_DOOR, ZCL_STATUS_SUCCESS, TRUE, pInMsg->hdr.transSeqNum );
+    572            }
+    573            
+    574            // Toggle the door
+    575            else if ( pInMsg->hdr.commandID == COMMAND_CLOSURES_TOGGLE_DOOR )
+    576            {
+    577              LED(!STATE_LED);
+    578              zclClosures_SendDoorLockStatusResponse( pInMsg->msg->endPoint, &pInMsg->msg->srcAddr, COMMAND_CLOSURES_TOGGLE_DOOR, ZCL_STATUS_SUCCESS, TRUE, pInMsg->hdr.transSeqNum );
+    579            }
+    580            
+    581            else
+    582            {
+    583              return ( ZCL_STATUS_FAILURE );  // invalid command
+    584            }
+    585            
+    586            return ( ZCL_STATUS_CMD_HAS_RSP );
+   \   000053   79FF         MOV       R1,#-0x1
+   \                     ??zclZigUP_DoorLockCB_2:
+   \   000055   02....       LJMP      ?Subroutine2 & 0xFFFF
+   \                     ??zclZigUP_DoorLockCB_0:
+   \   000058   7401         MOV       A,#0x1
+   \   00005A   68           XRL       A,R0
+   \   00005B   7019         JNZ       ??zclZigUP_DoorLockCB_3
+   \   00005D                ; Setup parameters for call to function LED
+   \   00005D   7901         MOV       R1,#0x1
+   \   00005F   12....       LCALL     `??LED::?relay`  ; Banked call to: LED
+   \   000062   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   000065   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000068   75..01       MOV       ?V0,#0x1
+   \   00006B   78..         MOV       R0,#?V0
+   \   00006D   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000070   7D00         MOV       R5,#0x0
+   \   000072   7C01         MOV       R4,#0x1
+   \   000074   80C3         SJMP      ??zclZigUP_DoorLockCB_1
+   \                     ??zclZigUP_DoorLockCB_3:
+   \   000076   7402         MOV       A,#0x2
+   \   000078   68           XRL       A,R0
+   \   000079   7023         JNZ       ??zclZigUP_DoorLockCB_4
+   \   00007B   90....       MOV       DPTR,#STATE_LED
+   \   00007E   E0           MOVX      A,@DPTR
+   \   00007F   7004         JNZ       ??zclZigUP_DoorLockCB_5
+   \   000081   7901         MOV       R1,#0x1
+   \   000083   8002         SJMP      ??zclZigUP_DoorLockCB_6
+   \                     ??zclZigUP_DoorLockCB_5:
+   \   000085   7900         MOV       R1,#0x0
+   \                     ??zclZigUP_DoorLockCB_6:
+   \   000087                ; Setup parameters for call to function LED
+   \   000087   12....       LCALL     `??LED::?relay`  ; Banked call to: LED
+   \   00008A   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   00008D   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000090   75..01       MOV       ?V0,#0x1
+   \   000093   78..         MOV       R0,#?V0
+   \   000095   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000098   7D00         MOV       R5,#0x0
+   \   00009A   7C02         MOV       R4,#0x2
+   \   00009C   809B         SJMP      ??zclZigUP_DoorLockCB_1
+   \                     ??zclZigUP_DoorLockCB_4:
+   \   00009E   7901         MOV       R1,#0x1
+   \   0000A0   80B3         SJMP      ??zclZigUP_DoorLockCB_2
+    587          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   8E82         MOV       DPL,R6
+   \   000002   8F83         MOV       DPH,R7
+   \   000004   E0           MOVX      A,@DPTR
+   \   000005   FE           MOV       R6,A
+   \   000006   A3           INC       DPTR
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   FF           MOV       R7,A
+   \   000009                ; Setup parameters for call to function zclClosures_SendDoorLockStatusResponse
+   \   000009                ; Setup parameters for call to function zclClosures_SendDoorLockStatusResponse
+   \   000009                ; Setup parameters for call to function zclClosures_SendDoorLockStatusResponse
+   \   000009   85..82       MOV       DPL,?V0
+   \   00000C   85..83       MOV       DPH,?V1
+   \   00000F   E0           MOVX      A,@DPTR
+   \   000010   F5..         MOV       ?V0,A
+   \   000012   78..         MOV       R0,#?V0
+   \   000014   22           RET
+    588          
+    589          /*********************************************************************
+    590           * @fn      zclZigUP_DoorLockRspCB
+    591           *
+    592           * @brief   Callback from the ZCL General Cluster Library when
+    593           *          it received an Door Lock response for this application.
+    594           *
+    595           * @param   cmd - Command ID
+    596           * @param   srcAddr - Requestor's address
+    597           * @param   transSeqNum - Transaction sequence number
+    598           * @param   status - status response from server's door lock cmd
+    599           *
+    600           * @return  ZStatus_t
+    601           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    602          static ZStatus_t zclZigUP_DoorLockRspCB ( zclIncoming_t *pInMsg, uint8 status )
+   \                     zclZigUP_DoorLockRspCB:
+    603          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    604            return ( ZCL_STATUS_SUCCESS );
+   \   000000   7900         MOV       R1,#0x0
+   \   000002   02....       LJMP      ?BRET
+    605          }
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for ZigUP_TestEp>`:
+   \   000000   08           DB 8
+   \   000001   ....         DW zclZigUP_TaskID
+   \   000003   0000         DW 0H
+   \   000005   00           DB 0
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclZigUP_NwkState>`:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclZigUP_CmdCallbacks>`:
+   \   000000   ....         DW `??zclZigUP_BasicResetCB::?relay`
+   \   000002   ....         DW `??zclZigUP_IdentifyCB::?relay`
+   \   000004   0000         DW 0H
+   \   000006   ....         DW `??zclZigUP_IdentifyQueryRspCB::?relay`
+   \   000008   ....         DW `??zclZigUP_OnOffCB::?relay`
+   \   00000A   0000         DW 0H
+   \   00000C   0000         DW 0H
+   \   00000E   0000         DW 0H
+   \   000010   0000         DW 0H
+   \   000012   0000         DW 0H
+   \   000014   0000         DW 0H
+   \   000016   0000         DW 0H
+   \   000018   0000         DW 0H
+   \   00001A   0000         DW 0H
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclZigUP_LightingCmdCBs>`:
+   \   000000   0000         DW 0H
+   \   000002   0000         DW 0H
+   \   000004   0000         DW 0H
+   \   000006   0000         DW 0H
+   \   000008   0000         DW 0H
+   \   00000A   0000         DW 0H
+   \   00000C   0000         DW 0H
+   \   00000E   ....         DW `??zclZigUP_MoveToColorCB::?relay`
+   \   000010   0000         DW 0H
+   \   000012   0000         DW 0H
+   \   000014   0000         DW 0H
+   \   000016   0000         DW 0H
+   \   000018   0000         DW 0H
+   \   00001A   0000         DW 0H
+   \   00001C   0000         DW 0H
+   \   00001E   0000         DW 0H
+   \   000020   0000         DW 0H
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclZigUP_DoorLockCmdCallback`:
+   \   000000   ....         DW `??zclZigUP_DoorLockCB::?relay`
+   \   000002   ....         DW `??zclZigUP_DoorLockRspCB::?relay`
+   \   000004   0000         DW 0H
+   \   000006   0000         DW 0H
+   \   000008   0000         DW 0H
+   \   00000A   0000         DW 0H
+   \   00000C   0000         DW 0H
+   \   00000E   0000         DW 0H
+   \   000010   0000         DW 0H
+   \   000012   0000         DW 0H
+   \   000014   0000         DW 0H
+   \   000016   0000         DW 0H
+   \   000018   0000         DW 0H
+   \   00001A   0000         DW 0H
+   \   00001C   0000         DW 0H
+   \   00001E   0000         DW 0H
+   \   000020   0000         DW 0H
+   \   000022   0000         DW 0H
+   \   000024   0000         DW 0H
+   \   000026   0000         DW 0H
+   \   000028   0000         DW 0H
+   \   00002A   0000         DW 0H
+   \   00002C   0000         DW 0H
+   \   00002E   0000         DW 0H
+   \   000030   0000         DW 0H
+   \   000032   0000         DW 0H
+   \   000034   0000         DW 0H
+   \   000036   0000         DW 0H
+   \   000038   0000         DW 0H
+   \   00003A   0000         DW 0H
+   \   00003C   0000         DW 0H
+   \   00003E   0000         DW 0H
+   \   000040   0000         DW 0H
+   \   000042   0000         DW 0H
+   \   000044   0000         DW 0H
+   \   000046   0000         DW 0H
+   \   000048   0000         DW 0H
+   \   00004A   0000         DW 0H
+   \   00004C   0000         DW 0H
+   \   00004E   0000         DW 0H
+   \   000050   0000         DW 0H
+   \   000052   0000         DW 0H
+   \   000054   0000         DW 0H
+   \   000056   0000         DW 0H
+   \   000058   0000         DW 0H
+   \   00005A   0000         DW 0H
+   \   00005C   0000         DW 0H
+   \   00005E   0000         DW 0H
+   \   000060   0000         DW 0H
+   \   000062   0000         DW 0H
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_Reporting::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_Reporting
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_Init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_event_loop::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_event_loop
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_ProcessIdentifyTimeChange::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_ProcessIdentifyTimeChange
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_BasicResetCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_BasicResetCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_IdentifyCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_IdentifyCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_IdentifyQueryRspCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_IdentifyQueryRspCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_OnOffCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_OnOffCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_MoveToColorCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_MoveToColorCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_DoorLockCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_DoorLockCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclZigUP_DoorLockRspCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclZigUP_DoorLockRspCB
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "CMD: %u\\n">`:
+   \   000000   434D443A     DB "CMD: %u\012"
+   \            2025750A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Light-CMD: x: %u // y...">`:
+   \   000000   4C696768     DB "Light-CMD: x: %u // y: %u\012"
+   \            742D434D
+   \            443A2078
+   \            3A202575
+   \            202F2F20
+   \            793A2025
+   \            750A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Light-CMD: r: %u // g...">`:
+   \   000000   4C696768     DB "Light-CMD: r: %u // g: %u // b: %u\012"
+   \            742D434D
+   \            443A2072
+   \            3A202575
+   \            202F2F20
+   \            673A2025
+   \            75202F2F
+   \            20623A20
+   \            25750A00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3e8:
+   \   000000   E8030000     DD 1000
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_37800000:
+   \   000000   00008037     DD 37800000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3fd407ee:
+   \   000000   EE07D43F     DD 3FD407EEH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_beb5af08:
+   \   000000   08AFB5BE     DD 0BEB5AF08H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3e829457:
+   \   000000   5794823E     DD 3E829457H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_bf350acc:
+   \   000000   CC0A35BF     DD 0BF350ACCH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3fd3e40d:
+   \   000000   0DE4D33F     DD 3FD3E40DH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3d14141f:
+   \   000000   1F14143D     DD 3D14141FH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3d53d103:
+   \   000000   03D1533D     DD 3D53D103H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_bdf88db0:
+   \   000000   B08DF8BD     DD 0BDF88DB0H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3f8179d1:
+   \   000000   D179813F     DD 3F8179D1H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3f800001:
+   \   000000   0100803F     DD 3F800001H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3ed55555:
+   \   000000   5555D53E     DD 3ED55555H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3f870a3d:
+   \   000000   3D0A873F     DD 3F870A3DH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_bd6147ae:
+   \   000000   AE4761BD     DD 0BD6147AEH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3b4d2e1d:
+   \   000000   1D2E4D3B     DD 3B4D2E1DH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_414eb852:
+   \   000000   52B84E41     DD 414EB852H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_437f0000:
+   \   000000   00007F43     DD 437F0000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_437e8001:
+   \   000000   01807E43     DD 437E8001H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3f000000:
+   \   000000   0000003F     DD 3F000000H
+    606          
+    607          
+    608          /******************************************************************************
+    609          *
+    610          *  Functions for processing ZCL Foundation incoming Command/Response messages
+    611          *
+    612          *****************************************************************************/
+    613          
+    614          /*********************************************************************
+    615          * @fn      zclZigUP_ProcessIncomingMsg
+    616          *
+    617          * @brief   Process ZCL Foundation incoming message
+    618          *
+    619          * @param   pInMsg - pointer to the received message
+    620          *
+    621          * @return  none
+    622          */
+    623          static void zclZigUP_ProcessIncomingMsg( zclIncomingMsg_t *pInMsg )
+    624          {
+    625            switch ( pInMsg->zclHdr.commandID )
+    626            {
+    627          #ifdef ZCL_READ
+    628            case ZCL_CMD_READ_RSP:
+    629              zclZigUP_ProcessInReadRspCmd( pInMsg );
+    630              break;
+    631          #endif
+    632          #ifdef ZCL_WRITE
+    633            case ZCL_CMD_WRITE_RSP:
+    634              zclZigUP_ProcessInWriteRspCmd( pInMsg );
+    635              break;
+    636          #endif
+    637          #ifdef ZCL_REPORT
+    638              // Attribute Reporting implementation should be added here
+    639            case ZCL_CMD_CONFIG_REPORT:
+    640              // zclZigUP_ProcessInConfigReportCmd( pInMsg );
+    641              break;
+    642              
+    643            case ZCL_CMD_CONFIG_REPORT_RSP:
+    644              // zclZigUP_ProcessInConfigReportRspCmd( pInMsg );
+    645              break;
+    646              
+    647            case ZCL_CMD_READ_REPORT_CFG:
+    648              // zclZigUP_ProcessInReadReportCfgCmd( pInMsg );
+    649              break;
+    650              
+    651            case ZCL_CMD_READ_REPORT_CFG_RSP:
+    652              // zclZigUP_ProcessInReadReportCfgRspCmd( pInMsg );
+    653              break;
+    654              
+    655            case ZCL_CMD_REPORT:
+    656              // zclZigUP_ProcessInReportCmd( pInMsg );
+    657              break;
+    658          #endif
+    659            case ZCL_CMD_DEFAULT_RSP:
+    660              zclZigUP_ProcessInDefaultRspCmd( pInMsg );
+    661              break;
+    662          #ifdef ZCL_DISCOVER
+    663            case ZCL_CMD_DISCOVER_CMDS_RECEIVED_RSP:
+    664              zclZigUP_ProcessInDiscCmdsRspCmd( pInMsg );
+    665              break;
+    666              
+    667            case ZCL_CMD_DISCOVER_CMDS_GEN_RSP:
+    668              zclZigUP_ProcessInDiscCmdsRspCmd( pInMsg );
+    669              break;
+    670              
+    671            case ZCL_CMD_DISCOVER_ATTRS_RSP:
+    672              zclZigUP_ProcessInDiscAttrsRspCmd( pInMsg );
+    673              break;
+    674              
+    675            case ZCL_CMD_DISCOVER_ATTRS_EXT_RSP:
+    676              zclZigUP_ProcessInDiscAttrsExtRspCmd( pInMsg );
+    677              break;
+    678          #endif
+    679              
+    680            default:
+    681              break;
+    682            }
+    683            
+    684            if ( pInMsg->attrCmd ) osal_mem_free( pInMsg->attrCmd );
+    685          }
+    686          
+    687          #ifdef ZCL_READ
+    688          /*********************************************************************
+    689          * @fn      zclZigUP_ProcessInReadRspCmd
+    690          *
+    691          * @brief   Process the "Profile" Read Response Command
+    692          *
+    693          * @param   pInMsg - incoming message to process
+    694          *
+    695          * @return  none
+    696          */
+    697          static uint8 zclZigUP_ProcessInReadRspCmd( zclIncomingMsg_t *pInMsg )
+    698          {
+    699            zclReadRspCmd_t *readRspCmd;
+    700            uint8 i;
+    701            
+    702            readRspCmd = (zclReadRspCmd_t *)pInMsg->attrCmd;
+    703            for (i = 0; i < readRspCmd->numAttr; i++)
+    704            {
+    705              // Notify the originator of the results of the original read attributes
+    706              // attempt and, for each successfull request, the value of the requested
+    707              // attribute
+    708            }
+    709            
+    710            return ( TRUE );
+    711          }
+    712          #endif // ZCL_READ
+    713          
+    714          #ifdef ZCL_WRITE
+    715          /*********************************************************************
+    716          * @fn      zclZigUP_ProcessInWriteRspCmd
+    717          *
+    718          * @brief   Process the "Profile" Write Response Command
+    719          *
+    720          * @param   pInMsg - incoming message to process
+    721          *
+    722          * @return  none
+    723          */
+    724          static uint8 zclZigUP_ProcessInWriteRspCmd( zclIncomingMsg_t *pInMsg )
+    725          {
+    726            zclWriteRspCmd_t *writeRspCmd;
+    727            uint8 i;
+    728            
+    729            writeRspCmd = (zclWriteRspCmd_t *)pInMsg->attrCmd;
+    730            for ( i = 0; i < writeRspCmd->numAttr; i++ )
+    731            {
+    732              // Notify the device of the results of the its original write attributes
+    733              // command.
+    734            }
+    735            
+    736            return ( TRUE );
+    737          }
+    738          #endif // ZCL_WRITE
+    739          
+    740          /*********************************************************************
+    741          * @fn      zclZigUP_ProcessInDefaultRspCmd
+    742          *
+    743          * @brief   Process the "Profile" Default Response Command
+    744          *
+    745          * @param   pInMsg - incoming message to process
+    746          *
+    747          * @return  none
+    748          */
+    749          static uint8 zclZigUP_ProcessInDefaultRspCmd( zclIncomingMsg_t *pInMsg )
+    750          {
+    751            // zclDefaultRspCmd_t *defaultRspCmd = (zclDefaultRspCmd_t *)pInMsg->attrCmd;
+    752            
+    753            // Device is notified of the Default Response command.
+    754            (void)pInMsg;
+    755            
+    756            return ( TRUE );
+    757          }
+    758          
+    759          #ifdef ZCL_DISCOVER
+    760          /*********************************************************************
+    761          * @fn      zclZigUP_ProcessInDiscCmdsRspCmd
+    762          *
+    763          * @brief   Process the Discover Commands Response Command
+    764          *
+    765          * @param   pInMsg - incoming message to process
+    766          *
+    767          * @return  none
+    768          */
+    769          static uint8 zclZigUP_ProcessInDiscCmdsRspCmd( zclIncomingMsg_t *pInMsg )
+    770          {
+    771            zclDiscoverCmdsCmdRsp_t *discoverRspCmd;
+    772            uint8 i;
+    773            
+    774            discoverRspCmd = (zclDiscoverCmdsCmdRsp_t *)pInMsg->attrCmd;
+    775            for ( i = 0; i < discoverRspCmd->numCmd; i++ )
+    776            {
+    777              // Device is notified of the result of its attribute discovery command.
+    778            }
+    779            
+    780            return ( TRUE );
+    781          }
+    782          
+    783          /*********************************************************************
+    784          * @fn      zclZigUP_ProcessInDiscAttrsRspCmd
+    785          *
+    786          * @brief   Process the "Profile" Discover Attributes Response Command
+    787          *
+    788          * @param   pInMsg - incoming message to process
+    789          *
+    790          * @return  none
+    791          */
+    792          static uint8 zclZigUP_ProcessInDiscAttrsRspCmd( zclIncomingMsg_t *pInMsg )
+    793          {
+    794            zclDiscoverAttrsRspCmd_t *discoverRspCmd;
+    795            uint8 i;
+    796            
+    797            discoverRspCmd = (zclDiscoverAttrsRspCmd_t *)pInMsg->attrCmd;
+    798            for ( i = 0; i < discoverRspCmd->numAttr; i++ )
+    799            {
+    800              // Device is notified of the result of its attribute discovery command.
+    801            }
+    802            
+    803            return ( TRUE );
+    804          }
+    805          
+    806          /*********************************************************************
+    807          * @fn      zclZigUP_ProcessInDiscAttrsExtRspCmd
+    808          *
+    809          * @brief   Process the "Profile" Discover Attributes Extended Response Command
+    810          *
+    811          * @param   pInMsg - incoming message to process
+    812          *
+    813          * @return  none
+    814          */
+    815          static uint8 zclZigUP_ProcessInDiscAttrsExtRspCmd( zclIncomingMsg_t *pInMsg )
+    816          {
+    817            zclDiscoverAttrsExtRsp_t *discoverRspCmd;
+    818            uint8 i;
+    819            
+    820            discoverRspCmd = (zclDiscoverAttrsExtRsp_t *)pInMsg->attrCmd;
+    821            for ( i = 0; i < discoverRspCmd->numAttr; i++ )
+    822            {
+    823              // Device is notified of the result of its attribute discovery command.
+    824            }
+    825            
+    826            return ( TRUE );
+    827          }
+    828          #endif // ZCL_DISCOVER
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      5   zclZigUP_BasicResetCB
+        2      5   -> NLME_LeaveReq
+        2      5   -> ZDApp_LeaveReset
+        2      5   -> osal_memset
+        2      5   -> zgWriteStartupOptions
+      0     12   zclZigUP_DoorLockCB
+        0     10   -> LED
+        0     12   -> zclClosures_SendDoorLockStatusResponse
+      0      0   zclZigUP_DoorLockRspCB
+      2      0   zclZigUP_IdentifyCB
+        2      0   -> zclZigUP_ProcessIdentifyTimeChange
+      0      0   zclZigUP_IdentifyQueryRspCB
+      0      9   zclZigUP_Init
+        0      9   -> GetRandomNumber
+        0      9   -> RegisterForKeys
+        0      9   -> _delay_ms
+        0      9   -> afRegister
+        0      9   -> sysInit
+        0      9   -> zclClosures_RegisterDoorLockCmdCallbacks
+        0      9   -> zclDiagnostic_InitStats
+        0      9   -> zclGeneral_RegisterCmdCallbacks
+        0      9   -> zclHA_Init
+        0      9   -> zclLighting_RegisterCmdCallbacks
+        0      9   -> zcl_registerAttrList
+        0      9   -> zcl_registerForMsg
+        0      9   -> zcl_registerReadWriteCB
+      4    135   zclZigUP_MoveToColorCB
+        0    129   -> UART_String
+        0    129   -> WS2812_SendLED
+        0    133   -> pow
+        0    133   -> sprintf
+        0    135   -> sprintf
+      0    112   zclZigUP_OnOffCB
+        0    110   -> Relais
+        0    110   -> UART_String
+        0    110   -> ledSet
+        0    112   -> sprintf
+        0    110   -> zcl_getRawAFMsg
+      2     16   zclZigUP_ProcessIdentifyTimeChange
+        2      4   -> osal_start_timerEx
+        2      0   -> osal_stop_timerEx
+      0     19   zclZigUP_Reporting
+        0     14   -> osal_mem_alloc
+        0     14   -> osal_mem_free
+        0     19   -> zcl_SendReportCmd
+      0     12   zclZigUP_event_loop
+        0     12   -> osal_mem_free
+        0     12   -> osal_msg_deallocate
+        0     12   -> osal_msg_receive
+        0     12   -> zclZigUP_ProcessIdentifyTimeChange
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       9  ?<Constant "CMD: %u\n">
+      36  ?<Constant "Light-CMD: r: %u // g...">
+      27  ?<Constant "Light-CMD: x: %u // y...">
+       6  ?<Initializer for ZigUP_TestEp>
+      28  ?<Initializer for zclZigUP_CmdCallbacks>
+     100  ?<Initializer for zclZigUP_DoorLockCmdCallback
+      34  ?<Initializer for zclZigUP_LightingCmdCBs>
+       1  ?<Initializer for zclZigUP_NwkState>
+       5  ??Subroutine15_0
+       6  ??Subroutine16_0
+       5  ?Subroutine0
+       7  ?Subroutine1
+      14  ?Subroutine10
+       3  ?Subroutine11
+       5  ?Subroutine12
+       2  ?Subroutine13
+       9  ?Subroutine14
+       5  ?Subroutine2
+       7  ?Subroutine3
+       8  ?Subroutine4
+      12  ?Subroutine5
+       4  ?Subroutine6
+      12  ?Subroutine7
+       8  ?Subroutine8
+      21  ?Subroutine9
+       6  ZigUP_TestEp
+       4  __Constant_37800000
+       4  __Constant_3b4d2e1d
+       4  __Constant_3d14141f
+       4  __Constant_3d53d103
+       4  __Constant_3e8
+       4  __Constant_3e829457
+       4  __Constant_3ed55555
+       4  __Constant_3f000000
+       4  __Constant_3f800001
+       4  __Constant_3f8179d1
+       4  __Constant_3f870a3d
+       4  __Constant_3fd3e40d
+       4  __Constant_3fd407ee
+       4  __Constant_414eb852
+       4  __Constant_437e8001
+       4  __Constant_437f0000
+       4  __Constant_bd6147ae
+       4  __Constant_bdf88db0
+       4  __Constant_beb5af08
+       4  __Constant_bf350acc
+      59  zclZigUP_BasicResetCB
+       6  zclZigUP_BasicResetCB::?relay
+      28  zclZigUP_CmdCallbacks
+     162  zclZigUP_DoorLockCB
+       6  zclZigUP_DoorLockCB::?relay
+     100  zclZigUP_DoorLockCmdCallbacks
+       5  zclZigUP_DoorLockRspCB
+       6  zclZigUP_DoorLockRspCB::?relay
+      12  zclZigUP_DstAddr
+      24  zclZigUP_IdentifyCB
+       6  zclZigUP_IdentifyCB::?relay
+       3  zclZigUP_IdentifyQueryRspCB
+       6  zclZigUP_IdentifyQueryRspCB::?relay
+     129  zclZigUP_Init
+       6  zclZigUP_Init::?relay
+      34  zclZigUP_LightingCmdCBs
+    1286  zclZigUP_MoveToColorCB
+       6  zclZigUP_MoveToColorCB::?relay
+       1  zclZigUP_NwkState
+     113  zclZigUP_OnOffCB
+       6  zclZigUP_OnOffCB::?relay
+      47  zclZigUP_ProcessIdentifyTimeChange
+       6  zclZigUP_ProcessIdentifyTimeChange::?relay
+     390  zclZigUP_Reporting
+       6  zclZigUP_Reporting::?relay
+     190  zclZigUP_event_loop
+       6  zclZigUP_event_loop::?relay
+
+ 
+ 2 541 bytes in segment BANKED_CODE
+    66 bytes in segment BANK_RELAYS
+   169 bytes in segment XDATA_I
+   169 bytes in segment XDATA_ID
+   152 bytes in segment XDATA_ROM_C
+    12 bytes in segment XDATA_Z
+ 
+   235 bytes of CODE     memory
+    72 bytes of CONST    memory (+ 80 bytes shared)
+ 2 541 bytes of HUGECODE memory
+   181 bytes of XDATA    memory
+
+Errors: none
+Warnings: 1

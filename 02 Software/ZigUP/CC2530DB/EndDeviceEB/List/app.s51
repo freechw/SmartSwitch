@@ -1,0 +1,1118 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.10.1.4655 for 8051              20/Nov/2021  20:28:20
+// Copyright 2004-2017 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\app.c
+//    Command line       =  
+//        -f C:\Users\tatbo\AppData\Local\Temp\EW691E.tmp ("D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\app.c" -D
+//        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+//        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+//        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+//        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+//        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+//        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+//        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+//        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+//        -lA "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+//        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+//        -f "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+//        "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+//        -I "D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes)
+//    Locale             =  Chinese (Simplified)_China.936
+//    List file          =  
+//        D:\Z-Stack Home
+//        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\app.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME app
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V6
+        EXTERN ?V7
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?L_MOV_X
+        EXTERN ?L_MUL
+        EXTERN ?UL_SHR
+
+        PUBLIC `??ledSet::?relay`
+        FUNCTION `??ledSet::?relay`,0203H
+        PUBLIC `??sysAdcGet::?relay`
+        FUNCTION `??sysAdcGet::?relay`,0203H
+        PUBLIC `??sysAdcInit::?relay`
+        FUNCTION `??sysAdcInit::?relay`,0203H
+        PUBLIC `??sysInit::?relay`
+        FUNCTION `??sysInit::?relay`,0203H
+        PUBLIC `??sysPinInit::?relay`
+        FUNCTION `??sysPinInit::?relay`,0203H
+        PUBLIC `??sysPwmSet::?relay`
+        FUNCTION `??sysPwmSet::?relay`,0203H
+        PUBLIC `??sysSendByte::?relay`
+        FUNCTION `??sysSendByte::?relay`,0203H
+        PUBLIC `??sysSendString::?relay`
+        FUNCTION `??sysSendString::?relay`,0203H
+        PUBLIC `??sysTimInit::?relay`
+        FUNCTION `??sysTimInit::?relay`,0203H
+        PUBLIC `??sysUsartInit::?relay`
+        FUNCTION `??sysUsartInit::?relay`,0203H
+        PUBWEAK APCFG
+        PUBWEAK CLKCONCMD
+        PUBWEAK CLKCONSTA
+        PUBWEAK P0DIR
+        PUBWEAK P0SEL
+        PUBWEAK P1DIR
+        PUBWEAK P1SEL
+        PUBWEAK P2SEL
+        PUBWEAK PERCFG
+        PUBWEAK T1CC0H
+        PUBWEAK T1CC0L
+        PUBWEAK T1CC1H
+        PUBWEAK T1CC1L
+        PUBWEAK T1CCTL1
+        PUBWEAK T1CTL
+        PUBWEAK U0BAUD
+        PUBWEAK U0CSR
+        PUBWEAK U0DBUF
+        PUBWEAK U0GCR
+        PUBWEAK U0UCR
+        PUBWEAK _A_IEN0
+        PUBWEAK _A_IRCON2
+        PUBWEAK _A_P0
+        PUBWEAK _A_P1
+        PUBWEAK __Constant_14a
+        PUBLIC ledSet
+        FUNCTION ledSet,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC sysAdcGet
+        FUNCTION sysAdcGet,0a1203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 16, STACK
+        PUBLIC sysAdcInit
+        FUNCTION sysAdcInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC sysInit
+        FUNCTION sysInit,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC sysPinInit
+        FUNCTION sysPinInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC sysPwmSet
+        FUNCTION sysPwmSet,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC sysSendByte
+        FUNCTION sysSendByte,0203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC sysSendString
+        FUNCTION sysSendString,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC sysTimInit
+        FUNCTION sysTimInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC sysUsartInit
+        FUNCTION sysUsartInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+HalAdcRead          SYMBOL "HalAdcRead"
+`??HalAdcRead::?relay` SYMBOL "?relay", HalAdcRead
+ledSet              SYMBOL "ledSet"
+`??ledSet::?relay`  SYMBOL "?relay", ledSet
+sysAdcGet           SYMBOL "sysAdcGet"
+`??sysAdcGet::?relay` SYMBOL "?relay", sysAdcGet
+sysAdcInit          SYMBOL "sysAdcInit"
+`??sysAdcInit::?relay` SYMBOL "?relay", sysAdcInit
+sysInit             SYMBOL "sysInit"
+`??sysInit::?relay` SYMBOL "?relay", sysInit
+sysPinInit          SYMBOL "sysPinInit"
+`??sysPinInit::?relay` SYMBOL "?relay", sysPinInit
+sysPwmSet           SYMBOL "sysPwmSet"
+`??sysPwmSet::?relay` SYMBOL "?relay", sysPwmSet
+sysSendByte         SYMBOL "sysSendByte"
+`??sysSendByte::?relay` SYMBOL "?relay", sysSendByte
+sysSendString       SYMBOL "sysSendString"
+`??sysSendString::?relay` SYMBOL "?relay", sysSendString
+sysTimInit          SYMBOL "sysTimInit"
+`??sysTimInit::?relay` SYMBOL "?relay", sysTimInit
+sysUsartInit        SYMBOL "sysUsartInit"
+`??sysUsartInit::?relay` SYMBOL "?relay", sysUsartInit
+
+        EXTERN `??HalAdcRead::?relay`
+        FUNCTION `??HalAdcRead::?relay`,00H
+        EXTERN HalAdcRead
+        FUNCTION HalAdcRead,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\app.c
+//    1 /* 需要在 HalDriverInit() 内 HalAdcInit() 内修改为 adcRef = HAL_ADC_REF_AIN7; */
+//    2 
+//    3 #include "app.h"
+//    4 #include "hal_adc.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,080H
+// union <unnamed> volatile __sfr _A_P0
+_A_P0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,086H
+// unsigned char volatile __sfr U0CSR
+U0CSR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,090H
+// union <unnamed> volatile __sfr _A_P1
+_A_P1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,09eH
+// unsigned char volatile __sfr CLKCONSTA
+CLKCONSTA:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c1H
+// unsigned char volatile __sfr U0DBUF
+U0DBUF:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c2H
+// unsigned char volatile __sfr U0BAUD
+U0BAUD:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c4H
+// unsigned char volatile __sfr U0UCR
+U0UCR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c5H
+// unsigned char volatile __sfr U0GCR
+U0GCR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c6H
+// unsigned char volatile __sfr CLKCONCMD
+CLKCONCMD:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0daH
+// unsigned char volatile __sfr T1CC0L
+T1CC0L:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0dbH
+// unsigned char volatile __sfr T1CC0H
+T1CC0H:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0dcH
+// unsigned char volatile __sfr T1CC1L
+T1CC1L:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0ddH
+// unsigned char volatile __sfr T1CC1H
+T1CC1H:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e4H
+// unsigned char volatile __sfr T1CTL
+T1CTL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e6H
+// unsigned char volatile __sfr T1CCTL1
+T1CCTL1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e8H
+// union <unnamed> volatile __sfr _A_IRCON2
+_A_IRCON2:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f1H
+// unsigned char volatile __sfr PERCFG
+PERCFG:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f2H
+// unsigned char volatile __sfr APCFG
+APCFG:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f3H
+// unsigned char volatile __sfr P0SEL
+P0SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f4H
+// unsigned char volatile __sfr P1SEL
+P1SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f5H
+// unsigned char volatile __sfr P2SEL
+P2SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0fdH
+// unsigned char volatile __sfr P0DIR
+P0DIR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0feH
+// unsigned char volatile __sfr P1DIR
+P1DIR:
+        DATA8
+        DS 1
+//    5 #include "onboard.h"
+//    6 #include "global.h"
+//    7 #include "zcl_zigup.h"
+//    8 #include <string.h>
+//    9 
+//   10 #define LED1 P1_1
+//   11 #define SWTICH P0_2
+//   12 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   13 void sysInit(void)
+sysInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function sysInit
+        CODE
+//   14 {
+        FUNCALL sysInit, sysPinInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL sysInit, sysAdcInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL sysInit, sysTimInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   15     sysPinInit();
+        ; Setup parameters for call to function sysPinInit
+        LCALL     `??sysPinInit::?relay`; Banked call to: sysPinInit
+//   16     sysAdcInit();
+        ; Setup parameters for call to function sysAdcInit
+        LCALL     `??sysAdcInit::?relay`; Banked call to: sysAdcInit
+//   17     sysTimInit();
+        ; Setup parameters for call to function sysTimInit
+        LCALL     `??sysTimInit::?relay`; Banked call to: sysTimInit
+//   18     //sysUsartInit();
+//   19 }
+        POP       DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-4
+        POP       DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-3
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock0
+//   20 
+//   21 /* 初始化 */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   22 void sysPinInit(void)
+sysPinInit:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function sysPinInit
+        CODE
+//   23 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   24     P1DIR |= 0x02; // P1.1输出模式
+        ORL       0xfe,#0x2
+//   25     LED1 = 0;
+        CLR       0x90.1
+//   26     
+//   27     P0SEL &= ~0x04; // P0.2为普通IO
+        ANL       0xf3,#0xfb
+//   28     P0DIR |= 0x04; // P0.2为输出模式
+        ORL       0xfd,#0x4
+//   29 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock1
+        REQUIRE P1DIR
+        REQUIRE _A_P1
+        REQUIRE P0SEL
+        REQUIRE P0DIR
+//   30 
+//   31 /* 初始化ADC */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   32 void sysAdcInit(void)
+sysAdcInit:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function sysAdcInit
+        CODE
+//   33 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   34     APCFG |= 0x10;
+        ORL       0xf2,#0x10
+//   35     P0SEL |= 0x10;
+        ORL       0xf3,#0x10
+//   36     P0DIR &= ~0x10;
+        ANL       0xfd,#0xef
+//   37 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock2
+        REQUIRE APCFG
+        REQUIRE P0SEL
+        REQUIRE P0DIR
+//   38 
+//   39 /* 获取ADC值，转换为电压值，并返回 */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   40 uint16 sysAdcGet(void)
+sysAdcGet:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function sysAdcGet
+        CODE
+//   41 {
+        FUNCALL sysAdcGet, HalAdcRead
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 16, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        REQUIRE ?V7
+        MOV       A,#-0x10
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 16)
+        ; Saved register size: 16
+        ; Auto size: 0
+//   42     uint32 value;
+//   43     value = HalAdcRead(HAL_ADC_CHANNEL_4, HAL_ADC_RESOLUTION_14);
+//   44     value = value * 330;
+//   45     value = value / 8192;
+//   46     return (uint16)value;
+        ; Setup parameters for call to function HalAdcRead
+        MOV       R2,#0x4
+        MOV       R1,#0x4
+        LCALL     `??HalAdcRead::?relay`; Banked call to: HalAdcRead
+        MOV       ?V0,R2
+        MOV       ?V1,R3
+        CLR       A
+        MOV       ?V2,A
+        MOV       ?V3,A
+        MOV       DPTR,#__Constant_14a
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?L_MUL
+        MOV       A,#0xd
+        MOV       R0,#?V0
+        LCALL     ?UL_SHR
+        MOV       R2,?V0
+        MOV       R3,?V1
+        MOV       R7,#0x8
+        LJMP      ?BANKED_LEAVE_XDATA
+//   47 }
+          CFI EndBlock cfiBlock3
+//   48 
+//   49 /* 初始化定时器 */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   50 void sysTimInit(void)
+sysTimInit:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function sysTimInit
+        CODE
+//   51 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   52     CLKCONCMD &= ~0x40; // 设置系统时钟源为32MHZ晶振
+        ANL       0xc6,#0xbf
+//   53     while (CLKCONSTA & 0x40)
+??sysTimInit_0:
+        MOV       A,0x9e
+        MOV       C,0xE0 /* A   */.6
+        JC        ??sysTimInit_0
+//   54         ;               // 等待晶振稳定为32M
+//   55     CLKCONCMD &= ~0x07; // 设置系统主时钟频率为32MHZ
+        ANL       0xc6,#0xf8
+//   56     CLKCONCMD |= 0x38;  // 时钟速度32 MHz 定时器标记输出设置[5:3]250kHz
+        ORL       0xc6,#0x38
+//   57 
+//   58     PERCFG |= 0x40; // 定时器1的IO位置，选择备用位置2
+        ORL       0xf1,#0x40
+//   59     P2SEL &= ~0x10; // 定时器1优先
+        ANL       0xf5,#0xef
+//   60 
+//   61     P1DIR |= 0x02; // P1.1输出模式
+        ORL       0xfe,#0x2
+//   62     P1SEL |= 0x02; // timer1ͨ通道1映射到P1.1
+        ORL       0xf4,#0x2
+//   63 
+//   64     T1CC1H = 0x00; // 占空比
+        MOV       0xdd,#0x0
+//   65     T1CC1L = 0x00;
+        MOV       0xdc,#0x0
+//   66 
+//   67     T1CC0H = 0x00; // 周期
+        MOV       0xdb,#0x0
+//   68     T1CC0L = 0xff;
+        MOV       0xda,#-0x1
+//   69 
+//   70     T1CCTL1 = 0x1c; // 通道1比较模式
+        MOV       0xe6,#0x1c
+//   71     T1CTL = 0x02;   //250KHz，不分频
+        MOV       0xe4,#0x2
+//   72 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock4
+        REQUIRE CLKCONCMD
+        REQUIRE CLKCONSTA
+        REQUIRE PERCFG
+        REQUIRE P2SEL
+        REQUIRE P1DIR
+        REQUIRE P1SEL
+        REQUIRE T1CC1H
+        REQUIRE T1CC1L
+        REQUIRE T1CC0H
+        REQUIRE T1CC0L
+        REQUIRE T1CCTL1
+        REQUIRE T1CTL
+//   73 
+//   74 /* 初始化串口 */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   75 void sysUsartInit(void)
+sysUsartInit:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function sysUsartInit
+        CODE
+//   76 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   77     PERCFG &= ~0x01;
+        ANL       0xf1,#0xfe
+//   78     P0SEL = 0x3c;
+        MOV       0xf3,#0x3c
+//   79     U0CSR |= 0x80;
+        ORL       0x86,#0x80
+//   80     U0BAUD = 216;
+        MOV       0xc2,#-0x28
+//   81     U0GCR = 10;
+        MOV       0xc5,#0xa
+//   82     U0UCR |= 0x80;
+        ORL       0xc4,#0x80
+//   83     UTX0IF = 0;
+        CLR       0xe8.1
+//   84     EA = 1;
+        SETB      0xa8.7
+//   85 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock5
+        REQUIRE PERCFG
+        REQUIRE P0SEL
+        REQUIRE U0CSR
+        REQUIRE U0BAUD
+        REQUIRE U0GCR
+        REQUIRE U0UCR
+        REQUIRE _A_IRCON2
+        REQUIRE _A_IEN0
+//   86 
+//   87 /* 发送一个字节 */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   88 void sysSendByte(unsigned char c)
+sysSendByte:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function sysSendByte
+        CODE
+//   89 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   90     U0DBUF = c;
+        MOV       0xc1,R1
+//   91     while (!UTX0IF)
+??sysSendByte_0:
+        MOV       C,0xe8.1
+        JNC       ??sysSendByte_0
+//   92         ;
+//   93     UTX0IF = 0;
+        CLR       0xe8.1
+//   94 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock6
+        REQUIRE U0DBUF
+        REQUIRE _A_IRCON2
+//   95 
+//   96 /* 发送一个字符串 */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   97 void sysSendString(unsigned char *str)
+sysSendString:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function sysSendString
+        CODE
+//   98 {
+        FUNCALL sysSendString, sysSendByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+        SJMP      ??sysSendString_0
+//   99     while (*str != '\0')
+//  100     {
+//  101         sysSendByte(*str++);
+??sysSendString_1:
+        ; Setup parameters for call to function sysSendByte
+        LCALL     `??sysSendByte::?relay`; Banked call to: sysSendByte
+        MOV       DPL,R6
+        MOV       DPH,R7
+        INC       DPTR
+        MOV       R6,DPL
+        MOV       R7,DPH
+//  102     }
+??sysSendString_0:
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      A,@DPTR
+        MOV       R1,A
+        JNZ       ??sysSendString_1
+//  103 }
+          CFI EndBlock cfiBlock7
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       R7,#0x1
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock8
+//  104 
+//  105 //uint8 rate[11]={0xF7,0xE1,0xC8,0xAF,0x96,0x7D,0x64,0x4B,0x32,0x19,0x0A};
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  106 void sysPwmSet(uint8 ucFlag)
+sysPwmSet:
+          CFI Block cfiBlock9 Using cfiCommon0
+          CFI Function sysPwmSet
+        CODE
+//  107 {
+        FUNCALL sysPwmSet, sysAdcGet
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R1
+//  108     switch(ucFlag)
+        JZ        ??sysPwmSet_0
+        DEC       A
+        JZ        ??sysPwmSet_1
+        SJMP      ??sysPwmSet_2
+//  109     {
+//  110     case LED_OFF:
+//  111           T1CC1H = 0x00; // 占空比
+??sysPwmSet_0:
+        MOV       0xdd,#0x0
+//  112           T1CC1L = 0x00;
+        MOV       0xdc,#0x0
+//  113       break;
+        SJMP      ??sysPwmSet_2
+//  114     case LED_ON:
+//  115           T1CC1H = 0x00; // 占空比
+??sysPwmSet_1:
+        MOV       0xdd,#0x0
+//  116           T1CC1L = 0xAF;
+        MOV       0xdc,#-0x51
+//  117       break;
+//  118     default:
+//  119       break;
+//  120     }
+//  121     sysAdcGet(); // 只有加上代码，PWM才会有输出，原因待分析
+??sysPwmSet_2:
+        ; Setup parameters for call to function sysAdcGet
+        LCALL     `??sysAdcGet::?relay`; Banked call to: sysAdcGet
+//  122 }
+        SJMP      ?Subroutine0
+          CFI EndBlock cfiBlock9
+        REQUIRE T1CC1H
+        REQUIRE T1CC1L
+//  123 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  124 void ledSet(uint8 status)
+ledSet:
+          CFI Block cfiBlock10 Using cfiCommon0
+          CFI Function ledSet
+        CODE
+//  125 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  126 	if (status)
+        MOV       A,R1
+        JZ        ??ledSet_0
+//  127 	{
+//  128 		//sysPwmSet(LED_ON);
+//  129                 SWTICH = LED_ON;
+        SETB      0x80.2
+        SJMP      ??ledSet_1
+//  130 	}
+//  131 	else
+//  132 	{
+//  133                 //sysPwmSet(LED_OFF);
+//  134                 SWTICH = LED_OFF;
+??ledSet_0:
+        CLR       0x80.2
+//  135 	}
+//  136 }
+??ledSet_1:
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock10
+        REQUIRE _A_P0
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_14a:
+        DD 330
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysPinInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysPinInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysAdcInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysAdcInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysAdcGet::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysAdcGet
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysTimInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysTimInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysUsartInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysUsartInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysSendByte::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysSendByte
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysSendString::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysSendString
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??sysPwmSet::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    sysPwmSet
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??ledSet::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    ledSet
+
+        END
+//  137 
+// 
+// 262 bytes in segment BANKED_CODE
+//  60 bytes in segment BANK_RELAYS
+//  24 bytes in segment SFR_AN
+//   4 bytes in segment XDATA_ROM_C
+// 
+//  60 bytes of CODE     memory
+//   0 bytes of CONST    memory (+  4 bytes shared)
+//   0 bytes of DATA     memory (+ 24 bytes shared)
+// 262 bytes of HUGECODE memory
+//
+//Errors: none
+//Warnings: none

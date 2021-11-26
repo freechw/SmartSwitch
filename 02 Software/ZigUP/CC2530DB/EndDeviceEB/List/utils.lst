@@ -1,0 +1,681 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:28:20
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\utils.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EW697C.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\utils.c" -D
+#        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\utils.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\utils.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\utils.c
+      1          #include <stdio.h>
+      2          #include <string.h>
+      3          #include "hal_flash.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc9
+   \   unsigned char volatile __sfr WDCTL
+   \                     WDCTL:
+   \   000000                DS 1
+      4          #include "onboard.h"
+      5          #include "delay.h"
+      6          #include "uart.h"
+      7          #include "global.h"
+      8          #include "utils.h"
+      9          #include "ds18b20.h"
+     10          #include "adc.h"
+     11          #include "dht22.h"
+     12          
+     13          #include "app.h"
+     14          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     15          void FactoryReset(void)
+   \                     FactoryReset:
+     16          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+     17            UART_String("Performing factory reset...");
+   \   000005                ; Setup parameters for call to function UART_String
+   \   000005   7A..         MOV       R2,#`?<Constant "Performing factory re...">` & 0xff
+   \   000007   7B..         MOV       R3,#(`?<Constant "Performing factory re...">` >> 8) & 0xff
+   \   000009   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+     18            for (int i = HAL_NV_PAGE_BEG; i <= (HAL_NV_PAGE_BEG + HAL_NV_PAGE_CNT); i++)
+   \   00000C   7E79         MOV       R6,#0x79
+   \   00000E   7F00         MOV       R7,#0x0
+     19            {
+     20              HalFlashErase(i);
+   \                     ??FactoryReset_0:
+   \   000010                ; Setup parameters for call to function HalFlashErase
+   \   000010   EE           MOV       A,R6
+   \   000011   F9           MOV       R1,A
+   \   000012   12....       LCALL     `??HalFlashErase::?relay`; Banked call to: HalFlashErase
+     21            }
+   \   000015   0E           INC       R6
+   \   000016   EE           MOV       A,R6
+   \   000017   7001         JNZ       ??FactoryReset_1
+   \   000019   0F           INC       R7
+   \                     ??FactoryReset_1:
+   \   00001A   C3           CLR       C
+   \   00001B   9480         SUBB      A,#-0x80
+   \   00001D   EF           MOV       A,R7
+   \   00001E   9400         SUBB      A,#0x0
+   \   000020   A2D2         MOV       C,0xD0 /* PSW */.2
+   \   000022   65D0         XRL       A,PSW
+   \   000024   33           RLC       A
+   \   000025   40E9         JC        ??FactoryReset_0
+     22            
+     23            UART_String("Performing system reset...");
+   \   000027                ; Setup parameters for call to function UART_String
+   \   000027   7A..         MOV       R2,#`?<Constant "Performing system res...">` & 0xff
+   \   000029   7B..         MOV       R3,#(`?<Constant "Performing system res...">` >> 8) & 0xff
+   \   00002B   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+     24            SystemReset();
+   \   00002E   C2AF         CLR       0xa8.7
+   \   000030   C2AF         CLR       0xa8.7
+   \   000032   75C9AB       MOV       0xc9,#-0x55
+   \   000035   75C95B       MOV       0xc9,#0x5b
+   \                     ??FactoryReset_2:
+   \   000038   80FE         SJMP      ??FactoryReset_2
+   \   00003A                REQUIRE _A_IEN0
+   \   00003A                REQUIRE WDCTL
+     25          }
+     26          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     27          void Relais(uint8 state)
+   \                     Relais:
+     28          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     29            /*
+     30            if (state)	
+     31            {
+     32              sysPwmSet(TWO);
+     33            }
+     34            else
+     35            {
+     36              sysPwmSet(OFF);
+     37            }
+     38            STATE_LIGHT = state;
+     39            */
+     40          }
+   \   000000   02....       LJMP      ?BRET
+     41          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     42          unsigned char dat[4];
+   \                     dat:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     43          void Measure_Sensor(void)
+   \                     Measure_Sensor:
+     44          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000                REQUIRE ?V8
+   \   000000                REQUIRE ?V9
+   \   000000                REQUIRE ?V10
+   \   000000                REQUIRE ?V11
+   \   000000                REQUIRE ?V12
+   \   000000                REQUIRE ?V13
+   \   000000                REQUIRE ?V14
+   \   000000                REQUIRE ?V15
+   \   000000   74E8         MOV       A,#-0x18
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 102
+   \   000005   749A         MOV       A,#-0x66
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+     45            char buffer[100];
+     46            uint8 i;
+     47            
+     48            // make new measurement depending of autodetected sensor type
+     49            if (TEMP_SENSOR == -1) 
+   \   00000A   90....       MOV       DPTR,#TEMP_SENSOR
+   \   00000D   E0           MOVX      A,@DPTR
+   \   00000E   F4           CPL       A
+   \   00000F   7006         JNZ       ??Measure_Sensor_0
+     50              DHT22_Measure();
+   \   000011                ; Setup parameters for call to function DHT22_Measure
+   \   000011   12....       LCALL     `??DHT22_Measure::?relay`; Banked call to: DHT22_Measure
+   \   000014   02....       LJMP      ??Measure_Sensor_1 & 0xFFFF
+     51            else if (TEMP_SENSOR != 0) 
+   \                     ??Measure_Sensor_0:
+   \   000017   E0           MOVX      A,@DPTR
+   \   000018   7003         JNZ       $+5
+   \   00001A   02....       LJMP      ??Measure_Sensor_1 & 0xFFFF
+     52            {
+     53              ds18b20_start_conversion();
+   \   00001D                ; Setup parameters for call to function ds18b20_start_conversion
+   \   00001D   12....       LCALL     `??ds18b20_start_conversion::?relay`; Banked call to: ds18b20_start_conversion
+     54              
+     55              i = ds18b20_current;
+   \   000020   90....       MOV       DPTR,#ds18b20_current
+   \   000023   E0           MOVX      A,@DPTR
+   \   000024   F5..         MOV       ?V2,A
+     56              
+     57              EXT_Temperatures[i] = ds18b20_get_sensor_temperature(i);
+   \   000026                ; Setup parameters for call to function ds18b20_get_sensor_temperature
+   \   000026   F9           MOV       R1,A
+   \   000027   12....       LCALL     `??ds18b20_get_sensor_temperature::?relay`; Banked call to: ds18b20_get_sensor_temperature
+   \   00002A   8A..         MOV       ?V4,R2
+   \   00002C   8B..         MOV       ?V5,R3
+   \   00002E   8C..         MOV       ?V6,R4
+   \   000030   8D..         MOV       ?V7,R5
+   \   000032   E5..         MOV       A,?V2
+   \   000034   F5..         MOV       ?V0,A
+   \   000036   75..00       MOV       ?V1,#0x0
+   \   000039   F5..         MOV       ?V8,A
+   \   00003B   85....       MOV       ?V9,?V1
+   \   00003E   7402         MOV       A,#0x2
+   \   000040   78..         MOV       R0,#?V8
+   \   000042   12....       LCALL     ?S_SHL
+   \   000045   74..         MOV       A,#EXT_Temperatures & 0xff
+   \   000047   25..         ADD       A,?V8
+   \   000049   F8           MOV       R0,A
+   \   00004A   74..         MOV       A,#(EXT_Temperatures >> 8) & 0xff
+   \   00004C   35..         ADDC      A,?V9
+   \   00004E   F9           MOV       R1,A
+   \   00004F   85..82       MOV       DPL,?XSP + 0
+   \   000052   85..83       MOV       DPH,?XSP + 1
+   \   000055   E8           MOV       A,R0
+   \   000056   F0           MOVX      @DPTR,A
+   \   000057   A3           INC       DPTR
+   \   000058   E9           MOV       A,R1
+   \   000059   F0           MOVX      @DPTR,A
+   \   00005A   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00005D   78..         MOV       R0,#?V4
+   \   00005F   12....       LCALL     ?L_MOV_TO_X
+     58              sprintf(buffer, "%02X%02X%02X%02X%02X%02X%02X%02X: %.2f °C",
+     59                      ds18b20_FoundROM[i][7],ds18b20_FoundROM[i][6],ds18b20_FoundROM[i][5],ds18b20_FoundROM[i][4],
+     60                      ds18b20_FoundROM[i][3],ds18b20_FoundROM[i][2],ds18b20_FoundROM[i][1],ds18b20_FoundROM[i][0],
+     61                      EXT_Temperatures[i]);
+   \   000062   7403         MOV       A,#0x3
+   \   000064   78..         MOV       R0,#?V0
+   \   000066   12....       LCALL     ?S_SHL
+   \   000069   74..         MOV       A,#ds18b20_FoundROM & 0xff
+   \   00006B   25..         ADD       A,?V0
+   \   00006D   FE           MOV       R6,A
+   \   00006E   74..         MOV       A,#(ds18b20_FoundROM >> 8) & 0xff
+   \   000070   35..         ADDC      A,?V1
+   \   000072   FF           MOV       R7,A
+   \   000073   EE           MOV       A,R6
+   \   000074   2405         ADD       A,#0x5
+   \   000076   F5..         MOV       ?V14,A
+   \   000078   E4           CLR       A
+   \   000079   3F           ADDC      A,R7
+   \   00007A   F5..         MOV       ?V15,A
+   \   00007C   EE           MOV       A,R6
+   \   00007D   2404         ADD       A,#0x4
+   \   00007F   F5..         MOV       ?V12,A
+   \   000081   E4           CLR       A
+   \   000082   3F           ADDC      A,R7
+   \   000083   F5..         MOV       ?V13,A
+   \   000085   EE           MOV       A,R6
+   \   000086   2403         ADD       A,#0x3
+   \   000088   F5..         MOV       ?V10,A
+   \   00008A   E4           CLR       A
+   \   00008B   3F           ADDC      A,R7
+   \   00008C   F5..         MOV       ?V11,A
+   \   00008E   EE           MOV       A,R6
+   \   00008F   2402         ADD       A,#0x2
+   \   000091   F5..         MOV       ?V8,A
+   \   000093   E4           CLR       A
+   \   000094   3F           ADDC      A,R7
+   \   000095   F5..         MOV       ?V9,A
+   \   000097   8E82         MOV       DPL,R6
+   \   000099   8F83         MOV       DPH,R7
+   \   00009B   A3           INC       DPTR
+   \   00009C   8582..       MOV       ?V0,DPL
+   \   00009F   8583..       MOV       ?V1,DPH
+   \   0000A2                ; Setup parameters for call to function sprintf
+   \   0000A2   78..         MOV       R0,#?V4
+   \   0000A4   12....       LCALL     ?PUSH_XSTACK_I_FOUR
+   \   0000A7   8E82         MOV       DPL,R6
+   \   0000A9   8F83         MOV       DPH,R7
+   \   0000AB   E0           MOVX      A,@DPTR
+   \   0000AC   F5..         MOV       ?V4,A
+   \   0000AE   75..00       MOV       ?V5,#0x0
+   \   0000B1   78..         MOV       R0,#?V4
+   \   0000B3   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000B6   85..82       MOV       DPL,?V0
+   \   0000B9   85..83       MOV       DPH,?V1
+   \   0000BC   12....       LCALL     ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   0000BF   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000C2   85..82       MOV       DPL,?V8
+   \   0000C5   85..83       MOV       DPH,?V9
+   \   0000C8   12....       LCALL     ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   0000CB   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000CE   85..82       MOV       DPL,?V10
+   \   0000D1   85..83       MOV       DPH,?V11
+   \   0000D4   12....       LCALL     ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   0000D7   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000DA   85..82       MOV       DPL,?V12
+   \   0000DD   85..83       MOV       DPH,?V13
+   \   0000E0   12....       LCALL     ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   0000E3   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000E6   85..82       MOV       DPL,?V14
+   \   0000E9   85..83       MOV       DPH,?V15
+   \   0000EC   12....       LCALL     ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   0000EF   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000F2   8E82         MOV       DPL,R6
+   \   0000F4   8F83         MOV       DPH,R7
+   \   0000F6   12....       LCALL     ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   0000F9   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000FC   8E82         MOV       DPL,R6
+   \   0000FE   8F83         MOV       DPH,R7
+   \   000100   A3           INC       DPTR
+   \   000101   12....       LCALL     ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   000104   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000107   7C..         MOV       R4,#`?<Constant "%02X%02X%02X%02X%02X%...">` & 0xff
+   \   000109   7D..         MOV       R5,#(`?<Constant "%02X%02X%02X%02X%02X%...">` >> 8) & 0xff
+   \   00010B   7416         MOV       A,#0x16
+   \   00010D   12....       LCALL     ?XSTACK_DISP101_8
+   \   000110   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   000113   7414         MOV       A,#0x14
+   \   000115   12....       LCALL     ?DEALLOC_XSTACK8
+     62              if(i==0)
+   \   000118   E5..         MOV       A,?V2
+   \   00011A   700C         JNZ       ??Measure_Sensor_2
+     63                EXT_Temperature = EXT_Temperatures[0];
+   \   00011C   90....       MOV       DPTR,#EXT_Temperatures
+   \   00011F   12....       LCALL     ?XLOAD_R0123
+   \   000122   90....       MOV       DPTR,#EXT_Temperature
+   \   000125   12....       LCALL     ?XSTORE_R0123
+     64              UART_String(buffer);
+   \                     ??Measure_Sensor_2:
+   \   000128                ; Setup parameters for call to function UART_String
+   \   000128   7402         MOV       A,#0x2
+   \   00012A   12....       LCALL     ?XSTACK_DISP101_8
+   \   00012D   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+     65              
+     66              sprintf(EXT_Temperature_string, "\x01%02X%02X%02X%02X%02X%02X%02X%02X:%.2f",
+     67                      ds18b20_FoundROM[i][7],ds18b20_FoundROM[i][6],ds18b20_FoundROM[i][5],ds18b20_FoundROM[i][4],
+     68                      ds18b20_FoundROM[i][3],ds18b20_FoundROM[i][2],ds18b20_FoundROM[i][1],ds18b20_FoundROM[i][0],
+     69                      EXT_Temperatures[i]);
+   \   000130                ; Setup parameters for call to function sprintf
+   \   000130   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000133   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000136   8E82         MOV       DPL,R6
+   \   000138   8F83         MOV       DPH,R7
+   \   00013A   E0           MOVX      A,@DPTR
+   \   00013B   F5..         MOV       ?V2,A
+   \   00013D   75..00       MOV       ?V3,#0x0
+   \   000140   78..         MOV       R0,#?V2
+   \   000142   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000145   85..82       MOV       DPL,?V0
+   \   000148   85..83       MOV       DPH,?V1
+   \   00014B   E0           MOVX      A,@DPTR
+   \   00014C   F5..         MOV       ?V0,A
+   \   00014E   75..00       MOV       ?V1,#0x0
+   \   000151   78..         MOV       R0,#?V0
+   \   000153   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000156   85..82       MOV       DPL,?V8
+   \   000159   85..83       MOV       DPH,?V9
+   \   00015C   12....       LCALL     ??Subroutine3_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00015F   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000162   85..82       MOV       DPL,?V10
+   \   000165   85..83       MOV       DPH,?V11
+   \   000168   12....       LCALL     ??Subroutine3_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   00016B   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00016E   85..82       MOV       DPL,?V12
+   \   000171   85..83       MOV       DPH,?V13
+   \   000174   12....       LCALL     ??Subroutine3_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000177   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00017A   85..82       MOV       DPL,?V14
+   \   00017D   85..83       MOV       DPH,?V15
+   \   000180   12....       LCALL     ??Subroutine3_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000183   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000186   8E82         MOV       DPL,R6
+   \   000188   8F83         MOV       DPH,R7
+   \   00018A   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   00018D   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000190   8E82         MOV       DPL,R6
+   \   000192   8F83         MOV       DPH,R7
+   \   000194   A3           INC       DPTR
+   \   000195   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000198   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00019B   7C..         MOV       R4,#`?<Constant "\\001%02X%02X%02X%02X%02X...">` & 0xff
+   \   00019D   7D..         MOV       R5,#(`?<Constant "\\001%02X%02X%02X%02X%02X...">` >> 8) & 0xff
+   \   00019F   7A..         MOV       R2,#EXT_Temperature_string & 0xff
+   \   0001A1   7B..         MOV       R3,#(EXT_Temperature_string >> 8) & 0xff
+   \   0001A3   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   0001A6   7414         MOV       A,#0x14
+   \   0001A8   12....       LCALL     ?DEALLOC_XSTACK8
+     70              EXT_Temperature_string[0] = strlen(EXT_Temperature_string) - 1;
+   \   0001AB                ; Setup parameters for call to function strlen
+   \   0001AB   7A..         MOV       R2,#EXT_Temperature_string & 0xff
+   \   0001AD   7B..         MOV       R3,#(EXT_Temperature_string >> 8) & 0xff
+   \   0001AF   12....       LCALL     `??strlen::?relay`; Banked call to: strlen
+   \   0001B2   EA           MOV       A,R2
+   \   0001B3   14           DEC       A
+   \   0001B4   90....       MOV       DPTR,#EXT_Temperature_string
+   \   0001B7   F0           MOVX      @DPTR,A
+     71              
+     72              
+     73              ds18b20_current++;
+   \   0001B8   90....       MOV       DPTR,#ds18b20_current
+   \   0001BB   E0           MOVX      A,@DPTR
+   \   0001BC   04           INC       A
+   \   0001BD   F0           MOVX      @DPTR,A
+     74              
+     75              if(ds18b20_current >= ds18b20_numROMs)
+   \   0001BE   90....       MOV       DPTR,#ds18b20_numROMs
+   \   0001C1   E0           MOVX      A,@DPTR
+   \   0001C2   F8           MOV       R0,A
+   \   0001C3   90....       MOV       DPTR,#ds18b20_current
+   \   0001C6   E0           MOVX      A,@DPTR
+   \   0001C7   C3           CLR       C
+   \   0001C8   98           SUBB      A,R0
+   \   0001C9   4002         JC        ??Measure_Sensor_1
+     76                ds18b20_current = 0;
+   \   0001CB   E4           CLR       A
+   \   0001CC   F0           MOVX      @DPTR,A
+     77              
+     78            }
+     79          }
+   \                     ??Measure_Sensor_1:
+   \   0001CD   7466         MOV       A,#0x66
+   \   0001CF   12....       LCALL     ?DEALLOC_XSTACK8
+   \   0001D2   7F10         MOV       R7,#0x10
+   \   0001D4   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   85..82       MOV       DPL,?XSP + 0
+   \   000003   85..83       MOV       DPH,?XSP + 1
+   \   000006   E0           MOVX      A,@DPTR
+   \   000007   F8           MOV       R0,A
+   \   000008   A3           INC       DPTR
+   \   000009   E0           MOVX      A,@DPTR
+   \   00000A   F583         MOV       DPH,A
+   \   00000C   8882         MOV       DPL,R0
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   A3           INC       DPTR
+   \   000001   A3           INC       DPTR
+   \   000002   A3           INC       DPTR
+   \   000003   A3           INC       DPTR
+   \   000004   A3           INC       DPTR
+   \   000005   A3           INC       DPTR
+   \   000006                REQUIRE ??Subroutine3_0
+   \   000006                ; // Fall through to label ??Subroutine3_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine3_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F5..         MOV       ?V0,A
+   \   000003   78..         MOV       R0,#?V0
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   A3           INC       DPTR
+   \   000001   A3           INC       DPTR
+   \   000002   A3           INC       DPTR
+   \   000003   A3           INC       DPTR
+   \   000004   A3           INC       DPTR
+   \   000005   A3           INC       DPTR
+   \   000006                REQUIRE ??Subroutine4_0
+   \   000006                ; // Fall through to label ??Subroutine4_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine4_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F5..         MOV       ?V4,A
+   \   000003   78..         MOV       R0,#?V4
+   \   000005   22           RET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??FactoryReset::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    FactoryReset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Relais::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Relais
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Measure_Sensor::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Measure_Sensor
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Performing factory re...">`:
+   \   000000   50657266     DB "Performing factory reset..."
+   \            6F726D69
+   \            6E672066
+   \            6163746F
+   \            72792072
+   \            65736574
+   \            2E2E2E00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Performing system res...">`:
+   \   000000   50657266     DB "Performing system reset..."
+   \            6F726D69
+   \            6E672073
+   \            79737465
+   \            6D207265
+   \            7365742E
+   \            2E2E00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%02X%02X%02X%02X%02X%...">`:
+   \   000000   25303258     DB "%02X%02X%02X%02X%02X%02X%02X%02X: %.2f \260C"
+   \            25303258
+   \            25303258
+   \            25303258
+   \            25303258
+   \            25303258
+   \            25303258
+   \            25303258
+   \            3A20252E
+   \            326620B0
+   \            4300    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "\\001%02X%02X%02X%02X%02X...">`:
+   \   000000   01253032     DB "\001%02X%02X%02X%02X%02X%02X%02X%02X:%.2f"
+   \            58253032
+   \            58253032
+   \            58253032
+   \            58253032
+   \            58253032
+   \            58253032
+   \            58253032
+   \            583A252E
+   \            326600  
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+      9   FactoryReset
+        9   -> HalFlashErase
+        9   -> UART_String
+    146   Measure_Sensor
+      126   -> DHT22_Measure
+      126   -> UART_String
+      126   -> ds18b20_get_sensor_temperature
+      126   -> ds18b20_start_conversion
+      146   -> sprintf
+      126   -> strlen
+      0   Relais
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      42  ?<Constant "%02X%02X%02X%02X%02X%...">
+      28  ?<Constant "Performing factory re...">
+      27  ?<Constant "Performing system res...">
+      39  ?<Constant "\001%02X%02X%02X%02X%02X...">
+       6  ??Subroutine3_0
+       6  ??Subroutine4_0
+       6  ?Subroutine0
+       6  ?Subroutine1
+      15  ?Subroutine2
+      58  FactoryReset
+       6  FactoryReset::?relay
+     471  Measure_Sensor
+       6  Measure_Sensor::?relay
+       3  Relais
+       6  Relais::?relay
+       1  WDCTL
+       1  _A_IEN0
+       4  dat
+
+ 
+ 571 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+   2 bytes in segment SFR_AN
+ 136 bytes in segment XDATA_ROM_C
+   4 bytes in segment XDATA_Z
+ 
+  18 bytes of CODE     memory
+ 136 bytes of CONST    memory
+   0 bytes of DATA     memory (+ 2 bytes shared)
+ 571 bytes of HUGECODE memory
+   4 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

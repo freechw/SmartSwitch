@@ -1,0 +1,520 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:16:41
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\ws2812.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EWC005.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\ws2812.c" -D
+#        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\ws2812.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\ws2812.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\ws2812.c
+      1          #include "ZComDef.h"
+      2          #include "onboard.h"
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf8
+   \   union <unnamed> volatile __sfr _A_U1CSR
+   \                     _A_U1CSR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf9
+   \   unsigned char volatile __sfr U1DBUF
+   \                     U1DBUF:
+   \   000000                DS 1
+      3          #include "ws2812.h"
+      4          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      5          uint8 WS2812_buffer[WS2812_buffersize];
+   \                     WS2812_buffer:
+   \   000000                DS 90
+   \   00005A                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      6          uint8 WS2812_bit=0;
+   \                     WS2812_bit:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      7          uint16 WS2812_byte=0;
+   \                     WS2812_byte:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+      8          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      9          void WS2812_StoreBit(uint8 bit)
+   \                     WS2812_StoreBit:
+     10          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     11            // store bit (only the 1 bits)
+     12            if (bit) WS2812_buffer[WS2812_byte] |= 1 << WS2812_bit;
+   \   000005   E9           MOV       A,R1
+   \   000006   6023         JZ        ??WS2812_StoreBit_0
+   \   000008   75..01       MOV       ?V0,#0x1
+   \   00000B   75..00       MOV       ?V1,#0x0
+   \   00000E   90....       MOV       DPTR,#WS2812_bit
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   78..         MOV       R0,#?V0
+   \   000014   12....       LCALL     ?S_SHL
+   \   000017   90....       MOV       DPTR,#WS2812_byte
+   \   00001A   E0           MOVX      A,@DPTR
+   \   00001B   24..         ADD       A,#WS2812_buffer & 0xff
+   \   00001D   FA           MOV       R2,A
+   \   00001E   A3           INC       DPTR
+   \   00001F   E0           MOVX      A,@DPTR
+   \   000020   34..         ADDC      A,#(WS2812_buffer >> 8) & 0xff
+   \   000022   FB           MOV       R3,A
+   \   000023   8A82         MOV       DPL,R2
+   \   000025   8B83         MOV       DPH,R3
+   \   000027   E0           MOVX      A,@DPTR
+   \   000028   45..         ORL       A,?V0
+   \   00002A   F0           MOVX      @DPTR,A
+     13            WS2812_bit++;
+   \                     ??WS2812_StoreBit_0:
+   \   00002B   90....       MOV       DPTR,#WS2812_bit
+   \   00002E   E0           MOVX      A,@DPTR
+   \   00002F   04           INC       A
+   \   000030   F0           MOVX      @DPTR,A
+     14            
+     15            // 8 bits per byte...
+     16            if (WS2812_bit > 7)
+   \   000031   C3           CLR       C
+   \   000032   9408         SUBB      A,#0x8
+   \   000034   400E         JC        ??WS2812_StoreBit_1
+     17            {
+     18              WS2812_bit = 0;
+   \   000036   E4           CLR       A
+   \   000037   F0           MOVX      @DPTR,A
+     19              WS2812_byte++;
+   \   000038   90....       MOV       DPTR,#WS2812_byte
+   \   00003B   E0           MOVX      A,@DPTR
+   \   00003C   2401         ADD       A,#0x1
+   \   00003E   F0           MOVX      @DPTR,A
+   \   00003F   A3           INC       DPTR
+   \   000040   E0           MOVX      A,@DPTR
+   \   000041   3400         ADDC      A,#0x0
+   \   000043   F0           MOVX      @DPTR,A
+     20            }
+     21          }
+   \                     ??WS2812_StoreBit_1:
+   \   000044   7F02         MOV       R7,#0x2
+   \   000046   02....       LJMP      ?BANKED_LEAVE_XDATA
+     22          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     23          void WS2812_SendLED(uint8 red, uint8 green, uint8 blue)
+   \                     WS2812_SendLED:
+     24          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV       A,#-0xe
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV       ?V0,R1
+   \   000007   8A..         MOV       ?V1,R2
+   \   000009   8B..         MOV       ?V2,R3
+     25            P1SEL |= BV(6); // LED = Peripheral
+   \   00000B   43F440       ORL       0xf4,#0x40
+     26            
+     27            WS2812_bit = 0;
+   \   00000E   90....       MOV       DPTR,#WS2812_bit
+   \   000011   E4           CLR       A
+   \   000012   F0           MOVX      @DPTR,A
+     28            WS2812_byte = 0;
+   \   000013   90....       MOV       DPTR,#WS2812_byte
+   \   000016   F0           MOVX      @DPTR,A
+   \   000017   A3           INC       DPTR
+   \   000018   F0           MOVX      @DPTR,A
+     29            
+     30            // delete buffer
+     31            for (uint16 i=0; i<WS2812_buffersize; i++) WS2812_buffer[i] = 0;
+   \   000019   90....       MOV       DPTR,#WS2812_buffer
+   \   00001C   785A         MOV       R0,#0x5a
+   \                     ??WS2812_SendLED_0:
+   \   00001E   F0           MOVX      @DPTR,A
+   \   00001F   A3           INC       DPTR
+   \   000020   D8FC         DJNZ      R0,??WS2812_SendLED_0
+     32            
+     33            uint8 i,j;
+     34            
+     35            for (j=0; j<10; j++)  // send identical data 10 times for up to 10 LEDs in a row
+   \   000022   7F0A         MOV       R7,#0xa
+     36            {
+     37              for (i=8; i; i--)
+   \                     ??WS2812_SendLED_1:
+   \   000024   7E08         MOV       R6,#0x8
+     38              {
+     39                if ((green >> (i-1)) & 1)
+   \                     ??WS2812_SendLED_2:
+   \   000026   E5..         MOV       A,?V1
+   \   000028   F5..         MOV       ?V4,A
+   \   00002A   75..00       MOV       ?V5,#0x0
+   \   00002D   74FF         MOV       A,#-0x1
+   \   00002F   2E           ADD       A,R6
+   \   000030   78..         MOV       R0,#?V4
+   \   000032   12....       LCALL     ?SS_SHR
+   \   000035   E5..         MOV       A,?V4
+   \   000037   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000039   7901         MOV       R1,#0x1
+   \   00003B   5007         JNC       ??WS2812_SendLED_3
+     40                {
+     41                  WS2812_StoreBit(1);
+   \   00003D                ; Setup parameters for call to function WS2812_StoreBit
+   \   00003D   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     42                  WS2812_StoreBit(1);
+   \   000040                ; Setup parameters for call to function WS2812_StoreBit
+   \   000040   7901         MOV       R1,#0x1
+   \   000042   8005         SJMP      ??WS2812_SendLED_4
+     43                  WS2812_StoreBit(0);
+     44                }
+     45                else
+     46                {
+     47                  WS2812_StoreBit(1);
+   \                     ??WS2812_SendLED_3:
+   \   000044                ; Setup parameters for call to function WS2812_StoreBit
+   \   000044   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     48                  WS2812_StoreBit(0);
+   \   000047                ; Setup parameters for call to function WS2812_StoreBit
+   \   000047   7900         MOV       R1,#0x0
+   \                     ??WS2812_SendLED_4:
+   \   000049   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     49                  WS2812_StoreBit(0);
+   \   00004C                ; Setup parameters for call to function WS2812_StoreBit
+   \   00004C   7900         MOV       R1,#0x0
+   \   00004E   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     50                }
+     51              }
+   \   000051   1E           DEC       R6
+   \   000052   EE           MOV       A,R6
+   \   000053   70D1         JNZ       ??WS2812_SendLED_2
+     52              for (i=8; i; i--)
+   \   000055   7E08         MOV       R6,#0x8
+     53              {
+     54                if ((red >> (i-1)) & 1)
+   \                     ??WS2812_SendLED_5:
+   \   000057   E5..         MOV       A,?V0
+   \   000059   F5..         MOV       ?V4,A
+   \   00005B   75..00       MOV       ?V5,#0x0
+   \   00005E   74FF         MOV       A,#-0x1
+   \   000060   2E           ADD       A,R6
+   \   000061   78..         MOV       R0,#?V4
+   \   000063   12....       LCALL     ?SS_SHR
+   \   000066   E5..         MOV       A,?V4
+   \   000068   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00006A   7901         MOV       R1,#0x1
+   \   00006C   5007         JNC       ??WS2812_SendLED_6
+     55                {
+     56                  WS2812_StoreBit(1);
+   \   00006E                ; Setup parameters for call to function WS2812_StoreBit
+   \   00006E   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     57                  WS2812_StoreBit(1);
+   \   000071                ; Setup parameters for call to function WS2812_StoreBit
+   \   000071   7901         MOV       R1,#0x1
+   \   000073   8005         SJMP      ??WS2812_SendLED_7
+     58                  WS2812_StoreBit(0);
+     59                }
+     60                else
+     61                {
+     62                  WS2812_StoreBit(1);
+   \                     ??WS2812_SendLED_6:
+   \   000075                ; Setup parameters for call to function WS2812_StoreBit
+   \   000075   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     63                  WS2812_StoreBit(0);
+   \   000078                ; Setup parameters for call to function WS2812_StoreBit
+   \   000078   7900         MOV       R1,#0x0
+   \                     ??WS2812_SendLED_7:
+   \   00007A   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     64                  WS2812_StoreBit(0);
+   \   00007D                ; Setup parameters for call to function WS2812_StoreBit
+   \   00007D   7900         MOV       R1,#0x0
+   \   00007F   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     65                }
+     66              }
+   \   000082   1E           DEC       R6
+   \   000083   EE           MOV       A,R6
+   \   000084   70D1         JNZ       ??WS2812_SendLED_5
+     67              for (i=8; i; i--)
+   \   000086   7E08         MOV       R6,#0x8
+     68              {
+     69                if ((blue >> (i-1)) & 1)
+   \                     ??WS2812_SendLED_8:
+   \   000088   E5..         MOV       A,?V2
+   \   00008A   F5..         MOV       ?V4,A
+   \   00008C   75..00       MOV       ?V5,#0x0
+   \   00008F   74FF         MOV       A,#-0x1
+   \   000091   2E           ADD       A,R6
+   \   000092   78..         MOV       R0,#?V4
+   \   000094   12....       LCALL     ?SS_SHR
+   \   000097   E5..         MOV       A,?V4
+   \   000099   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00009B   7901         MOV       R1,#0x1
+   \   00009D   5007         JNC       ??WS2812_SendLED_9
+     70                {
+     71                  WS2812_StoreBit(1);
+   \   00009F                ; Setup parameters for call to function WS2812_StoreBit
+   \   00009F   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     72                  WS2812_StoreBit(1);
+   \   0000A2                ; Setup parameters for call to function WS2812_StoreBit
+   \   0000A2   7901         MOV       R1,#0x1
+   \   0000A4   8005         SJMP      ??WS2812_SendLED_10
+     73                  WS2812_StoreBit(0);
+     74                }
+     75                else
+     76                {
+     77                  WS2812_StoreBit(1);
+   \                     ??WS2812_SendLED_9:
+   \   0000A6                ; Setup parameters for call to function WS2812_StoreBit
+   \   0000A6   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     78                  WS2812_StoreBit(0);
+   \   0000A9                ; Setup parameters for call to function WS2812_StoreBit
+   \   0000A9   7900         MOV       R1,#0x0
+   \                     ??WS2812_SendLED_10:
+   \   0000AB   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     79                  WS2812_StoreBit(0);
+   \   0000AE                ; Setup parameters for call to function WS2812_StoreBit
+   \   0000AE   7900         MOV       R1,#0x0
+   \   0000B0   12....       LCALL     `??WS2812_StoreBit::?relay`; Banked call to: WS2812_StoreBit
+     80                }
+     81              }        
+   \   0000B3   1E           DEC       R6
+   \   0000B4   EE           MOV       A,R6
+   \   0000B5   70D1         JNZ       ??WS2812_SendLED_8
+     82            }
+   \   0000B7   1F           DEC       R7
+   \   0000B8   EF           MOV       A,R7
+   \   0000B9   6003         JZ        $+5
+   \   0000BB   02....       LJMP      ??WS2812_SendLED_1 & 0xFFFF
+     83            
+     84            // SPI method - a little bit jittery, but LED-Stripes seem to be okay with it
+     85            for (uint16 j=0; j<WS2812_buffersize; j++)
+   \   0000BE   7800         MOV       R0,#0x0
+   \   0000C0   7900         MOV       R1,#0x0
+     86            {
+     87              U1DBUF = WS2812_buffer[j];
+   \                     ??WS2812_SendLED_11:
+   \   0000C2   74..         MOV       A,#WS2812_buffer & 0xff
+   \   0000C4   28           ADD       A,R0
+   \   0000C5   F582         MOV       DPL,A
+   \   0000C7   74..         MOV       A,#(WS2812_buffer >> 8) & 0xff
+   \   0000C9   39           ADDC      A,R1
+   \   0000CA   F583         MOV       DPH,A
+   \   0000CC   E0           MOVX      A,@DPTR
+   \   0000CD   F5F9         MOV       0xf9,A
+     88              while((U1CSR & (1<<0)));      // wait until byte is sent
+   \                     ??WS2812_SendLED_12:
+   \   0000CF   A2F8         MOV       C,0xf8.0
+   \   0000D1   40FC         JC        ??WS2812_SendLED_12
+     89            }
+   \   0000D3   08           INC       R0
+   \   0000D4   E8           MOV       A,R0
+   \   0000D5   7001         JNZ       ??WS2812_SendLED_13
+   \   0000D7   09           INC       R1
+   \                     ??WS2812_SendLED_13:
+   \   0000D8   C3           CLR       C
+   \   0000D9   945A         SUBB      A,#0x5a
+   \   0000DB   E9           MOV       A,R1
+   \   0000DC   9400         SUBB      A,#0x0
+   \   0000DE   40E2         JC        ??WS2812_SendLED_11
+     90            
+     91            /*        
+     92            // DMA method - slower, timing broken
+     93            
+     94            uint8 DMACONFIG[8];
+     95            
+     96            // DMA source address
+     97            DMACONFIG[0] = (uint16)(&WS2812_buffer) >> 8;
+     98            DMACONFIG[1] = (uint16)(&WS2812_buffer) & 0xff;
+     99            
+    100            // DMA destination address
+    101            DMACONFIG[2] = 0x70;
+    102            DMACONFIG[3] = 0xf9;    // Address of U1DBUF
+    103            
+    104            // DMA length
+    105            DMACONFIG[4] = WS2812_buffersize;
+    106            DMACONFIG[5] = WS2812_buffersize;
+    107            
+    108            // DMA block transfer, no trigger
+    109            DMACONFIG[6] = b00100000;
+    110            
+    111            // DMA address increment for source only, high priority
+    112            DMACONFIG[7] = b01000010;
+    113            
+    114            DMA0CFGH = (uint16)(&DMACONFIG) >> 8;    // DMA Channel-0 Configuration Address High Byte
+    115            DMA0CFGL = (uint16)(&DMACONFIG) & 0xff;  // DMA Channel-0 Configuration Address Low Byte
+    116            
+    117            DMAARM = b00000001;     // DMA Arm channel 0
+    118            DMAREQ = b00000001;     // DMA transfer request channel 0
+    119            */     
+    120          }
+   \   0000E0   7F06         MOV       R7,#0x6
+   \   0000E2   02....       LJMP      ?BANKED_LEAVE_XDATA
+   \   0000E5                REQUIRE P1SEL
+   \   0000E5                REQUIRE U1DBUF
+   \   0000E5                REQUIRE _A_U1CSR
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??WS2812_StoreBit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    WS2812_StoreBit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??WS2812_SendLED::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    WS2812_SendLED
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+     14   WS2812_SendLED
+       14   -> WS2812_StoreBit
+     24   WS2812_StoreBit
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  P1SEL
+       1  U1DBUF
+     229  WS2812_SendLED
+       6  WS2812_SendLED::?relay
+      73  WS2812_StoreBit
+       6  WS2812_StoreBit::?relay
+       1  WS2812_bit
+      90  WS2812_buffer
+       2  WS2812_byte
+       1  _A_U1CSR
+
+ 
+ 302 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+   3 bytes in segment SFR_AN
+  93 bytes in segment XDATA_Z
+ 
+  12 bytes of CODE     memory
+   0 bytes of DATA     memory (+ 3 bytes shared)
+ 302 bytes of HUGECODE memory
+  93 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

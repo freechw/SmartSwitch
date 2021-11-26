@@ -1,0 +1,497 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:16:31
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\interrupts.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EW988C.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\interrupts.c"
+#        -D SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\interrupts.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\interrupts.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\interrupts.c
+      1          #include <stdio.h>
+      2          #include "onboard.h"
+
+   \                                 In  segment SFR_AN, at 0x89
+   \   unsigned char volatile __sfr P0IFG
+   \                     P0IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8a
+   \   unsigned char volatile __sfr P1IFG
+   \                     P1IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8b
+   \   unsigned char volatile __sfr P2IFG
+   \                     P2IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa0
+   \   union <unnamed> volatile __sfr _A_P2
+   \                     _A_P2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc0
+   \   union <unnamed> volatile __sfr _A_IRCON
+   \                     _A_IRCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xe8
+   \   union <unnamed> volatile __sfr _A_IRCON2
+   \                     _A_IRCON2:
+   \   000000                DS 1
+      3          #include "ZComDef.h"
+      4          #include "bitmasks.h"
+      5          #include "delay.h"
+      6          #include "ds18b20.h"
+      7          #include "uart.h"
+      8          #include "global.h"
+      9          #include "ws2812.h"
+     10          #include "led.h"
+     11          #include "interrupts.h"
+     12          #include "zcl_zigup.h"
+     13          #include "utils.h"
+     14          
+     15          #pragma vector=P0INT_VECTOR 
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+     16          __interrupt void IRQ_S0(void)
+   \                     IRQ_S0:
+     17          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   C0E0         PUSH      A
+   \   000002   74EF         MOV       A,#-0x11
+   \   000004   12....       LCALL     ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 17
+   \   000007                ; Auto size: 0
+     18            if (P0IFG & (1<<6))	// Interrupt flag for P0.6 (S0)?
+   \   000007   E589         MOV       A,0x89
+   \   000009   A2E6         MOV       C,0xE0 /* A   */.6
+   \   00000B   501C         JNC       ??IRQ_S0_0
+     19            {
+     20              S0++;
+   \   00000D   90....       MOV       DPTR,#__Constant_1
+   \   000010   78..         MOV       R0,#?V0
+   \   000012   12....       LCALL     ?L_MOV_X
+   \   000015   90....       MOV       DPTR,#S0
+   \   000018   78..         MOV       R0,#?V0
+   \   00001A   12....       LCALL     ?L_ADD_TO_X
+     21              UART_String("[INT] S0!");
+   \   00001D                ; Setup parameters for call to function UART_String
+   \   00001D   7A..         MOV       R2,#`?<Constant "[INT] S0!">` & 0xff
+   \   00001F   7B..         MOV       R3,#(`?<Constant "[INT] S0!">` >> 8) & 0xff
+   \   000021   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+     22              
+     23              // Clear interrupt flags
+     24              P0IFG &= ~(1<<6);	// Clear Interrupt flag for P0.6 (S0)
+   \   000024   5389BF       ANL       0x89,#0xbf
+     25              IRCON &= ~(1<<5);	// Clear Interrupt flag for Port 0
+   \   000027   C2C5         CLR       0xc0.5
+     26            }
+     27          }
+   \                     ??IRQ_S0_0:
+   \   000029   7F04         MOV       R7,#0x4
+   \   00002B   02....       LJMP      ?INTERRUPT_LEAVE_XSP
+   \   00002E                REQUIRE P0IFG
+   \   00002E                REQUIRE _A_IRCON
+     28          
+     29          #pragma vector=P1INT_VECTOR 
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+     30          __interrupt void IRQ_KEY(void)
+   \                     IRQ_KEY:
+     31          {
+   \   000000   C0E0         PUSH      A
+   \   000002   74F2         MOV       A,#-0xe
+   \   000004   12....       LCALL     ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+     32            if (P1IFG & (1<<3))	// Interrupt flag for P1.3 (KEY)?
+   \   000007   E58A         MOV       A,0x8a
+   \   000009   A2E3         MOV       C,0xE0 /* A   */.3
+   \   00000B   5045         JNC       ??IRQ_KEY_0
+     33            {
+     34              // debounce
+     35              _delay_ms(20);
+   \   00000D                ; Setup parameters for call to function _delay_ms
+   \   00000D   7A14         MOV       R2,#0x14
+   \   00000F   7B00         MOV       R3,#0x0
+   \   000011   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+     36              if (!P1_3) // still pressed?
+   \   000014   A293         MOV       C,0x90.3
+   \   000016   4035         JC        ??IRQ_KEY_1
+     37              {
+     38                Relais(!STATE_LIGHT);
+   \   000018   90....       MOV       DPTR,#STATE_LIGHT
+   \   00001B   E0           MOVX      A,@DPTR
+   \   00001C   7004         JNZ       ??IRQ_KEY_2
+   \   00001E   7901         MOV       R1,#0x1
+   \   000020   8002         SJMP      ??IRQ_KEY_3
+   \                     ??IRQ_KEY_2:
+   \   000022   7900         MOV       R1,#0x0
+   \                     ??IRQ_KEY_3:
+   \   000024                ; Setup parameters for call to function Relais
+   \   000024   12....       LCALL     `??Relais::?relay`; Banked call to: Relais
+     39                UART_String("[INT] KEY!");
+   \   000027                ; Setup parameters for call to function UART_String
+   \   000027   7A..         MOV       R2,#`?<Constant "[INT] KEY!">` & 0xff
+   \   000029   7B..         MOV       R3,#(`?<Constant "[INT] KEY!">` >> 8) & 0xff
+   \   00002B   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+     40                
+     41                // detection for longer keypress
+     42                uint8 counter = 0;
+   \   00002E   7E00         MOV       R6,#0x0
+   \   000030   8008         SJMP      ??IRQ_KEY_4
+     43                while (!P1_3 && counter < 100)
+     44                {
+     45                  _delay_ms(50);
+   \                     ??IRQ_KEY_5:
+   \   000032                ; Setup parameters for call to function _delay_ms
+   \   000032   7A32         MOV       R2,#0x32
+   \   000034   7B00         MOV       R3,#0x0
+   \   000036   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+     46                  counter++;
+   \   000039   0E           INC       R6
+     47                }
+   \                     ??IRQ_KEY_4:
+   \   00003A   A293         MOV       C,0x90.3
+   \   00003C   4006         JC        ??IRQ_KEY_6
+   \   00003E   EE           MOV       A,R6
+   \   00003F   C3           CLR       C
+   \   000040   9464         SUBB      A,#0x64
+   \   000042   40EE         JC        ??IRQ_KEY_5
+     48                if (counter >= 100) FactoryReset();
+   \                     ??IRQ_KEY_6:
+   \   000044   EE           MOV       A,R6
+   \   000045   C3           CLR       C
+   \   000046   9464         SUBB      A,#0x64
+   \   000048   4003         JC        ??IRQ_KEY_1
+   \   00004A                ; Setup parameters for call to function FactoryReset
+   \   00004A   12....       LCALL     `??FactoryReset::?relay`; Banked call to: FactoryReset
+     49                
+     50                // update measurements (only the quick stuff, to stay responsive)
+     51                //Measure_QuickStuff();
+     52                
+     53                // report states
+     54                //zclZigUP_Reporting(REPORT_REASON_KEY);      
+     55              }
+     56              
+     57              // Clear interrupt flags
+     58              P1IFG &= ~(1<<3);	// Clear Interrupt flag for P1.3 (KEY)
+   \                     ??IRQ_KEY_1:
+   \   00004D   538AF7       ANL       0x8a,#0xf7
+     59              IRCON2 &= ~(1<<3);	// Clear Interrupt flag for Port 1
+   \   000050   C2EB         CLR       0xe8.3
+     60            }
+     61          }
+   \                     ??IRQ_KEY_0:
+   \   000052                REQUIRE ?Subroutine0
+   \   000052                REQUIRE P1IFG
+   \   000052                REQUIRE _A_P1
+   \   000052                REQUIRE _A_IRCON2
+   \   000052                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F01         MOV       R7,#0x1
+   \   000002   02....       LJMP      ?INTERRUPT_LEAVE_XSP
+     62          
+     63          #pragma vector=P2INT_VECTOR 
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+     64          __interrupt void IRQ_DIGIN(void)
+   \                     IRQ_DIGIN:
+     65          {
+   \   000000   C0E0         PUSH      A
+   \   000002   74F2         MOV       A,#-0xe
+   \   000004   12....       LCALL     ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+     66            if (P2IFG & (1<<0))	// Interrupt flag for P2.0 (Dig-In)?
+   \   000007   E58B         MOV       A,0x8b
+   \   000009   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00000B   5048         JNC       ??IRQ_DIGIN_0
+     67            {
+     68              // debounce
+     69              _delay_ms(20);
+   \   00000D                ; Setup parameters for call to function _delay_ms
+   \   00000D   7A14         MOV       R2,#0x14
+   \   00000F   7B00         MOV       R3,#0x0
+   \   000011   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+     70              if (!P2_0) // still pressed?
+   \   000014   A2A0         MOV       C,0xa0.0
+   \   000016   4038         JC        ??IRQ_DIGIN_1
+     71              {
+     72                DIG_IN = P2_0;
+   \   000018   A2A0         MOV       C,0xa0.0
+   \   00001A   E4           CLR       A
+   \   00001B   33           RLC       A
+   \   00001C   90....       MOV       DPTR,#DIG_IN
+   \   00001F   F0           MOVX      @DPTR,A
+   \   000020   A3           INC       DPTR
+   \   000021   E4           CLR       A
+   \   000022   F0           MOVX      @DPTR,A
+     73                UART_String("[INT] Dig-In!");
+   \   000023                ; Setup parameters for call to function UART_String
+   \   000023   7A..         MOV       R2,#`?<Constant "[INT] Dig-In!">` & 0xff
+   \   000025   7B..         MOV       R3,#(`?<Constant "[INT] Dig-In!">` >> 8) & 0xff
+   \   000027   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+     74                
+     75                // detection for longer keypress
+     76                uint8 counter = 0;
+   \   00002A   7E00         MOV       R6,#0x0
+   \   00002C   8008         SJMP      ??IRQ_DIGIN_2
+     77                while (!P1_3 && counter < 100)
+     78                {
+     79                  _delay_ms(50);
+   \                     ??IRQ_DIGIN_3:
+   \   00002E                ; Setup parameters for call to function _delay_ms
+   \   00002E   7A32         MOV       R2,#0x32
+   \   000030   7B00         MOV       R3,#0x0
+   \   000032   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+     80                  counter++;
+   \   000035   0E           INC       R6
+     81                }
+   \                     ??IRQ_DIGIN_2:
+   \   000036   A293         MOV       C,0x90.3
+   \   000038   4006         JC        ??IRQ_DIGIN_4
+   \   00003A   EE           MOV       A,R6
+   \   00003B   C3           CLR       C
+   \   00003C   9464         SUBB      A,#0x64
+   \   00003E   40EE         JC        ??IRQ_DIGIN_3
+     82                if (counter >= 100) FactoryReset();
+   \                     ??IRQ_DIGIN_4:
+   \   000040   EE           MOV       A,R6
+   \   000041   C3           CLR       C
+   \   000042   9464         SUBB      A,#0x64
+   \   000044   4003         JC        ??IRQ_DIGIN_5
+   \   000046                ; Setup parameters for call to function FactoryReset
+   \   000046   12....       LCALL     `??FactoryReset::?relay`; Banked call to: FactoryReset
+     83                
+     84                // update measurements (only the quick stuff, to stay responsive)
+     85                //Measure_QuickStuff();
+     86                
+     87                // report states
+     88                zclZigUP_Reporting(REPORT_REASON_DIGIN);  
+   \                     ??IRQ_DIGIN_5:
+   \   000049                ; Setup parameters for call to function zclZigUP_Reporting
+   \   000049   7A02         MOV       R2,#0x2
+   \   00004B   7B00         MOV       R3,#0x0
+   \   00004D   12....       LCALL     `??zclZigUP_Reporting::?relay`; Banked call to: zclZigUP_Reporting
+     89              }
+     90              
+     91              // Clear interrupt flags
+     92              P2IFG &= ~(1<<0);	// Clear Interrupt flag for P2.0 (Dig-In)
+   \                     ??IRQ_DIGIN_1:
+   \   000050   538BFE       ANL       0x8b,#0xfe
+     93              IRCON2 &= ~(1<<0);	// Clear Interrupt flag for Port 2
+   \   000053   C2E8         CLR       0xe8.0
+     94            }
+     95          }
+   \                     ??IRQ_DIGIN_0:
+   \   000055   80..         SJMP      ?Subroutine0
+   \   000057                REQUIRE P2IFG
+   \   000057                REQUIRE _A_P2
+   \   000057                REQUIRE _A_P1
+   \   000057                REQUIRE _A_IRCON2
+
+   \                                 In  segment INTVEC, offset 0x33, root
+   \                     `??IRQ_DIGIN::??INTVEC 51`:
+   \   000033   02....       LJMP       (IRQ_DIGIN)
+
+   \                                 In  segment INTVEC, offset 0x6b, root
+   \                     `??IRQ_S0::??INTVEC 107`:
+   \   00006B   02....       LJMP       (IRQ_S0)
+
+   \                                 In  segment INTVEC, offset 0x7b, root
+   \                     `??IRQ_KEY::??INTVEC 123`:
+   \   00007B   02....       LJMP       (IRQ_KEY)
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "[INT] S0!">`:
+   \   000000   5B494E54     DB "[INT] S0!"
+   \            5D205330
+   \            2100    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "[INT] KEY!">`:
+   \   000000   5B494E54     DB "[INT] KEY!"
+   \            5D204B45
+   \            592100  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "[INT] Dig-In!">`:
+   \   000000   5B494E54     DB "[INT] Dig-In!"
+   \            5D204469
+   \            672D496E
+   \            2100    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_1:
+   \   000000   01000000     DD 1
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+     14   IRQ_DIGIN
+       14   -> FactoryReset
+       14   -> UART_String
+       14   -> _delay_ms
+       14   -> zclZigUP_Reporting
+     14   IRQ_KEY
+       14   -> FactoryReset
+       14   -> Relais
+       14   -> UART_String
+       14   -> _delay_ms
+     17   IRQ_S0
+       17   -> UART_String
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      14  ?<Constant "[INT] Dig-In!">
+      11  ?<Constant "[INT] KEY!">
+      10  ?<Constant "[INT] S0!">
+       5  ?Subroutine0
+      87  IRQ_DIGIN
+       3  IRQ_DIGIN::??INTVEC 51
+      82  IRQ_KEY
+       3  IRQ_KEY::??INTVEC 123
+      46  IRQ_S0
+       3  IRQ_S0::??INTVEC 107
+       1  P0IFG
+       1  P1IFG
+       1  P2IFG
+       1  _A_IRCON
+       1  _A_IRCON2
+       1  _A_P1
+       1  _A_P2
+       4  __Constant_1
+
+ 
+   9 bytes in segment INTVEC
+ 220 bytes in segment NEAR_CODE
+   7 bytes in segment SFR_AN
+  39 bytes in segment XDATA_ROM_C
+ 
+ 220 bytes of CODE  memory (+ 9 bytes shared)
+  35 bytes of CONST memory (+ 4 bytes shared)
+   0 bytes of DATA  memory (+ 7 bytes shared)
+
+Errors: none
+Warnings: none

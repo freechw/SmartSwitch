@@ -1,0 +1,542 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               20/Nov/2021  20:16:30
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\dht22.c
+#    Command line       =  
+#        -f C:\Users\tatbo\AppData\Local\Temp\EW9262.tmp ("D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\dht22.c" -D
+#        SECURE=1 -D HAL_KEY=FALSE -D HAL_LED=FALSE -D HAL_LCD=FALSE -D
+#        HAL_UART=FALSE -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D
+#        xHOLD_AUTO_START -D ZTOOL_P1 -D MT_TASK -D MT_APP_FUNC -D MT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D LCD_SUPPORTED=FALSE -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_WRITE -D ZCL_REPORT -D xZCL_EZMODE -D ZCL_BASIC -D
+#        ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_SCENES -D ZCL_GROUPS -D
+#        xZCL_LEVEL_CTRL -D ZCL_DIAGNOSTIC -D FEATURE_SYSTEM_STATS -D
+#        ZCL_DOORLOCK -lC "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        -lA "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000)
+#        -f "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\" -I
+#        "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\Source\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\List\dht22.lst
+#    Object file        =  
+#        D:\Z-Stack Home
+#        1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\CC2530DB\EndDeviceEB\Obj\dht22.r51
+#
+###############################################################################
+
+D:\Z-Stack Home 1.2.2a.44539\Projects\zstack\HomeAutomation\ZigUP\Source\dht22.c
+      1          #include <stdio.h>
+      2          #include "onboard.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+      3          #include "bitmasks.h"
+      4          #include "delay.h"
+      5          #include "dht22.h"
+      6          #include "uart.h"
+      7          #include "global.h"
+      8          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      9          int DHT22_Measure(void)
+   \                     DHT22_Measure:
+     10          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000                REQUIRE ?V8
+   \   000000                REQUIRE ?V9
+   \   000000                REQUIRE ?V10
+   \   000000                REQUIRE ?V11
+   \   000000   74EC         MOV       A,#-0x14
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 105
+   \   000005   7497         MOV       A,#-0x69
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+     11            uint8 last_state = 0xFF;
+   \   00000A   7EFF         MOV       R6,#-0x1
+     12            uint8 i;
+     13            uint8 j = 0;
+   \   00000C   75..00       MOV       ?V1,#0x0
+     14            uint8 counter = 0;
+     15            uint8 checksum = 0;
+     16            uint8 dht22_data[5];
+     17          
+     18          //#define ZIGUP_DHT22_DEBUG  
+     19          
+     20          #ifdef ZIGUP_DHT22_DEBUG
+     21            uint8 dht22_debug[100];
+     22            uint8 debugcnt;
+     23            for(debugcnt = 0; debugcnt < 100; debugcnt++) dht22_debug[debugcnt] = 0;
+     24            debugcnt = 0;
+     25          #endif    
+     26            
+     27            P0DIR |= (1<<7);     // output
+   \   00000F   43FD80       ORL       0xfd,#0x80
+     28            P0_7 = 1;
+   \   000012   D287         SETB      0x80.7
+     29            _delay_ms(250);
+   \   000014                ; Setup parameters for call to function _delay_ms
+   \   000014   7AFA         MOV       R2,#-0x6
+   \   000016   7B00         MOV       R3,#0x0
+   \   000018   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+     30            P0_7 = 0;
+   \   00001B   C287         CLR       0x80.7
+     31            _delay_ms(1);
+   \   00001D                ; Setup parameters for call to function _delay_ms
+   \   00001D   7A01         MOV       R2,#0x1
+   \   00001F   7B00         MOV       R3,#0x0
+   \   000021   12....       LCALL     `??_delay_ms::?relay`; Banked call to: _delay_ms
+     32            P0DIR &= ~(1<<7);     // input
+   \   000024   53FD7F       ANL       0xfd,#0x7f
+     33            
+     34            for(i = 0; i < 85; i++)
+   \   000027   75..00       MOV       ?V0,#0x0
+     35            {
+     36              counter = 0;
+   \                     ??DHT22_Measure_0:
+   \   00002A   7F00         MOV       R7,#0x0
+     37              while(P0_7 == last_state)
+   \                     ??DHT22_Measure_1:
+   \   00002C   A287         MOV       C,0x80.7
+   \   00002E   E4           CLR       A
+   \   00002F   33           RLC       A
+   \   000030   6E           XRL       A,R6
+   \   000031   700E         JNZ       ??DHT22_Measure_2
+     38              {
+     39                counter++;
+   \   000033   0F           INC       R7
+     40                _delay_us(1);
+   \   000034                ; Setup parameters for call to function _delay_us
+   \   000034   7A01         MOV       R2,#0x1
+   \   000036   7B00         MOV       R3,#0x0
+   \   000038   12....       LCALL     `??_delay_us::?relay`; Banked call to: _delay_us
+     41                
+     42                if(counter > 60) break; // Exit if not responsive
+   \   00003B   EF           MOV       A,R7
+   \   00003C   C3           CLR       C
+   \   00003D   943D         SUBB      A,#0x3d
+   \   00003F   40EB         JC        ??DHT22_Measure_1
+     43              }
+     44              last_state = P0_7;
+   \                     ??DHT22_Measure_2:
+   \   000041   A287         MOV       C,0x80.7
+   \   000043   E4           CLR       A
+   \   000044   33           RLC       A
+   \   000045   FE           MOV       R6,A
+     45              
+     46              if(counter > 60) break; // Double check for stray sensor
+   \   000046   EF           MOV       A,R7
+   \   000047   943D         SUBB      A,#0x3d
+   \   000049   5054         JNC       ??DHT22_Measure_3
+     47              
+     48              // Ignore the first 3 transitions (the 80us x 2 start condition plus the first ready-to-send-bit state), and discard ready-to-send-bit counts
+     49              if((i >= 4) && ((i % 2) != 0))
+   \   00004B   E5..         MOV       A,?V0
+   \   00004D   C3           CLR       C
+   \   00004E   9404         SUBB      A,#0x4
+   \   000050   4044         JC        ??DHT22_Measure_4
+   \   000052   E5..         MOV       A,?V0
+   \   000054   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000056   503E         JNC       ??DHT22_Measure_4
+   \   000058   E5..         MOV       A,?V1
+   \   00005A   13           RRC       A
+   \   00005B   13           RRC       A
+   \   00005C   13           RRC       A
+   \   00005D   541F         ANL       A,#0x1f
+   \   00005F   FA           MOV       R2,A
+   \   000060   85..82       MOV       DPL,?XSP + 0
+   \   000063   85..83       MOV       DPH,?XSP + 1
+   \   000066   E582         MOV       A,DPL
+   \   000068   2A           ADD       A,R2
+   \   000069   F8           MOV       R0,A
+   \   00006A   E4           CLR       A
+   \   00006B   3583         ADDC      A,DPH
+   \   00006D   F9           MOV       R1,A
+   \   00006E   8882         MOV       DPL,R0
+   \   000070   8983         MOV       DPH,R1
+   \   000072   E0           MOVX      A,@DPTR
+   \   000073   C3           CLR       C
+   \   000074   33           RLC       A
+   \   000075   C0E0         PUSH      A
+   \   000077   85..82       MOV       DPL,?XSP + 0
+   \   00007A   85..83       MOV       DPH,?XSP + 1
+   \   00007D   E582         MOV       A,DPL
+   \   00007F   2A           ADD       A,R2
+   \   000080   F582         MOV       DPL,A
+   \   000082   E4           CLR       A
+   \   000083   3583         ADDC      A,DPH
+   \   000085   F583         MOV       DPH,A
+   \   000087   D0E0         POP       A
+   \   000089   F0           MOVX      @DPTR,A
+     50              {
+     51                dht22_data[j / 8] <<= 1;
+     52          #ifdef ZIGUP_DHT22_DEBUG
+     53                dht22_debug[debugcnt++] = counter;
+     54          #endif
+     55                if(counter > 9)  // detect "1" bit time
+   \   00008A   EF           MOV       A,R7
+   \   00008B   C3           CLR       C
+   \   00008C   940A         SUBB      A,#0xa
+   \   00008E   4004         JC        ??DHT22_Measure_5
+     56                {
+     57                  dht22_data[j / 8] |= 1;
+   \   000090   E0           MOVX      A,@DPTR
+   \   000091   D2E0         SETB      0xE0 /* A   */.0
+   \   000093   F0           MOVX      @DPTR,A
+     58                }
+     59                j++;
+   \                     ??DHT22_Measure_5:
+   \   000094   05..         INC       ?V1
+     60              }
+     61            }
+   \                     ??DHT22_Measure_4:
+   \   000096   05..         INC       ?V0
+   \   000098   E5..         MOV       A,?V0
+   \   00009A   C3           CLR       C
+   \   00009B   9455         SUBB      A,#0x55
+   \   00009D   408B         JC        ??DHT22_Measure_0
+     62          
+     63            char buffer[100];
+     64          
+     65          #ifdef ZIGUP_DHT22_DEBUG
+     66            sprintf(buffer, "j: %u", j);
+     67            UART_String(buffer); 
+     68            
+     69            for(i = 0; i < 5; i++)
+     70            {
+     71              sprintf(buffer, "DHT22: (%u) %u\n", i, dht22_data[i]);
+     72              UART_String(buffer); 
+     73            }
+     74            
+     75            for(debugcnt = 0; debugcnt < 100; debugcnt++)
+     76            {
+     77              sprintf(buffer, "DHT22 Debug: (%u) %u\n", debugcnt, dht22_debug[debugcnt]);
+     78              UART_String(buffer); 
+     79            }
+     80          #endif    
+     81            
+     82            // If we have 5 bytes (40 bits), wrap-up and end
+     83            if(j >= 40)
+   \                     ??DHT22_Measure_3:
+   \   00009F   E5..         MOV       A,?V1
+   \   0000A1   C3           CLR       C
+   \   0000A2   9428         SUBB      A,#0x28
+   \   0000A4   5003         JNC       $+5
+   \   0000A6   02....       LJMP      ??DHT22_Measure_6 & 0xFFFF
+     84            {
+     85              // The first 2 bytes are humidity values, the next 2 are temperature, the final byte is the checksum
+     86              checksum = dht22_data[0] + dht22_data[1] + dht22_data[2] + dht22_data[3];
+     87              checksum &= 0xFF;
+     88              if(dht22_data[4] == checksum)
+   \   0000A9   7403         MOV       A,#0x3
+   \   0000AB   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000AE   E0           MOVX      A,@DPTR
+   \   0000AF   FA           MOV       R2,A
+   \   0000B0   7402         MOV       A,#0x2
+   \   0000B2   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000B5   E0           MOVX      A,@DPTR
+   \   0000B6   FB           MOV       R3,A
+   \   0000B7   7401         MOV       A,#0x1
+   \   0000B9   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000BC   E0           MOVX      A,@DPTR
+   \   0000BD   FC           MOV       R4,A
+   \   0000BE   7404         MOV       A,#0x4
+   \   0000C0   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000C3   E0           MOVX      A,@DPTR
+   \   0000C4   F8           MOV       R0,A
+   \   0000C5   85..82       MOV       DPL,?XSP + 0
+   \   0000C8   85..83       MOV       DPH,?XSP + 1
+   \   0000CB   E0           MOVX      A,@DPTR
+   \   0000CC   2C           ADD       A,R4
+   \   0000CD   2B           ADD       A,R3
+   \   0000CE   2A           ADD       A,R2
+   \   0000CF   68           XRL       A,R0
+   \   0000D0   6003         JZ        $+5
+   \   0000D2   02....       LJMP      ??DHT22_Measure_7 & 0xFFFF
+     89              {
+     90                float humidity = (dht22_data[0] * 256 + dht22_data[1]) / 10.0;
+   \   0000D5   E0           MOVX      A,@DPTR
+   \   0000D6   F9           MOV       R1,A
+   \   0000D7   E4           CLR       A
+   \   0000D8   2C           ADD       A,R4
+   \   0000D9   E9           MOV       A,R1
+   \   0000DA   8C..         MOV       ?V4,R4
+   \   0000DC   F5..         MOV       ?V5,A
+   \   0000DE   33           RLC       A
+   \   0000DF   95E0         SUBB      A,0xE0 /* A   */
+   \   0000E1   F5..         MOV       ?V6,A
+   \   0000E3   F5..         MOV       ?V7,A
+   \   0000E5   78..         MOV       R0,#?V4
+   \   0000E7   12....       LCALL     ?L_TO_FLT
+   \   0000EA   90....       MOV       DPTR,#__Constant_41200000
+   \   0000ED   78..         MOV       R0,#?V0
+   \   0000EF   12....       LCALL     ?L_MOV_X
+   \   0000F2   78..         MOV       R0,#?V4
+   \   0000F4   79..         MOV       R1,#?V0
+   \   0000F6   12....       LCALL     ?FLT_DIV
+     91                float temperature = ((dht22_data[2] & b01111111)* 256 + dht22_data[3]) / 10.0;
+   \   0000F9   EB           MOV       A,R3
+   \   0000FA   547F         ANL       A,#0x7f
+   \   0000FC   F9           MOV       R1,A
+   \   0000FD   E4           CLR       A
+   \   0000FE   2A           ADD       A,R2
+   \   0000FF   F5..         MOV       ?V0,A
+   \   000101   E9           MOV       A,R1
+   \   000102   F5..         MOV       ?V1,A
+   \   000104   95E0         SUBB      A,0xE0 /* A   */
+   \   000106   F5..         MOV       ?V2,A
+   \   000108   F5..         MOV       ?V3,A
+   \   00010A   78..         MOV       R0,#?V0
+   \   00010C   12....       LCALL     ?L_TO_FLT
+   \   00010F   90....       MOV       DPTR,#__Constant_41200000
+   \   000112   78..         MOV       R0,#?V8
+   \   000114   12....       LCALL     ?L_MOV_X
+   \   000117   78..         MOV       R0,#?V0
+   \   000119   79..         MOV       R1,#?V8
+   \   00011B   12....       LCALL     ?FLT_DIV
+     92                if (dht22_data[2] & b10000000) temperature = -temperature;        // negative temperatures when MSB is set
+   \   00011E   7402         MOV       A,#0x2
+   \   000120   12....       LCALL     ?XSTACK_DISP0_8
+   \   000123   E0           MOVX      A,@DPTR
+   \   000124   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000126   5006         JNC       ??DHT22_Measure_8
+   \   000128   E5..         MOV       A,?V3
+   \   00012A   B2E7         CPL       0xE0 /* A   */.7
+   \   00012C   F5..         MOV       ?V3,A
+     93                
+     94                EXT_Temperature = temperature;
+   \                     ??DHT22_Measure_8:
+   \   00012E   90....       MOV       DPTR,#EXT_Temperature
+   \   000131   78..         MOV       R0,#?V0
+   \   000133   12....       LCALL     ?L_MOV_TO_X
+     95                EXT_Humidity = humidity;
+   \   000136   90....       MOV       DPTR,#EXT_Humidity
+   \   000139   78..         MOV       R0,#?V4
+   \   00013B   12....       LCALL     ?L_MOV_TO_X
+     96                
+     97                sprintf(buffer, "DHT22: %.1f °C  / %.1f %%\n", temperature, humidity);
+   \   00013E                ; Setup parameters for call to function sprintf
+   \   00013E   78..         MOV       R0,#?V4
+   \   000140   12....       LCALL     ?PUSH_XSTACK_I_FOUR
+   \   000143   78..         MOV       R0,#?V0
+   \   000145   12....       LCALL     ?PUSH_XSTACK_I_FOUR
+   \   000148   7C..         MOV       R4,#`?<Constant "DHT22: %.1f \\260C  / %.1...">` & 0xff
+   \   00014A   7D..         MOV       R5,#(`?<Constant "DHT22: %.1f \\260C  / %.1...">` >> 8) & 0xff
+   \   00014C   740D         MOV       A,#0xd
+   \   00014E   12....       LCALL     ?XSTACK_DISP101_8
+   \   000151   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   000154   7408         MOV       A,#0x8
+   \   000156   12....       LCALL     ?DEALLOC_XSTACK8
+     98                UART_String(buffer); 
+   \   000159                ; Setup parameters for call to function UART_String
+   \   000159   7405         MOV       A,#0x5
+   \   00015B   12....       LCALL     ?XSTACK_DISP101_8
+   \   00015E   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+     99                return (1);
+   \   000161   7A01         MOV       R2,#0x1
+   \   000163   800F         SJMP      ??DHT22_Measure_9
+    100              }
+    101              else
+    102              {
+    103                UART_String("DHT22: CRC-Fail"); 
+   \                     ??DHT22_Measure_7:
+   \   000165                ; Setup parameters for call to function UART_String
+   \   000165   7A..         MOV       R2,#`?<Constant "DHT22: CRC-Fail">` & 0xff
+   \   000167   7B..         MOV       R3,#(`?<Constant "DHT22: CRC-Fail">` >> 8) & 0xff
+   \   000169   8004         SJMP      ??DHT22_Measure_10
+    104                return (0);
+    105              }
+    106            }
+    107            else
+    108            {
+    109              UART_String("DHT22: Timeout"); 
+   \                     ??DHT22_Measure_6:
+   \   00016B                ; Setup parameters for call to function UART_String
+   \   00016B   7A..         MOV       R2,#`?<Constant "DHT22: Timeout">` & 0xff
+   \   00016D   7B..         MOV       R3,#(`?<Constant "DHT22: Timeout">` >> 8) & 0xff
+   \                     ??DHT22_Measure_10:
+   \   00016F   12....       LCALL     `??UART_String::?relay`; Banked call to: UART_String
+    110              return (0);
+   \   000172   7A00         MOV       R2,#0x0
+   \                     ??DHT22_Measure_9:
+   \   000174   7B00         MOV       R3,#0x0
+   \   000176   7469         MOV       A,#0x69
+   \   000178   12....       LCALL     ?DEALLOC_XSTACK8
+   \   00017B   7F0C         MOV       R7,#0xc
+   \   00017D   02....       LJMP      ?BANKED_LEAVE_XDATA
+   \   000180                REQUIRE P0DIR
+   \   000180                REQUIRE _A_P0
+    111            }
+    112          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??DHT22_Measure::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DHT22_Measure
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "DHT22: %.1f \\260C  / %.1...">`:
+   \   000000   44485432     DB "DHT22: %.1f \260C  / %.1f %%\012"
+   \            323A2025
+   \            2E316620
+   \            B0432020
+   \            2F20252E
+   \            31662025
+   \            250A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "DHT22: CRC-Fail">`:
+   \   000000   44485432     DB "DHT22: CRC-Fail"
+   \            323A2043
+   \            52432D46
+   \            61696C00
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "DHT22: Timeout">`:
+   \   000000   44485432     DB "DHT22: Timeout"
+   \            323A2054
+   \            696D656F
+   \            757400  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_41200000:
+   \   000000   00002041     DD 41200000H
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      1    133   DHT22_Measure
+        0    125   -> UART_String
+        0    125   -> _delay_ms
+        0    125   -> _delay_us
+        0    133   -> sprintf
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      27  ?<Constant "DHT22: %.1f \260C  / %.1...">
+      16  ?<Constant "DHT22: CRC-Fail">
+      15  ?<Constant "DHT22: Timeout">
+     384  DHT22_Measure
+       6  DHT22_Measure::?relay
+       1  P0DIR
+       1  _A_P0
+       4  __Constant_41200000
+
+ 
+ 384 bytes in segment BANKED_CODE
+   6 bytes in segment BANK_RELAYS
+   2 bytes in segment SFR_AN
+  62 bytes in segment XDATA_ROM_C
+ 
+   6 bytes of CODE     memory
+  58 bytes of CONST    memory (+ 4 bytes shared)
+   0 bytes of DATA     memory (+ 2 bytes shared)
+ 384 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none
